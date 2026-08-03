@@ -339,6 +339,17 @@ def generate_final_docx():
         p4.alignment = WD_ALIGN_PARAGRAPH.CENTER
         p4.add_run(sign).bold = True
 
+    # Table 1 Source Line (Gray Italic text below table)
+    p_src = doc.add_paragraph()
+    p_src.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    p_src.paragraph_format.space_before = Pt(4)
+    p_src.paragraph_format.space_after = Pt(12)
+    r_src = p_src.add_run("Source: Author's design based on reference thesis and literature.")
+    r_src.font.name = 'Times New Roman'
+    r_src.font.size = Pt(9.5)
+    r_src.font.color.rgb = RGBColor(0x66, 0x66, 0x66)
+    r_src.italic = True
+
     # 3.2 Data and Pre-Tests
     doc.add_heading("3.2. Data Collection and Pre-Tests", level=2)
 
@@ -413,7 +424,7 @@ def generate_final_docx():
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Thesis_Design_NEU_MDE_Final.docx"
     doc.save(output_filename)
-    print(f"Successfully updated Section V References with clean LEFT alignment (straight line along left margin)!")
+    print(f"Successfully added Table Source line in gray italic text below Table 1!")
 
 if __name__ == "__main__":
     generate_final_docx()
