@@ -13,7 +13,7 @@ def set_cell_background(cell, fill_hex):
     shd.set(qn('w:fill'), fill_hex)
     tcPr.append(shd)
 
-def add_bottom_border_to_paragraph(paragraph, color_hex="003366", size="6"):
+def add_bottom_border_to_paragraph(paragraph, color_hex="888888", size="6"):
     pPr = paragraph._element.get_or_add_pPr()
     pBdr = OxmlElement('w:pBdr')
     bottom = OxmlElement('w:bottom')
@@ -37,7 +37,7 @@ def generate_final_docx():
     # 2. Running Header Configuration (Different First Page)
     section.different_first_page_header_footer = True
     
-    # Running Header for pages 2 onwards (Right aligned, Italic, with bottom border)
+    # Running Header for pages 2 onwards (Right aligned, Italic, with GRAY bottom border)
     header = section.header
     p_head = header.paragraphs[0]
     p_head.alignment = WD_ALIGN_PARAGRAPH.RIGHT
@@ -46,7 +46,7 @@ def generate_final_docx():
     r_head.font.size = Pt(10)
     r_head.font.color.rgb = RGBColor(0x33, 0x33, 0x33)
     r_head.italic = True
-    add_bottom_border_to_paragraph(p_head, color_hex="003366", size="6")
+    add_bottom_border_to_paragraph(p_head, color_hex="888888", size="6")
 
     # Configure Styles
     styles = doc.styles
@@ -404,7 +404,7 @@ def generate_final_docx():
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Thesis_Design_NEU_MDE_Final.docx"
     doc.save(output_filename)
-    print(f"Successfully updated DOCX with exact Running Header format: Thesis Design – MDE31 – Dang Tu Linh")
+    print(f"Successfully updated DOCX with GRAY line bottom border under header!")
 
 if __name__ == "__main__":
     generate_final_docx()
