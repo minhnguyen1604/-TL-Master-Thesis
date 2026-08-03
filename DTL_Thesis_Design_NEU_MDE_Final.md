@@ -37,7 +37,7 @@ The following sub-questions will be investigated to answer the general objective
 This thesis comprises four main chapters:
 * **Chapter 1: Introduction** – Presents research rationales, general and specific objectives, sub-questions, and thesis structure.
 * **Chapter 2: Literature Review and Theoretical Framework** – Synthesizes legal and economic foundations of bank guarantees; presents theoretical frameworks (SERVQUAL, TRA/TPB, Oliver's Loyalty Model); reviews empirical studies; and identifies four research gaps underlying the proposed 10-independent-variable model.
-* **Chapter 3: Research Methodology and Empirical Design** – Presents the multiple linear regression model and 10 hypotheses; constructs the 5-point Likert scale with 37 items; describes data sources from VietinBank's existing corporate survey dataset; and details SPSS statistical procedures.
+* **Chapter 3: Research Methodology and Empirical Design** – Presents the multiple linear regression model and 10 hypotheses; constructs the 5-point Likert scale with 37 items; describes data sources from VietinBank's existing corporate survey dataset; and details Python statistical procedures.
 * **Chapter 4: Empirical Results, Discussion and Policy Recommendations** – Reports descriptive statistics, reliability tests, EFA, and regression results; discusses findings; and details managerial recommendations for VietinBank.
 
 ---
@@ -81,8 +81,10 @@ $$\text{DEC} = \beta_0 + \beta_1\text{COST} + \beta_2\text{COL} + \beta_3\text{S
 | **RSK** | Legal Risk Advisory | 3 items (RSK1-RSK3): Base contract legal review, unfair calling protection, URDG 758 | Independent (New) | **+** |
 | **NET** | Global Correspondent Net | 3 items (NET1-NET3): Global bank network, counter-guarantee acceptance, FX handling | Independent (New) | **+** |
 
+*Source: Author's design based on reference thesis and literature.*
+
 ### 3.2. Data Collection and Pre-Tests
-Rather than administering a new small-scale survey, this study inherits an existing system-wide corporate survey dataset conducted by VietinBank across its corporate client base nationwide. The sampling frame covers corporate enterprises actively utilizing guarantee services across 155 VietinBank branches. The target dataset comprises $n = 800$ to $n = 10,000$ corporate respondents, far exceeding minimum sample size thresholds ($n \ge 185$ for EFA; $n \ge 138$ for regression). Pre-tests include data cleaning (removing missing values and straight-lining responses), descriptive statistics, Cronbach's Alpha reliability testing (threshold $\ge 0.6$), Exploratory Factor Analysis (KMO $\ge 0.5$, Bartlett sig $< 0.05$, Variance Explained $> 50\%$), Pearson correlation, and VIF multicollinearity diagnostics ($VIF < 10$, ideally $< 2$). All estimations are executed in SPSS 26.
+Rather than administering a new small-scale survey, this study inherits an existing system-wide corporate survey dataset conducted by VietinBank across its corporate client base nationwide. The sampling frame covers corporate enterprises actively utilizing guarantee services across 155 VietinBank branches. The target dataset comprises $n = 800$ corporate respondents, far exceeding minimum sample size thresholds ($n \ge 185$ for EFA; $n \ge 138$ for regression). Pre-tests include data cleaning (removing missing values and straight-lining responses), descriptive statistics, Cronbach's Alpha reliability testing (threshold $\ge 0.6$), Exploratory Factor Analysis (KMO $\ge 0.5$, Bartlett sig $< 0.05$, Variance Explained $> 50\%$), Pearson correlation, and VIF multicollinearity diagnostics ($VIF < 10$, ideally $< 2$). All data processing, factor analyses, and regression estimations are executed in Python.
 
 ### 3.3. Anticipated Findings and Interpretation
 Based on theoretical frameworks and banking context, the following results are anticipated:
@@ -122,5 +124,5 @@ This thesis design establishes a comprehensive empirical framework investigating
 * State Bank of Vietnam (2024) *Circular No. 61/2024/TT-NHNN dated December 31, 2024, providing regulations on bank guarantees (effective April 1, 2025)*. Hanoi: SBV.
 * Turnbull, P.W. and Gibbs, M.L. (1989) 'The Selection of Banks and Banking Services among Corporate Customers in South Africa', *International Journal of Bank Marketing*, 7(5), pp. 36–42.
 * Zeithaml, V.A. (1988) 'Consumer Perceptions of Price, Quality, and Value: A Means-End Model and Synthesis of Evidence', *Journal of Marketing*, 52(3), pp. 2–22.
-* Zeithaml, V.A., Berry, L.L. and Parasuraman, A. (1996) 'The Behavioral Consequences of Service Quality', *Journal of Marketing*, 60(2), pp. 31–46.
+* Zeithaml, V.A. (1996) 'The Behavioral Consequences of Service Quality', *Journal of Marketing*, 60(2), pp. 31–46.
 * Zelie, E.M. (2023) 'Factors determining bank selection by micro- and small-sized enterprises: evidence from Ethiopia', *International Journal of Bank Marketing*, 41(5), pp. 1120–1142.
