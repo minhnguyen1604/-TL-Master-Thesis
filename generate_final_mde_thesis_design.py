@@ -80,48 +80,72 @@ def generate_final_docx():
     # ==================== COVER / TITLE PAGE ====================
     p_header = doc.add_paragraph()
     p_header.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r_hdr = p_header.add_run("VIETNAM-NETHERLANDS MASTER’S PROGRAM IN DEVELOPMENT ECONOMICS (MDE)\n")
+    p_header.paragraph_format.space_after = Pt(2)
+    r_hdr = p_header.add_run("VIETNAM-NETHERLANDS MASTER’S PROGRAM IN DEVELOPMENT ECONOMICS (MDE)")
     r_hdr.bold = True
     r_hdr.font.size = Pt(13)
     r_hdr.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
 
     p_td = doc.add_paragraph()
     p_td.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r_td = p_td.add_run("THESIS DESIGN\n")
+    p_td.paragraph_format.space_after = Pt(18)
+    r_td = p_td.add_run("THESIS DESIGN")
     r_td.bold = True
     r_td.font.size = Pt(15)
 
-    doc.add_paragraph()
-
     p_title = doc.add_paragraph()
     p_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_title.paragraph_format.space_after = Pt(36)
     r_title = p_title.add_run("FACTORS AFFECTING CORPORATE CUSTOMERS' DECISION TO CHOOSE BANK GUARANTEE PRODUCTS AT VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE (VIETINBANK)")
     r_title.bold = True
     r_title.font.size = Pt(14)
     r_title.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
 
-    doc.add_paragraph()
-    doc.add_paragraph()
-
-    p_meta = doc.add_paragraph()
-    p_meta.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_meta.paragraph_format.line_spacing = 1.3
-    r_sup = p_meta.add_run("Supervisor(s): Dr. Hoang Thi Thuy Nga\n")
+    p_meta1 = doc.add_paragraph()
+    p_meta1.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_meta1.paragraph_format.space_after = Pt(4)
+    r_sup = p_meta1.add_run("Supervisor(s): Dr. Hoang Thi Thuy Nga")
     r_sup.font.size = Pt(12)
     r_sup.bold = True
-    r_stu = p_meta.add_run("Student: Dang Tu Linh, MDE Class 31\n\n")
+
+    p_meta2 = doc.add_paragraph()
+    p_meta2.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_meta2.paragraph_format.space_after = Pt(18)
+    r_stu = p_meta2.add_run("Student: Dang Tu Linh, MDE Class 31")
     r_stu.font.size = Pt(12)
     r_stu.bold = True
-    r_loc = p_meta.add_run("Hanoi, 06/2026")
+
+    p_meta3 = doc.add_paragraph()
+    p_meta3.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r_loc = p_meta3.add_run("Hanoi, 06/2026")
     r_loc.font.size = Pt(11)
     r_loc.italic = True
 
     doc.add_page_break()
 
-    # Helper function for justified body paragraphs
-    def add_body(text):
+    # Helper function for justified body paragraphs (No internal \n linebreaks!)
+    def add_body(text, space_after=6):
         p = doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        p.paragraph_format.space_after = Pt(space_after)
+        p.add_run(text)
+        return p
+
+    def add_bullet(text, space_after=4):
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        p.paragraph_format.left_indent = Inches(0.3)
+        p.paragraph_format.space_after = Pt(space_after)
+        p.add_run("• " + text)
+        return p
+
+    def add_numbered(num_str, text, space_after=4):
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        p.paragraph_format.left_indent = Inches(0.3)
+        p.paragraph_format.space_after = Pt(space_after)
+        r_num = p.add_run(num_str + " ")
+        r_num.bold = True
         p.add_run(text)
         return p
 
@@ -183,34 +207,25 @@ def generate_final_docx():
     # 1.3 Specific Objectives
     doc.add_heading("1.3. Specific Objectives", level=2)
 
-    p_sub_intro = doc.add_paragraph()
-    p_sub_intro.add_run("The following sub-questions will be investigated to answer the general objective:\n")
+    add_body("The following sub-questions will be investigated to answer the general objective:", space_after=4)
     
     sub_q = [
-        "1. What factors affect corporate customers' decision to choose bank guarantee products at VietinBank?",
-        "2. What is the direction and magnitude of each factor's impact on the selection decision?",
-        "3. Do impact magnitudes differ across corporate subgroups categorized by ownership structure, revenue scale, operating age, and guarantee types used?",
-        "4. What managerial implications should VietinBank prioritize to enhance its selection probability as the preferred issuing bank?"
+        ("1.", "What factors affect corporate customers' decision to choose bank guarantee products at VietinBank?"),
+        ("2.", "What is the direction and magnitude of each factor's impact on the selection decision?"),
+        ("3.", "Do impact magnitudes differ across corporate subgroups categorized by ownership structure, revenue scale, operating age, and guarantee types used?"),
+        ("4.", "What managerial implications should VietinBank prioritize to enhance its selection probability as the preferred issuing bank?")
     ]
-    for q in sub_q:
-        p_q = doc.add_paragraph()
-        p_q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-        p_q.paragraph_format.left_indent = Inches(0.25)
-        p_q.add_run(q)
+    for num, q_text in sub_q:
+        add_numbered(num, q_text, space_after=4)
 
     # 1.4 Thesis Structure
     doc.add_heading("1.4. Thesis Structure", level=2)
 
-    add_body(
-        "This thesis comprises four main chapters:\n"
-        "• Chapter 1: Introduction – Presents research rationales, general and specific objectives, sub-questions, and thesis structure.\n"
-        "• Chapter 2: Literature Review and Theoretical Framework – Synthesizes legal and economic foundations of bank guarantees; presents theoretical frameworks "
-        "(SERVQUAL, TRA/TPB, Oliver's Loyalty Model); reviews empirical studies; and identifies four research gaps underlying the proposed 10-independent-variable model.\n"
-        "• Chapter 3: Research Methodology and Empirical Design – Presents the multiple linear regression model and 10 hypotheses; constructs the 5-point Likert scale "
-        "with 37 items; describes data sources from VietinBank's existing corporate survey dataset; and details SPSS statistical procedures.\n"
-        "• Chapter 4: Empirical Results, Discussion and Policy Recommendations – Reports descriptive statistics, reliability tests, EFA, and regression results; "
-        "discusses findings; and details managerial recommendations for VietinBank."
-    )
+    add_body("This thesis comprises four main chapters:", space_after=4)
+    add_bullet("Chapter 1: Introduction – Presents research rationales, general and specific objectives, sub-questions, and thesis structure.")
+    add_bullet("Chapter 2: Literature Review and Theoretical Framework – Synthesizes legal and economic foundations of bank guarantees; presents theoretical frameworks (SERVQUAL, TRA/TPB, Oliver's Loyalty Model); reviews empirical studies; and identifies four research gaps underlying the proposed 10-independent-variable model.")
+    add_bullet("Chapter 3: Research Methodology and Empirical Design – Presents the multiple linear regression model and 10 hypotheses; constructs the 5-point Likert scale with 37 items; describes data sources from VietinBank's existing corporate survey dataset; and details SPSS statistical procedures.")
+    add_bullet("Chapter 4: Empirical Results, Discussion and Policy Recommendations – Reports descriptive statistics, reliability tests, EFA, and regression results; discusses findings; and details managerial recommendations for VietinBank.", space_after=8)
 
     # ==================== SECTION II: LITERATURE REVIEW ====================
     doc.add_heading("II. Literature Review", level=1)
@@ -231,15 +246,10 @@ def generate_final_docx():
         "Key product lines include Tender Guarantee (TG), Performance Guarantee (PG), Advance Payment Guarantee, Payment Guarantee (BG), Maintenance Guarantee, and Counter Guarantee."
     )
 
-    add_body(
-        "Corporate bank selection represents organizational buying behavior explained by three integrated theoretical models:\n"
-        "1. Theory of Reasoned Action (TRA, Fishbein & Ajzen, 1975) & Theory of Planned Behavior (TPB, Ajzen, 1991): Establishes that beliefs regarding service attributes "
-        "form attitudes and perceived behavioral control, driving selection intention.\n"
-        "2. SERVQUAL Model (Parasuraman, Zeithaml & Berry, 1985, 1988): Maps service quality dimensions—Reliability, Responsiveness, Assurance, Empathy, and Tangibles—to "
-        "bank guarantee attributes (SPE, STA, REP, CUS, DIG).\n"
-        "3. Customer Perceived Value (Zeithaml, 1988) & Oliver's 4-Stage Loyalty Model (1999) / Zeithaml et al. (1996): Ground the price dimension (COST) and operationalize "
-        "the dependent variable (DEC) across Cognitive, Affective, Conative, and Action dimensions (DEC1–DEC4)."
-    )
+    add_body("Corporate bank selection represents organizational buying behavior explained by three integrated theoretical models:", space_after=4)
+    add_numbered("1.", "Theory of Reasoned Action (TRA, Fishbein & Ajzen, 1975) & Theory of Planned Behavior (TPB, Ajzen, 1991): Establishes that beliefs regarding service attributes form attitudes and perceived behavioral control, driving selection intention.")
+    add_numbered("2.", "SERVQUAL Model (Parasuraman, Zeithaml & Berry, 1985, 1988): Maps service quality dimensions—Reliability, Responsiveness, Assurance, Empathy, and Tangibles—to bank guarantee attributes (SPE, STA, REP, CUS, DIG).")
+    add_numbered("3.", "Customer Perceived Value (Zeithaml, 1988) & Oliver's 4-Stage Loyalty Model (1999) / Zeithaml et al. (1996): Ground the price dimension (COST) and operationalize the dependent variable (DEC) across Cognitive, Affective, Conative, and Action dimensions (DEC1–DEC4).", space_after=8)
 
     # 2.2 Empirical Review & Gaps
     doc.add_heading("2.2. Empirical Review and Research Gaps", level=2)
@@ -265,6 +275,7 @@ def generate_final_docx():
 
     p_eq = doc.add_paragraph()
     p_eq.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_eq.paragraph_format.space_after = Pt(10)
     r_eq = p_eq.add_run(
         "DEC = β0 + β1*COST + β2*COL + β3*SPE + β4*REP + β5*STA + β6*REL + β7*DIG + β8*CUS + β9*RSK + β10*NET + ε                             (1)"
     )
@@ -272,8 +283,8 @@ def generate_final_docx():
     r_eq.font.size = Pt(10.5)
 
     # Table 1: Variable Definitions
-    doc.add_paragraph()
     p_t1_title = doc.add_paragraph()
+    p_t1_title.paragraph_format.space_after = Pt(4)
     r_t1 = p_t1_title.add_run("Table 1: Variable Definitions and Measurement Items")
     r_t1.bold = True
     r_t1.font.size = Pt(11)
@@ -343,13 +354,9 @@ def generate_final_docx():
     # 3.3 Findings and Interpretation
     doc.add_heading("3.3. Anticipated Findings and Interpretation", level=2)
 
-    add_body(
-        "Based on theoretical frameworks and banking context, the following results are anticipated:\n"
-        "• COST (X1) is expected to exert a statistically significant negative impact (β1 < 0), confirming price sensitivity.\n"
-        "• All positive-dimension attributes (X2 to X10) are expected to yield positive coefficients (β2 to β10 > 0). "
-        "Digitalisation (DIG) and Processing Speed (SPE) are projected to emerge among the strongest determinants, reflecting corporate urgency in tender deadlines. "
-        "Customisation (CUS) and Legal Risk Advisory (RSK) will validate the strategic value of tailored banking solutions."
-    )
+    add_body("Based on theoretical frameworks and banking context, the following results are anticipated:", space_after=4)
+    add_bullet("COST (X1) is expected to exert a statistically significant negative impact (β1 < 0), confirming price sensitivity.")
+    add_bullet("All positive-dimension attributes (X2 to X10) are expected to yield positive coefficients (β2 to β10 > 0). Digitalisation (DIG) and Processing Speed (SPE) are projected to emerge among the strongest determinants, reflecting corporate urgency in tender deadlines. Customisation (CUS) and Legal Risk Advisory (RSK) will validate the strategic value of tailored banking solutions.", space_after=8)
 
     # ==================== SECTION IV: CONCLUSIONS ====================
     doc.add_heading("IV. Conclusions", level=1)
@@ -399,12 +406,13 @@ def generate_final_docx():
         p_ref.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
         p_ref.paragraph_format.left_indent = Inches(0.4)
         p_ref.paragraph_format.first_line_indent = Inches(-0.4)
+        p_ref.paragraph_format.space_after = Pt(4)
         p_ref.add_run(ref).font.size = Pt(10)
 
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Thesis_Design_NEU_MDE_Final.docx"
     doc.save(output_filename)
-    print(f"Successfully updated DOCX with GRAY line bottom border under header!")
+    print(f"Successfully fixed line stretching issue by separating all bullet/numbered list items into distinct paragraphs!")
 
 if __name__ == "__main__":
     generate_final_docx()
