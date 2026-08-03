@@ -89,23 +89,35 @@ def create_survey_docx():
     r_sub.font.size = Pt(11.5)
     r_sub.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
 
-    # Intro Letter Box
-    p_intro = doc.add_paragraph()
-    p_intro.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    p_intro.paragraph_format.left_indent = Inches(0.2)
-    p_intro.paragraph_format.right_indent = Inches(0.2)
-    p_intro.paragraph_format.line_spacing = 1.15
-    p_intro.paragraph_format.space_after = Pt(14)
-    
-    r_intro = p_intro.add_run(
-        "Kính gửi: Quý Doanh nghiệp,\n"
+    # Intro Letter Box (Separate paragraphs to prevent stretched JUSTIFY text!)
+    p_i1 = doc.add_paragraph()
+    p_i1.paragraph_format.space_after = Pt(4)
+    r_i1 = p_i1.add_run("Kính gửi: Quý Doanh nghiệp,")
+    r_i1.bold = True
+    r_i1.italic = True
+
+    p_i2 = doc.add_paragraph()
+    p_i2.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    p_i2.paragraph_format.line_spacing = 1.15
+    p_i2.paragraph_format.space_after = Pt(4)
+    r_i2 = p_i2.add_run(
         "Nhằm nâng cao chất lượng dịch vụ, tối ưu hóa quy trình và thiết kế các gói sản phẩm bảo lãnh đáp ứng tốt nhất nhu cầu của Quý Doanh nghiệp, "
-        "VietinBank tiến hành cuộc khảo sát này. Kính mong Quý Doanh nghiệp dành chút thời gian quý báu để đưa ra những đánh giá khách quan.\n"
-        "VietinBank cam kết toàn bộ thông tin do Quý Doanh nghiệp cung cấp sẽ được giữ bí mật tuyệt đối và chỉ sử dụng cho mục đích phân tích tổng hợp.\n"
-        "Xin chân thành cảm ơn sự hợp tác của Quý Doanh nghiệp!"
+        "VietinBank tiến hành cuộc khảo sát này. Kính mong Quý Doanh nghiệp dành chút thời gian quý báu để đưa ra những đánh giá khách quan."
     )
-    r_intro.font.size = Pt(10.5)
-    r_intro.italic = True
+    r_i2.italic = True
+
+    p_i3 = doc.add_paragraph()
+    p_i3.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    p_i3.paragraph_format.line_spacing = 1.15
+    p_i3.paragraph_format.space_after = Pt(4)
+    r_i3 = p_i3.add_run("VietinBank cam kết toàn bộ thông tin do Quý Doanh nghiệp cung cấp sẽ được giữ bí mật tuyệt đối và chỉ sử dụng cho mục đích phân tích tổng hợp.")
+    r_i3.italic = True
+
+    p_i4 = doc.add_paragraph()
+    p_i4.paragraph_format.space_after = Pt(14)
+    r_i4 = p_i4.add_run("Xin chân thành cảm ơn sự hợp tác của Quý Doanh nghiệp!")
+    r_i4.italic = True
+    r_i4.bold = True
 
     # ==================== PART I: DEMOGRAPHICS ====================
     h_part1 = doc.add_paragraph()
@@ -262,33 +274,33 @@ def create_survey_docx():
     ]
 
     for part_title, group_list in sections:
-        # Part Banner Row
+        # Part Banner Row - MERGE ACROSS ALL 7 COLUMNS!
         r_part = table.add_row().cells
-        for i, w in enumerate(col_widths): r_part[i].width = w
-        set_cell_padding(r_part[0], top=100, bottom=100, left=120, right=120)
-        p_part = r_part[0].paragraphs[0]
+        cell_part = r_part[0].merge(r_part[6])
+        set_cell_padding(cell_part, top=100, bottom=100, left=120, right=120)
+        p_part = cell_part.paragraphs[0]
         r_pt = p_part.add_run(part_title)
         r_pt.bold = True
         r_pt.font.size = Pt(10.5)
         r_pt.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
-        set_cell_background(r_part[0], "E6F0FA")
+        set_cell_background(cell_part, "E6F0FA")
 
         for grp_name, item_list in group_list:
-            # Group Subheader Row
+            # Group Subheader Row - MERGE ACROSS ALL 7 COLUMNS!
             r_grp = table.add_row().cells
-            for i, w in enumerate(col_widths): r_grp[i].width = w
-            set_cell_padding(r_grp[0], top=80, bottom=80, left=120, right=120)
-            p_grp = r_grp[0].paragraphs[0]
+            cell_grp = r_grp[0].merge(r_grp[6])
+            set_cell_padding(cell_grp, top=80, bottom=80, left=120, right=120)
+            p_grp = cell_grp.paragraphs[0]
             r_gt = p_grp.add_run(grp_name)
             r_gt.bold = True
             r_gt.font.size = Pt(10)
-            set_cell_background(r_grp[0], "F4F4F4")
+            set_cell_background(cell_grp, "F4F4F4")
 
             for code, statement in item_list:
                 r_item = table.add_row().cells
                 for i, w in enumerate(col_widths): r_item[i].width = w
                 
-                # Apply cell padding (top/bottom/left/right)
+                # Apply cell padding
                 for c_cell in r_item:
                     set_cell_padding(c_cell, top=80, bottom=80, left=100, right=100)
 
@@ -319,7 +331,7 @@ def create_survey_docx():
     # Save output DOCX
     out_path = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/Phieu_Khao_Sat_Chinh_Thuc_VietinBank.docx"
     doc.save(out_path)
-    print(f"Successfully generated beautifully formatted survey DOCX at {out_path}")
+    print(f"Successfully fixed cell merging and stretched text in survey DOCX at {out_path}")
 
 if __name__ == "__main__":
     create_survey_docx()
