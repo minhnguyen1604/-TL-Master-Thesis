@@ -224,7 +224,7 @@ def generate_final_docx():
     add_body("This thesis comprises four main chapters:", space_after=4)
     add_bullet("Chapter 1: Introduction – Presents research rationales, general and specific objectives, sub-questions, and thesis structure.")
     add_bullet("Chapter 2: Literature Review and Theoretical Framework – Synthesizes legal and economic foundations of bank guarantees; presents theoretical frameworks (SERVQUAL, TRA/TPB, Oliver's Loyalty Model); reviews empirical studies; and identifies four research gaps underlying the proposed 10-independent-variable model.")
-    add_bullet("Chapter 3: Research Methodology and Empirical Design – Presents the multiple linear regression model and 10 hypotheses; constructs the 5-point Likert scale with 37 items; describes data sources from VietinBank's existing corporate survey dataset; and details Python statistical procedures.")
+    add_bullet("Chapter 3: Research Methodology and Empirical Design – Presents the multiple linear regression model and 10 hypotheses; constructs the 5-point Likert scale with 34 items; describes data sources from VietinBank's existing corporate survey dataset; and details Python statistical procedures.")
     add_bullet("Chapter 4: Empirical Results, Discussion and Policy Recommendations – Reports descriptive statistics, reliability tests, EFA, and regression results; discusses findings; and details managerial recommendations for VietinBank.", space_after=8)
 
     # ==================== SECTION II: LITERATURE REVIEW ====================
@@ -356,8 +356,8 @@ def generate_final_docx():
     add_body(
         "Rather than administering a new small-scale survey, this study inherits an existing system-wide corporate survey dataset conducted by VietinBank "
         "across its corporate client base nationwide. The sampling frame covers corporate enterprises actively utilizing guarantee services across 155 VietinBank branches. "
-        "The target dataset comprises n = 800 corporate respondents, far exceeding minimum sample size thresholds (n >= 185 for EFA; "
-        "n >= 138 for regression). Pre-tests include data cleaning (removing missing values and straight-lining responses), descriptive statistics, "
+        "The target dataset comprises n = 800 corporate respondents, far exceeding minimum sample size thresholds (n >= 170 for EFA; "
+        "n >= 130 for regression). Pre-tests include data cleaning (removing missing values and straight-lining responses), descriptive statistics, "
         "Cronbach's Alpha reliability testing (threshold >= 0.6), Exploratory Factor Analysis (KMO >= 0.5, Bartlett sig < 0.05, Variance Explained > 50%), "
         "Pearson correlation, and VIF multicollinearity diagnostics (VIF < 10, ideally < 2). All data processing, factor analyses, and regression estimations are executed in Python."
     )
@@ -424,7 +424,7 @@ def generate_final_docx():
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Thesis_Design_NEU_MDE_Final.docx"
     doc.save(output_filename)
-    print(f"Successfully updated DOCX: Sample size set to n = 800, Software changed to Python!")
+    print(f"Successfully refined word document math: 34 items, n >= 170 for EFA, n >= 130 for regression!")
 
 if __name__ == "__main__":
     generate_final_docx()
