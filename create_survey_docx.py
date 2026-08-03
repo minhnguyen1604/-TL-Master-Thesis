@@ -13,66 +13,101 @@ def set_cell_background(cell, fill_hex):
     shd.set(qn('w:fill'), fill_hex)
     tcPr.append(shd)
 
+def set_cell_padding(cell, top=120, bottom=120, left=150, right=150):
+    tcPr = cell._element.get_or_add_tcPr()
+    tcMar = OxmlElement('w:tcMar')
+    for side, val in [('top', top), ('bottom', bottom), ('left', left), ('right', right)]:
+        node = OxmlElement(f'w:{side}')
+        node.set(qn('w:w'), str(val))
+        node.set(qn('w:type'), 'dxa')
+        tcMar.append(node)
+    tcPr.append(tcMar)
+
+def add_bottom_border_to_paragraph(paragraph, color_hex="003366", size="8"):
+    pPr = paragraph._element.get_or_add_pPr()
+    pBdr = OxmlElement('w:pBdr')
+    bottom = OxmlElement('w:bottom')
+    bottom.set(qn('w:val'), 'single')
+    bottom.set(qn('w:sz'), size)
+    bottom.set(qn('w:space'), '4')
+    bottom.set(qn('w:color'), color_hex)
+    pBdr.append(bottom)
+    pPr.append(pBdr)
+
 def create_survey_docx():
     doc = docx.Document()
 
-    # Page Margins
+    # 1. Page Margins (Standard 1.0 inch on all sides)
     for section in doc.sections:
-        section.top_margin = Inches(0.8)
-        section.bottom_margin = Inches(0.8)
-        section.left_margin = Inches(0.8)
-        section.right_margin = Inches(0.8)
+        section.top_margin = Inches(1.0)
+        section.bottom_margin = Inches(1.0)
+        section.left_margin = Inches(1.0)
+        section.right_margin = Inches(1.0)
 
-    # Base Style
+    # 2. Base Normal Style
     style_normal = doc.styles['Normal']
     style_normal.font.name = 'Times New Roman'
     style_normal.font.size = Pt(11)
     style_normal.font.color.rgb = RGBColor(0x22, 0x22, 0x22)
+    style_normal.paragraph_format.line_spacing = 1.15
+    style_normal.paragraph_format.space_after = Pt(4)
 
-    # Header Title
+    # ==================== INSTITUTIONAL HEADER ====================
     p_hdr = doc.add_paragraph()
     p_hdr.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r_hdr1 = p_hdr.add_run("NGÂN HÀNG TMCP CÔNG THƯƠNG VIỆT NAM (VIETINBANK)\n")
+    p_hdr.paragraph_format.space_after = Pt(2)
+    r_hdr1 = p_hdr.add_run("NGÂN HÀNG TMCP CÔNG THƯƠNG VIỆT NAM (VIETINBANK)")
     r_hdr1.bold = True
     r_hdr1.font.size = Pt(12)
     r_hdr1.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
-    
-    r_hdr2 = p_hdr.add_run("DỰ ÁN KHẢO SÁT Ý KIẾN KHÁCH HÀNG DOANH NGHIỆP VỀ DỊCH VỤ BẢO LÃNH\n")
+
+    p_proj = doc.add_paragraph()
+    p_proj.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_proj.paragraph_format.space_after = Pt(10)
+    r_hdr2 = p_proj.add_run("DỰ ÁN KHẢO SÁT Ý KIẾN KHÁCH HÀNG DOANH NGHIỆP VỀ DỊCH VỤ BẢO LÃNH")
     r_hdr2.bold = True
-    r_hdr2.font.size = Pt(13)
-    r_hdr2.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    r_hdr2.font.size = Pt(11)
+    r_hdr2.font.color.rgb = RGBColor(0x00, 0x55, 0x99)
+    add_bottom_border_to_paragraph(p_proj, color_hex="003366", size="8")
 
     doc.add_paragraph()
 
     # Document Title
     p_title = doc.add_paragraph()
     p_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r_title = p_title.add_run("PHIẾU KHẢO SÁT CHÍNH THỨC\n")
+    p_title.paragraph_format.space_after = Pt(4)
+    r_title = p_title.add_run("PHIẾU KHẢO SÁT CHÍNH THỨC")
     r_title.bold = True
     r_title.font.size = Pt(15)
     r_title.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
 
-    r_sub = p_title.add_run("CÁC YẾU TỐ ẢNH HƯỞNG ĐẾN QUYẾT ĐỊNH LỰA CHỌN SẢN PHẨM BẢO LÃNH NGÂN HÀNG CỦA CÁC DOANH NGHIỆP TẠI VIETINBANK")
+    p_sub = doc.add_paragraph()
+    p_sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_sub.paragraph_format.space_after = Pt(14)
+    r_sub = p_sub.add_run("CÁC YẾU TỐ ẢNH HƯỞNG ĐẾN QUYẾT ĐỊNH LỰA CHỌN SẢN PHẨM BẢO LÃNH NGÂN HÀNG CỦA CÁC DOANH NGHIỆP TẠI VIETINBANK")
     r_sub.bold = True
-    r_sub.font.size = Pt(12)
-    r_sub.font.color.rgb = RGBColor(0x00, 0x55, 0x99)
+    r_sub.font.size = Pt(11.5)
+    r_sub.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
 
-    doc.add_paragraph()
-
-    # Intro letter
+    # Intro Letter Box
     p_intro = doc.add_paragraph()
+    p_intro.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    p_intro.paragraph_format.left_indent = Inches(0.2)
+    p_intro.paragraph_format.right_indent = Inches(0.2)
     p_intro.paragraph_format.line_spacing = 1.15
-    p_intro.add_run(
+    p_intro.paragraph_format.space_after = Pt(14)
+    
+    r_intro = p_intro.add_run(
         "Kính gửi: Quý Doanh nghiệp,\n"
         "Nhằm nâng cao chất lượng dịch vụ, tối ưu hóa quy trình và thiết kế các gói sản phẩm bảo lãnh đáp ứng tốt nhất nhu cầu của Quý Doanh nghiệp, "
         "VietinBank tiến hành cuộc khảo sát này. Kính mong Quý Doanh nghiệp dành chút thời gian quý báu để đưa ra những đánh giá khách quan.\n"
         "VietinBank cam kết toàn bộ thông tin do Quý Doanh nghiệp cung cấp sẽ được giữ bí mật tuyệt đối và chỉ sử dụng cho mục đích phân tích tổng hợp.\n"
         "Xin chân thành cảm ơn sự hợp tác của Quý Doanh nghiệp!"
     )
+    r_intro.font.size = Pt(10.5)
+    r_intro.italic = True
 
-    doc.add_paragraph()
-
-    # PART I: DEMOGRAPHICS
+    # ==================== PART I: DEMOGRAPHICS ====================
     h_part1 = doc.add_paragraph()
     r_p1 = h_part1.add_run("PHẦN I: THÔNG TIN CHUNG VỀ DOANH NGHIỆP")
     r_p1.bold = True
@@ -80,20 +115,52 @@ def create_survey_docx():
     r_p1.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
 
     demo_items = [
-        "1. Loại hình Doanh nghiệp:\n   [  ] DNTN / Công ty TNHH    [  ] Công ty Cổ phần    [  ] Doanh nghiệp Nhà nước / FDI    [  ] Loại hình khác",
-        "2. Quy mô Doanh thu trung bình hằng năm:\n   [  ] Dưới 20 tỷ VNĐ    [  ] Từ 20 đến 100 tỷ VNĐ    [  ] Từ 100 đến 500 tỷ VNĐ    [  ] Trên 500 tỷ VNĐ",
-        "3. Thâm niên hoạt động của Doanh nghiệp:\n   [  ] Dưới 3 năm    [  ] Từ 3 đến 5 năm    [  ] Từ 5 đến 10 năm    [  ] Trên 10 năm",
-        "4. Loại hình Bảo lãnh Doanh nghiệp thường xuyên sử dụng tại VietinBank (Có thể chọn nhiều mục):\n   [  ] Bảo lãnh dự thầu (TG)    [  ] Bảo lãnh thực hiện hợp đồng (PG)    [  ] Bảo lãnh tạm ứng / thanh toán (BG)    [  ] Bảo lãnh bảo hành / Tái bảo lãnh (RG)",
-        "5. Chức danh/Vị trí của Người đại diện trả lời phiếu:\n   [  ] Ban Giám đốc / CFO    [  ] Kế toán trưởng / Trưởng phòng Tài chính    [  ] Trưởng phòng Thầu / Mua hàng    [  ] Chuyên viên phụ trách bảo lãnh"
+        ("1. Loại hình Doanh nghiệp:", [
+            "[  ] DNTN / Công ty TNHH",
+            "[  ] Công ty Cổ phần",
+            "[  ] Doanh nghiệp Nhà nước / FDI",
+            "[  ] Loại hình khác"
+        ]),
+        ("2. Quy mô Doanh thu trung bình hằng năm:", [
+            "[  ] Dưới 20 tỷ VNĐ",
+            "[  ] Từ 20 đến 100 tỷ VNĐ",
+            "[  ] Từ 100 đến 500 tỷ VNĐ",
+            "[  ] Trên 500 tỷ VNĐ"
+        ]),
+        ("3. Thâm niên hoạt động của Doanh nghiệp:", [
+            "[  ] Dưới 3 năm",
+            "[  ] Từ 3 đến 5 năm",
+            "[  ] Từ 5 đến 10 năm",
+            "[  ] Trên 10 năm"
+        ]),
+        ("4. Loại hình Bảo lãnh thường xuyên sử dụng tại VietinBank (Có thể chọn nhiều mục):", [
+            "[  ] Bảo lãnh dự thầu (TG)",
+            "[  ] Bảo lãnh thực hiện hợp đồng (PG)",
+            "[  ] Bảo lãnh tạm ứng / thanh toán (BG)",
+            "[  ] Bảo lãnh bảo hành / Tái bảo lãnh (RG)"
+        ]),
+        ("5. Chức danh / Vị trí của Người đại diện trả lời phiếu:", [
+            "[  ] Ban Giám đốc / CFO",
+            "[  ] Kế toán trưởng / Trưởng phòng Tài chính",
+            "[  ] Trưởng phòng Thầu / Mua hàng",
+            "[  ] Chuyên viên phụ trách bảo lãnh"
+        ])
     ]
-    for demo in demo_items:
-        p_d = doc.add_paragraph()
-        p_d.paragraph_format.line_spacing = 1.15
-        p_d.add_run(demo)
+
+    for q_title, opts in demo_items:
+        p_q = doc.add_paragraph()
+        p_q.paragraph_format.space_after = Pt(2)
+        r_q = p_q.add_run(q_title)
+        r_q.bold = True
+
+        p_opts = doc.add_paragraph()
+        p_opts.paragraph_format.left_indent = Inches(0.3)
+        p_opts.paragraph_format.space_after = Pt(6)
+        p_opts.add_run("   ".join(opts))
 
     doc.add_paragraph()
 
-    # PART II: LIKERT SCALE (10 Independent + 1 Dependent = 34 Items)
+    # ==================== PART II: LIKERT SCALE TABLE ====================
     h_part2 = doc.add_paragraph()
     r_p2 = h_part2.add_run("PHẦN II: NỘI DUNG ĐÁNH GIÁ (THANG ĐO LIKERT 5 MỨC ĐỘ)")
     r_p2.bold = True
@@ -101,26 +168,27 @@ def create_survey_docx():
     r_p2.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
 
     p_guide = doc.add_paragraph()
-    p_guide.paragraph_format.line_spacing = 1.15
-    p_guide.add_run(
+    p_guide.paragraph_format.space_after = Pt(10)
+    r_gd = p_guide.add_run(
         "Quy ước mức độ đánh giá: "
-        "1 – Hoàn toàn không đồng ý | 2 – Không đồng ý | 3 – Phân vân / Trung lập | 4 – Đồng ý | 5 – Hoàn toàn đồng ý"
+        "1 – Hoàn toàn không đồng ý  |  2 – Không đồng ý  |  3 – Phân vân / Trung lập  |  4 – Đồng ý  |  5 – Hoàn toàn đồng ý"
     )
+    r_gd.font.size = Pt(10)
+    r_gd.italic = True
 
-    doc.add_paragraph()
-
-    # Table with 34 items across 10 Independent + 1 Dependent
+    # Main Likert Table
     table = doc.add_table(rows=1, cols=7)
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
     table.autofit = False
 
-    col_widths = [Inches(0.9), Inches(4.3), Inches(0.4), Inches(0.4), Inches(0.4), Inches(0.4), Inches(0.4)]
+    col_widths = [Inches(0.8), Inches(4.1), Inches(0.35), Inches(0.35), Inches(0.35), Inches(0.35), Inches(0.35)]
 
     # Header Row
     hdr_cells = table.rows[0].cells
     hdr_titles = ["Mã biến", "Nội dung phát biểu đánh giá", "1", "2", "3", "4", "5"]
     for idx, title in enumerate(hdr_titles):
         hdr_cells[idx].width = col_widths[idx]
+        set_cell_padding(hdr_cells[idx], top=140, bottom=140, left=100, right=100)
         p = hdr_cells[idx].paragraphs[0]
         p.alignment = WD_ALIGN_PARAGRAPH.CENTER
         r = p.add_run(title)
@@ -129,12 +197,12 @@ def create_survey_docx():
         r.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
         set_cell_background(hdr_cells[idx], "003366")
 
-    # 10 Independent Groups (3 items each = 30) + 1 Dependent Group (4 items) = 34 items
+    # Data Structure: 10 Independent + 1 Dependent = 34 Items Total
     sections = [
         ("A. CÁC YẾU TỐ ĐỘC LẬP (CÁC TIÊU CHÍ CHẤT LƯỢNG DỊCH VỤ)", [
             ("I. Chi phí & Biểu phí bảo lãnh (COST)", [
                 ("COST1", "Mức phí phát hành bảo lãnh tại VietinBank là hợp lý so với chất lượng dịch vụ nhận được."),
-                ("COST2", "Biểu phí bảo lãnh của VietinBank có tính cạnh tranh cao so me với các ngân hàng thương mại khác."),
+                ("COST2", "Biểu phí bảo lãnh của VietinBank có tính cạnh tranh cao so với các ngân hàng thương mại khác."),
                 ("COST3", "VietinBank có chính sách ưu đãi và giảm phí bảo lãnh linh hoạt cho các khách hàng thường xuyên.")
             ]),
             ("II. Yêu cầu Tài sản đảm bảo & Tỷ lệ Ký quỹ (COL)", [
@@ -197,6 +265,7 @@ def create_survey_docx():
         # Part Banner Row
         r_part = table.add_row().cells
         for i, w in enumerate(col_widths): r_part[i].width = w
+        set_cell_padding(r_part[0], top=100, bottom=100, left=120, right=120)
         p_part = r_part[0].paragraphs[0]
         r_pt = p_part.add_run(part_title)
         r_pt.bold = True
@@ -208,6 +277,7 @@ def create_survey_docx():
             # Group Subheader Row
             r_grp = table.add_row().cells
             for i, w in enumerate(col_widths): r_grp[i].width = w
+            set_cell_padding(r_grp[0], top=80, bottom=80, left=120, right=120)
             p_grp = r_grp[0].paragraphs[0]
             r_gt = p_grp.add_run(grp_name)
             r_gt.bold = True
@@ -217,23 +287,30 @@ def create_survey_docx():
             for code, statement in item_list:
                 r_item = table.add_row().cells
                 for i, w in enumerate(col_widths): r_item[i].width = w
+                
+                # Apply cell padding (top/bottom/left/right)
+                for c_cell in r_item:
+                    set_cell_padding(c_cell, top=80, bottom=80, left=100, right=100)
 
                 p_code = r_item[0].paragraphs[0]
                 p_code.alignment = WD_ALIGN_PARAGRAPH.CENTER
                 p_code.add_run(code).bold = True
 
                 p_stmt = r_item[1].paragraphs[0]
+                p_stmt.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+                p_stmt.paragraph_format.line_spacing = 1.15
                 p_stmt.add_run(statement)
 
                 for c_idx in range(2, 7):
                     p_box = r_item[c_idx].paragraphs[0]
                     p_box.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                    p_box.add_run("[  ]")
+                    p_box.add_run("(  )")
 
     # Thank you footer
     doc.add_paragraph()
     p_foot = doc.add_paragraph()
     p_foot.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p_foot.paragraph_format.space_before = Pt(12)
     r_ft = p_foot.add_run("XIN CHÂN THÀNH CẢM ƠN QUÝ DOANH NGHIỆP ĐÃ HOÀN THÀNH PHIẾU KHẢO SÁT!")
     r_ft.bold = True
     r_ft.font.size = Pt(11)
@@ -242,7 +319,7 @@ def create_survey_docx():
     # Save output DOCX
     out_path = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/Phieu_Khao_Sat_Chinh_Thuc_VietinBank.docx"
     doc.save(out_path)
-    print(f"Successfully updated official survey DOCX without ESG variable at {out_path}")
+    print(f"Successfully generated beautifully formatted survey DOCX at {out_path}")
 
 if __name__ == "__main__":
     create_survey_docx()
