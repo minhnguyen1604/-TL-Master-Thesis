@@ -16,18 +16,56 @@ def set_cell_background(cell, fill_hex):
 def generate_final_docx():
     doc = docx.Document()
     
-    # Page Margins (0.8 in)
-    for section in doc.sections:
-        section.top_margin = Inches(0.8)
-        section.bottom_margin = Inches(0.8)
-        section.left_margin = Inches(0.8)
-        section.right_margin = Inches(0.8)
+    # 1. Page Margins (1.0 inch = 2.54 cm standard)
+    section = doc.sections[0]
+    section.top_margin = Inches(1.0)
+    section.bottom_margin = Inches(1.0)
+    section.left_margin = Inches(1.0)
+    section.right_margin = Inches(1.0)
 
-    # Base Normal Style
-    style_normal = doc.styles['Normal']
+    # 2. Running Header Configuration (Different First Page)
+    section.different_first_page_header_footer = True
+    
+    # Running Header for pages 2 onwards (Exact text from Pham Minh Hieu sample)
+    header = section.header
+    p_head = header.paragraphs[0]
+    p_head.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r_head = p_head.add_run(
+        "NATIONAL ECONOMICS UNIVERSITY FACULTY OF ECONOMICS | ERASMUS UNIVERSITY ROTTERDAM INTERNATIONAL INSTITUTE OF SOCIAL STUDIES"
+    )
+    r_head.font.name = 'Times New Roman'
+    r_head.font.size = Pt(8.5)
+    r_head.font.color.rgb = RGBColor(0x66, 0x66, 0x66)
+    r_head.italic = True
+
+    # Configure Styles
+    styles = doc.styles
+
+    # Normal / Body Text Style
+    style_normal = styles['Normal']
     style_normal.font.name = 'Times New Roman'
-    style_normal.font.size = Pt(11.5)
+    style_normal.font.size = Pt(12)
     style_normal.font.color.rgb = RGBColor(0x22, 0x22, 0x22)
+    style_normal.paragraph_format.line_spacing = 1.15
+    style_normal.paragraph_format.space_after = Pt(6)
+
+    # Heading 1 Style
+    style_h1 = styles['Heading 1']
+    style_h1.font.name = 'Times New Roman'
+    style_h1.font.size = Pt(14)
+    style_h1.font.bold = True
+    style_h1.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    style_h1.paragraph_format.space_before = Pt(14)
+    style_h1.paragraph_format.space_after = Pt(6)
+
+    # Heading 2 Style
+    style_h2 = styles['Heading 2']
+    style_h2.font.name = 'Times New Roman'
+    style_h2.font.size = Pt(12.5)
+    style_h2.font.bold = True
+    style_h2.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    style_h2.paragraph_format.space_before = Pt(10)
+    style_h2.paragraph_format.space_after = Pt(4)
 
     # ==================== COVER / TITLE PAGE ====================
     p_header = doc.add_paragraph()
@@ -70,22 +108,20 @@ def generate_final_docx():
 
     doc.add_page_break()
 
+    # Helper function for justified body paragraphs
+    def add_body(text):
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        p.add_run(text)
+        return p
+
     # ==================== SECTION I: INTRODUCTION ====================
-    h1 = doc.add_paragraph()
-    r1 = h1.add_run("I. Introduction")
-    r1.bold = True
-    r1.font.size = Pt(14)
-    r1.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    doc.add_heading("I. Introduction", level=1)
 
     # 1.1 Research Rationales
-    h11 = doc.add_paragraph()
-    r11 = h11.add_run("1.1. Research Rationales")
-    r11.bold = True
-    r11.font.size = Pt(12)
+    doc.add_heading("1.1. Research Rationales", level=2)
 
-    p_rat1 = doc.add_paragraph()
-    p_rat1.paragraph_format.line_spacing = 1.15
-    p_rat1.add_run(
+    add_body(
         "Bank guarantee is an indispensable security instrument closely tied to almost all high-value commercial transactions of corporate enterprises. "
         "In the construction and engineering sector, Article 18 of Decree No. 37/2015/ND-CP (amended and supplemented by Decree No. 35/2023/ND-CP) mandates "
         "that contractors must submit an advance payment guarantee for contracts with advance payments exceeding 1 billion VND; Bidding Law No. 22/2023/QH15 "
@@ -94,18 +130,14 @@ def generate_final_docx():
         "rather than a discretionary corporate choice."
     )
 
-    p_rat2 = doc.add_paragraph()
-    p_rat2.paragraph_format.line_spacing = 1.15
-    p_rat2.add_run(
+    add_body(
         "For commercial banks, guarantee issuance is a signature credit operation—commonly referred to as an off-balance sheet commitment. "
         "At the time of issuing a letter of guarantee, the bank does not disburse cash upfront but provides an irrevocable commitment to pay on behalf of the principal "
         "if the principal defaults. This contingent liability is monitored off-balance sheet and is converted into an on-balance sheet forced loan only when the bank "
         "actually executes the payout."
     )
 
-    p_rat3 = doc.add_paragraph()
-    p_rat3.paragraph_format.line_spacing = 1.15
-    p_rat3.add_run(
+    add_body(
         "This economic mechanism creates three strategic benefits for commercial banks: (i) banks generate steady issuing and maintenance fee income throughout "
         "the guarantee term without disbursing capital, building high-margin non-interest income that is resilient to interest rate volatility; (ii) guarantee limits "
         "anchor corporate clients into long-term credit relationships, opening cross-selling avenues for deposit, payment, trade finance, and FX products; and "
@@ -113,18 +145,14 @@ def generate_final_docx():
         "compared to funded loans of equivalent value."
     )
 
-    p_rat4 = doc.add_paragraph()
-    p_rat4.paragraph_format.line_spacing = 1.15
-    p_rat4.add_run(
+    add_body(
         "This low-capital, high-fee, customer-anchoring profile makes the guarantee segment intensely competitive among commercial banks. Banks simultaneously "
         "lower fee schedules, compress appraisal and issuance lead times, relax collateral and margin requirements, and digitalise procedures to retain and acquire "
         "corporate clients. Given that corporate switching costs between issuing banks are relatively low, identifying which criteria corporate clients evaluate "
         "and which criteria carry decisive weight provides direct empirical value for VietinBank's product strategy."
     )
 
-    p_rat5 = doc.add_paragraph()
-    p_rat5.paragraph_format.line_spacing = 1.15
-    p_rat5.add_run(
+    add_body(
         "Vietnam's regulatory landscape for guarantee operations has recently undergone fundamental transformation. Circular No. 61/2024/TT-NHNN (effective April 1, 2025, "
         "replacing Circular No. 11/2022/TT-NHNN) establishes an updated legal framework for electronic guarantees (e-guarantees). Concurrently, commercial bank digital "
         "transformation and cross-border guarantee demand are reshaping corporate selection criteria—factors virtually absent from earlier empirical models. "
@@ -134,24 +162,16 @@ def generate_final_docx():
     )
 
     # 1.2 General Objectives
-    h12 = doc.add_paragraph()
-    r12 = h12.add_run("1.2. General Objectives")
-    r12.bold = True
-    r12.font.size = Pt(12)
+    doc.add_heading("1.2. General Objectives", level=2)
 
-    p_obj = doc.add_paragraph()
-    p_obj.paragraph_format.line_spacing = 1.15
-    p_obj.add_run(
+    add_body(
         "The general objective of this research is to identify and measure the impact magnitude of factors influencing corporate customers' decision to choose bank "
         "guarantee products at VietinBank, and on that basis, to propose actionable managerial implications helping VietinBank enhance competitiveness and expand "
         "market share in this strategic product segment."
     )
 
     # 1.3 Specific Objectives
-    h13 = doc.add_paragraph()
-    r13 = h13.add_run("1.3. Specific Objectives")
-    r13.bold = True
-    r13.font.size = Pt(12)
+    doc.add_heading("1.3. Specific Objectives", level=2)
 
     p_sub_intro = doc.add_paragraph()
     p_sub_intro.add_run("The following sub-questions will be investigated to answer the general objective:\n")
@@ -164,19 +184,14 @@ def generate_final_docx():
     ]
     for q in sub_q:
         p_q = doc.add_paragraph()
-        p_q.paragraph_format.left_indent = Inches(0.2)
-        p_q.paragraph_format.line_spacing = 1.15
+        p_q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        p_q.paragraph_format.left_indent = Inches(0.25)
         p_q.add_run(q)
 
     # 1.4 Thesis Structure
-    h14 = doc.add_paragraph()
-    r14 = h14.add_run("1.4. Thesis Structure")
-    r14.bold = True
-    r14.font.size = Pt(12)
+    doc.add_heading("1.4. Thesis Structure", level=2)
 
-    p_str = doc.add_paragraph()
-    p_str.paragraph_format.line_spacing = 1.15
-    p_str.add_run(
+    add_body(
         "This thesis comprises four main chapters:\n"
         "• Chapter 1: Introduction – Presents research rationales, general and specific objectives, sub-questions, and thesis structure.\n"
         "• Chapter 2: Literature Review and Theoretical Framework – Synthesizes legal and economic foundations of bank guarantees; presents theoretical frameworks "
@@ -187,24 +202,13 @@ def generate_final_docx():
         "discusses findings; and details managerial recommendations for VietinBank."
     )
 
-    doc.add_paragraph()
-
     # ==================== SECTION II: LITERATURE REVIEW ====================
-    h2 = doc.add_paragraph()
-    r2 = h2.add_run("II. Literature Review")
-    r2.bold = True
-    r2.font.size = Pt(14)
-    r2.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    doc.add_heading("II. Literature Review", level=1)
 
     # 2.1 Theoretical Foundations
-    h21 = doc.add_paragraph()
-    r21 = h21.add_run("2.1. Theoretical Foundations and Legal Context")
-    r21.bold = True
-    r21.font.size = Pt(12)
+    doc.add_heading("2.1. Theoretical Foundations and Legal Context", level=2)
 
-    p_leg = doc.add_paragraph()
-    p_leg.paragraph_format.line_spacing = 1.15
-    p_leg.add_run(
+    add_body(
         "Under Vietnamese law, Circular No. 61/2024/TT-NHNN (effective April 1, 2025, replacing Circular No. 11/2022/TT-NHNN and Circular No. 49/2024/TT-NHNN) "
         "defines bank guarantee as a form of credit extension wherein the guarantor (credit institution) commits to the beneficiary to perform financial obligations "
         "on behalf of the principal should the principal fail to perform. Article 335 of the 2015 Civil Code establishes general guarantee principles. "
@@ -212,16 +216,12 @@ def generate_final_docx():
         "International practice under ICC URDG 758 highlights the principle of independence and documentary character."
     )
 
-    p_3party = doc.add_paragraph()
-    p_3party.paragraph_format.line_spacing = 1.15
-    p_3party.add_run(
+    add_body(
         "Guarantee operations involve a tri-partite relationship comprising the Guarantor (VietinBank), Principal (Corporate Client), and Beneficiary (Project Owner/Buyer). "
         "Key product lines include Tender Guarantee (TG), Performance Guarantee (PG), Advance Payment Guarantee, Payment Guarantee (BG), Maintenance Guarantee, and Counter Guarantee."
     )
 
-    p_theories = doc.add_paragraph()
-    p_theories.paragraph_format.line_spacing = 1.15
-    p_theories.add_run(
+    add_body(
         "Corporate bank selection represents organizational buying behavior explained by three integrated theoretical models:\n"
         "1. Theory of Reasoned Action (TRA, Fishbein & Ajzen, 1975) & Theory of Planned Behavior (TPB, Ajzen, 1991): Establishes that beliefs regarding service attributes "
         "form attitudes and perceived behavioral control, driving selection intention.\n"
@@ -231,15 +231,10 @@ def generate_final_docx():
         "the dependent variable (DEC) across Cognitive, Affective, Conative, and Action dimensions (DEC1–DEC4)."
     )
 
-    # 2.2 Empirical Literature & Gaps
-    h22 = doc.add_paragraph()
-    r22 = h22.add_run("2.2. Empirical Review and Research Gaps")
-    r22.bold = True
-    r22.font.size = Pt(12)
+    # 2.2 Empirical Review & Gaps
+    doc.add_heading("2.2. Empirical Review and Research Gaps", level=2)
 
-    p_emp = doc.add_paragraph()
-    p_emp.paragraph_format.line_spacing = 1.15
-    p_emp.add_run(
+    add_body(
         "Empirical literature spans corporate bank selection (Turnbull & Gibbs, 1989; Narteh, 2013; Kaur et al., 2021; Zelie, 2023), Vietnamese banking service quality "
         "(Phan Thi Hang Nga et al., 2024; Ho Dinh Phi et al., 2023; Nguyen et al., 2024), and trade/construction guarantees (Oke, 2018; Hassan et al., 2018; Carletti et al., 2023). "
         "Four critical research gaps emerge: (i) separation between general bank selection literature and guarantee-specific empirical quantitative models; "
@@ -247,24 +242,13 @@ def generate_final_docx():
         "and (iv) absence of large-scale system-wide empirical studies at VietinBank."
     )
 
-    doc.add_paragraph()
-
     # ==================== SECTION III: EMPIRICAL ANALYSIS ====================
-    h3 = doc.add_paragraph()
-    r3 = h3.add_run("III. Empirical Analysis")
-    r3.bold = True
-    r3.font.size = Pt(14)
-    r3.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    doc.add_heading("III. Empirical Analysis", level=1)
 
     # 3.1 Methodology
-    h31 = doc.add_paragraph()
-    r31 = h31.add_run("3.1. Methodology and Proposed Model")
-    r31.bold = True
-    r31.font.size = Pt(12)
+    doc.add_heading("3.1. Methodology and Proposed Model", level=2)
 
-    p_mod = doc.add_paragraph()
-    p_mod.paragraph_format.line_spacing = 1.15
-    p_mod.add_run(
+    add_body(
         "The study employs a multiple linear regression model with one dependent variable—Corporate Selection Decision (DEC)—and 10 independent variables (X1 to X10). "
         "All variables are latent constructs measured via 5-point Likert scale items. The primary regression equation is specified as:"
     )
@@ -335,15 +319,9 @@ def generate_final_docx():
         p4.add_run(sign).bold = True
 
     # 3.2 Data and Pre-Tests
-    doc.add_paragraph()
-    h32 = doc.add_paragraph()
-    r32 = h32.add_run("3.2. Data Collection and Pre-Tests")
-    r32.bold = True
-    r32.font.size = Pt(12)
+    doc.add_heading("3.2. Data Collection and Pre-Tests", level=2)
 
-    p_dat = doc.add_paragraph()
-    p_dat.paragraph_format.line_spacing = 1.15
-    p_dat.add_run(
+    add_body(
         "Rather than administering a new small-scale survey, this study inherits an existing system-wide corporate survey dataset conducted by VietinBank "
         "across its corporate client base nationwide. The sampling frame covers corporate enterprises actively utilizing guarantee services across 155 VietinBank branches. "
         "The target dataset comprises n = 800 to n = 10,000 corporate respondents, far exceeding minimum sample size thresholds (n >= 185 for EFA; "
@@ -353,14 +331,9 @@ def generate_final_docx():
     )
 
     # 3.3 Findings and Interpretation
-    h33 = doc.add_paragraph()
-    r33 = h33.add_run("3.3. Anticipated Findings and Interpretation")
-    r33.bold = True
-    r33.font.size = Pt(12)
+    doc.add_heading("3.3. Anticipated Findings and Interpretation", level=2)
 
-    p_fin = doc.add_paragraph()
-    p_fin.paragraph_format.line_spacing = 1.15
-    p_fin.add_run(
+    add_body(
         "Based on theoretical frameworks and banking context, the following results are anticipated:\n"
         "• COST (X1) is expected to exert a statistically significant negative impact (β1 < 0), confirming price sensitivity.\n"
         "• All positive-dimension attributes (X2 to X10) are expected to yield positive coefficients (β2 to β10 > 0). "
@@ -368,32 +341,18 @@ def generate_final_docx():
         "Customisation (CUS) and Legal Risk Advisory (RSK) will validate the strategic value of tailored banking solutions."
     )
 
-    doc.add_paragraph()
-
     # ==================== SECTION IV: CONCLUSIONS ====================
-    h4 = doc.add_paragraph()
-    r4 = h4.add_run("IV. Conclusions")
-    r4.bold = True
-    r4.font.size = Pt(14)
-    r4.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    doc.add_heading("IV. Conclusions", level=1)
 
-    p_con = doc.add_paragraph()
-    p_con.paragraph_format.line_spacing = 1.15
-    p_con.add_run(
+    add_body(
         "This thesis design establishes a comprehensive empirical framework investigating corporate bank guarantee selection decisions at VietinBank. "
         "By integrating classical SERVQUAL and TPB frameworks with four novel operational dimensions (e-guarantees, customization, legal risk advisory, and global correspondent network), "
         "the study fills critical empirical gaps in Vietnam's banking literature. Managerial recommendations will guide VietinBank in risk-based fee optimization, "
         "eFAST Straight-Through Processing (STP) auto-approval limits, flexible margin policies, and international correspondent network expansion."
     )
 
-    doc.add_paragraph()
-
     # ==================== SECTION V: REFERENCES ====================
-    h5 = doc.add_paragraph()
-    r5 = h5.add_run("V. References")
-    r5.bold = True
-    r5.font.size = Pt(14)
-    r5.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    doc.add_heading("V. References", level=1)
 
     refs = [
         "Ajzen, I. (1991) 'The Theory of Planned Behavior', Organizational Behavior and Human Decision Processes, 50(2), pp. 179–211.",
@@ -421,21 +380,21 @@ def generate_final_docx():
         "State Bank of Vietnam (2024) Circular No. 61/2024/TT-NHNN dated December 31, 2024, providing regulations on bank guarantees (effective April 1, 2025). Hanoi: SBV.",
         "Turnbull, P.W. and Gibbs, M.L. (1989) 'The Selection of Banks and Banking Services among Corporate Customers in South Africa', International Journal of Bank Marketing, 7(5), pp. 36–42.",
         "Zeithaml, V.A. (1988) 'Consumer Perceptions of Price, Quality, and Value: A Means-End Model and Synthesis of Evidence', Journal of Marketing, 52(3), pp. 2–22.",
-        "Zeithaml, V.A., Berry, L.L. and Parasuraman, A. (1996) 'The Behavioral Consequences of Service Quality', Journal of Marketing, 60(2), pp. 31–46.",
-        "Zelie, E.M. (2023) 'Factors determining bank selection by micro- and small-sized enterprises: evidence from Ethiopia', International Journal of Bank Marketing, 41(5), pp. 1120–11242."
+        "Zeithaml, V.A. (1996) 'The Behavioral Consequences of Service Quality', Journal of Marketing, 60(2), pp. 31–46.",
+        "Zelie, E.M. (2023) 'Factors determining bank selection by micro- and small-sized enterprises: evidence from Ethiopia', International Journal of Bank Marketing, 41(5), pp. 1120–1142."
     ]
 
     for ref in refs:
         p_ref = doc.add_paragraph()
+        p_ref.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
         p_ref.paragraph_format.left_indent = Inches(0.4)
         p_ref.paragraph_format.first_line_indent = Inches(-0.4)
-        p_ref.paragraph_format.line_spacing = 1.15
         p_ref.add_run(ref).font.size = Pt(10)
 
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Thesis_Design_NEU_MDE_Final.docx"
     doc.save(output_filename)
-    print(f"Successfully generated final DOCX file at {output_filename}")
+    print(f"Successfully generated final DOCX file with Headings, Header and Justified Alignment at {output_filename}")
 
 if __name__ == "__main__":
     generate_final_docx()
