@@ -13,6 +13,17 @@ def set_cell_background(cell, fill_hex):
     shd.set(qn('w:fill'), fill_hex)
     tcPr.append(shd)
 
+def add_bottom_border_to_paragraph(paragraph, color_hex="003366", size="6"):
+    pPr = paragraph._element.get_or_add_pPr()
+    pBdr = OxmlElement('w:pBdr')
+    bottom = OxmlElement('w:bottom')
+    bottom.set(qn('w:val'), 'single')
+    bottom.set(qn('w:sz'), size)
+    bottom.set(qn('w:space'), '4')
+    bottom.set(qn('w:color'), color_hex)
+    pBdr.append(bottom)
+    pPr.append(pBdr)
+
 def generate_final_docx():
     doc = docx.Document()
     
@@ -26,17 +37,16 @@ def generate_final_docx():
     # 2. Running Header Configuration (Different First Page)
     section.different_first_page_header_footer = True
     
-    # Running Header for pages 2 onwards (Exact text from Pham Minh Hieu sample)
+    # Running Header for pages 2 onwards (Right aligned, Italic, with bottom border)
     header = section.header
     p_head = header.paragraphs[0]
-    p_head.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    r_head = p_head.add_run(
-        "NATIONAL ECONOMICS UNIVERSITY FACULTY OF ECONOMICS | ERASMUS UNIVERSITY ROTTERDAM INTERNATIONAL INSTITUTE OF SOCIAL STUDIES"
-    )
+    p_head.alignment = WD_ALIGN_PARAGRAPH.RIGHT
+    r_head = p_head.add_run("Thesis Design – MDE31 – Dang Tu Linh")
     r_head.font.name = 'Times New Roman'
-    r_head.font.size = Pt(8.5)
-    r_head.font.color.rgb = RGBColor(0x66, 0x66, 0x66)
+    r_head.font.size = Pt(10)
+    r_head.font.color.rgb = RGBColor(0x33, 0x33, 0x33)
     r_head.italic = True
+    add_bottom_border_to_paragraph(p_head, color_hex="003366", size="6")
 
     # Configure Styles
     styles = doc.styles
@@ -394,7 +404,7 @@ def generate_final_docx():
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Thesis_Design_NEU_MDE_Final.docx"
     doc.save(output_filename)
-    print(f"Successfully generated final DOCX file with Headings, Header and Justified Alignment at {output_filename}")
+    print(f"Successfully updated DOCX with exact Running Header format: Thesis Design – MDE31 – Dang Tu Linh")
 
 if __name__ == "__main__":
     generate_final_docx()
