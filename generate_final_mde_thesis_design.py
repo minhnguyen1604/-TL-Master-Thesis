@@ -123,7 +123,7 @@ def generate_final_docx():
 
     doc.add_page_break()
 
-    # Helper function for justified body paragraphs (No internal \n linebreaks!)
+    # Helper function for justified body paragraphs
     def add_body(text, space_after=6):
         p = doc.add_paragraph()
         p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
@@ -369,6 +369,7 @@ def generate_final_docx():
     )
 
     # ==================== SECTION V: REFERENCES ====================
+    # Clean LEFT alignment for all references (just like Pham Minh Hieu sample paper!)
     doc.add_heading("V. References", level=1)
 
     refs = [
@@ -403,16 +404,16 @@ def generate_final_docx():
 
     for ref in refs:
         p_ref = doc.add_paragraph()
-        p_ref.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-        p_ref.paragraph_format.left_indent = Inches(0.4)
-        p_ref.paragraph_format.first_line_indent = Inches(-0.4)
-        p_ref.paragraph_format.space_after = Pt(4)
-        p_ref.add_run(ref).font.size = Pt(10)
+        p_ref.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        p_ref.paragraph_format.left_indent = Inches(0)
+        p_ref.paragraph_format.first_line_indent = Inches(0)
+        p_ref.paragraph_format.space_after = Pt(6)
+        p_ref.add_run(ref).font.size = Pt(10.5)
 
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Thesis_Design_NEU_MDE_Final.docx"
     doc.save(output_filename)
-    print(f"Successfully fixed line stretching issue by separating all bullet/numbered list items into distinct paragraphs!")
+    print(f"Successfully updated Section V References with clean LEFT alignment (straight line along left margin)!")
 
 if __name__ == "__main__":
     generate_final_docx()
