@@ -120,5 +120,5 @@ This thesis design establishes a quantitative financial framework evaluating gua
 * Stiglitz, J.E. and Weiss, A. (1981) 'Credit Rationing in Markets with Imperfect Information', *American Economic Review*, 71(3), pp. 393–410.
 * Turnbull, P.W. and Gibbs, M.L. (1989) 'The Selection of Banks and Banking Services among Corporate Customers in South Africa', *International Journal of Bank Marketing*, 7(5), pp. 36–42.
 * Zeithaml, V.A. (1988) 'Consumer Perceptions of Price, Quality, and Value: A Means-End Model and Synthesis of Evidence', *Journal of Marketing*, 52(3), pp. 2–22.
-* Zeithaml, V.A. (1996) 'The Behavioral Consequences of Service Quality', *Journal of Marketing*, 60(2), pp. 31–46.
+* Zeithaml, V.A., Berry, L.L. and Parasuraman, A. (1996) 'The Behavioral Consequences of Service Quality', *Journal of Marketing*, 60(2), pp. 31–46.
 * Zelie, E.M. (2023) 'Factors determining bank selection by micro- and small-sized enterprises: evidence from Ethiopia', *International Journal of Bank Marketing*, 41(5), pp. 1120–1142.
