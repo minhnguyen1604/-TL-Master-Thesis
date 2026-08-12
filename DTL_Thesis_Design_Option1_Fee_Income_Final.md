@@ -26,10 +26,10 @@ The general objective of this research is to identify, quantify, and model the f
 
 ### 1.3. Specific Objectives
 The following specific sub-questions will be investigated:
-1. **Q1:** What transaction-level metrics (limit size, tenor, collateral margin) and corporate firm characteristics (revenue scale, operating age, credit rating) significantly drive guarantee fee income at VietinBank?
-2. **Q2:** What is the direction and elasticity magnitude of each financial determinant on total guarantee fee income (`ln_FEE`) and fee yield ratio (`FEE_YIELD`)-------------?
-3. **Q3:** How do corporate credit rating tiers, banking relationship tenure, and VietinBank eFAST digital adoption moderate fee realization and fee discount policies?
-4. **Q4:** What risk-adjusted fee pricing strategies, collateral margin incentives, and digital fee optimization policies should VietinBank executive leadership implement?
+1. **Q1 (Identification):** What transaction-level metrics (limit size, tenor, collateral margin) and corporate firm characteristics (revenue scale, operating age, credit rating) significantly drive guarantee fee income at VietinBank?
+2. **Q2 (Elasticities):** What is the direction and numerical elasticity magnitude of each financial determinant on total guarantee fee income (`ln_FEE`) and fee yield ratio (`FEE_YIELD`)-------------?
+3. **Q3 (Moderating Mechanisms):** How do corporate credit rating tiers, banking relationship tenure, and VietinBank eFAST digital adoption moderate fee realization and client fee discount mechanisms?
+4. **Q4 (Executive Action Plan):** What specific managerial recommendations (risk-adjusted fee pricing schedules, eFAST digital fee incentives, and collateral margin policies) should VietinBank executive leadership implement to maximize off-balance sheet fee profitability?
 
 ### 1.4. Thesis Structure
 This thesis comprises four main chapters:
@@ -99,11 +99,11 @@ To ensure strict academic consistency, the managerial recommendations formulated
 2. **Policy Response to Q2 (Volume-Tenor Tiered Fee Elasticities):**  
    Based on the empirical elasticity estimates ($\beta_1 = +0.65$ for limit size and $\beta_3 = +0.25$ for tenor), VietinBank should implement a Volume-Tenor Tiered Guarantee Fee Schedule. For large-scale multi-year guarantee limits, VietinBank should apply progressive fee brackets that maximize absolute fee revenue (`ln_FEE`) while offering competitive fee yield rates (`FEE_YIELD`) to prevent client disintermediation.
 
-3. **Policy Response to Q3 (Risk Pricing, Relationship Bundling & eFAST Digital Alignment):**  
+3. **Policy Response to Q3 (Credit Rating, Relationship & eFAST Moderating Mechanisms):**  
    Addressing the moderating impacts of credit ratings ($\beta_6 = -0.18$), relationship tenure ($\beta_7 = -0.14$), and eFAST digital adoption ($\beta_8 = +0.28$), VietinBank must transition from standard flat fee schedules to an automated Risk-Adjusted & Digital Fee Matrix embedded in Core Banking. High-quality corporate clients (AAA/AA ratings) and long-term relationship clients should receive automated fee discount incentives, while eFAST online users receive streamlined processing fee waivers.
 
-4. **Policy Response to Q4 (Digital eFAST Fee Incentives & Margin Flexibility):**  
-   Addressing digital channel adoption (`DIGITAL`) and collateral margin constraints (`MARGIN_RATIO`), VietinBank should launch a dedicated Digital eFAST Guarantee Incentive program offering a 5% to 10% fee reduction for e-guarantees submitted and issued online 24/7. Concurrently, VietinBank should adopt flexible collateral margin policies, reducing cash margin requirements for short-term tender guarantees (TG) to liberate contractor working capital.
+4. **Policy Response to Q4 (Executive Action Plan: Risk Pricing, eFAST Incentives & Collateral Margin Policy):**  
+   Responding directly to Q4's request for actionable executive strategies, VietinBank leadership must execute three core managerial policies: (i) deploy automated risk-adjusted fee matrices on Core Banking; (ii) launch a dedicated Digital eFAST Fee Incentive offering a 5% to 10% fee reduction for e-guarantees submitted and issued online 24/7; and (iii) adopt flexible collateral margin policies, reducing cash margin requirements for short-term tender guarantees (TG) to liberate contractor working capital.
 
 ---
 

@@ -203,8 +203,8 @@ def generate_option1_docx():
     sub_q = [
         ("1.", "What transaction-level metrics (limit size, tenor, collateral margin) and corporate firm characteristics (revenue scale, operating age, credit rating) significantly drive guarantee fee income at VietinBank?"),
         ("2.", "What is the direction and elasticity magnitude of each financial determinant on total guarantee fee income (ln_FEE) and fee yield ratio (FEE_YIELD)?"),
-        ("3.", "How do corporate credit rating tiers, banking relationship tenure, and VietinBank eFAST digital adoption moderate fee realization and fee discount policies?"),
-        ("4.", "What risk-adjusted fee pricing strategies, collateral margin incentives, and digital fee optimization policies should VietinBank executive leadership implement?")
+        ("3.", "How do corporate credit rating tiers, banking relationship tenure, and VietinBank eFAST digital adoption moderate fee realization and client fee discount mechanisms?"),
+        ("4.", "What specific managerial recommendations (risk-adjusted fee pricing schedules, eFAST digital fee incentives, and collateral margin policies) should VietinBank executive leadership implement to maximize off-balance sheet fee profitability?")
     ]
     for num, q_text in sub_q:
         add_numbered(num, q_text, space_after=4)
@@ -373,13 +373,13 @@ def generate_option1_docx():
     )
 
     add_numbered(
-        "3. Policy Response to Q3 (Risk Pricing, Relationship Bundling & eFAST Digital Alignment):",
+        "3. Policy Response to Q3 (Credit Rating, Relationship & eFAST Moderating Mechanisms):",
         "Addressing the moderating impacts of credit ratings (β6 = -0.18), relationship tenure (β7 = -0.14), and eFAST digital adoption (β8 = +0.28), VietinBank must transition from standard flat fee schedules to an automated Risk-Adjusted & Digital Fee Matrix embedded in Core Banking. High-quality corporate clients (AAA/AA ratings) and long-term relationship clients should receive automated fee discount incentives, while eFAST online users receive streamlined processing fee waivers."
     )
 
     add_numbered(
-        "4. Policy Response to Q4 (Digital eFAST Fee Incentives & Margin Flexibility):",
-        "Addressing digital channel adoption (DIGITAL) and collateral margin constraints (MARGIN_RATIO), VietinBank should launch a dedicated Digital eFAST Guarantee Incentive program offering a 5% to 10% fee reduction for e-guarantees submitted and issued online 24/7. Concurrently, VietinBank should adopt flexible collateral margin policies, reducing cash margin requirements for short-term tender guarantees (TG) to liberate contractor working capital."
+        "4. Policy Response to Q4 (Executive Action Plan: Risk Pricing, eFAST Incentives & Collateral Margin Policy):",
+        "Responding directly to Q4's request for actionable executive strategies, VietinBank leadership must execute three core managerial policies: (i) deploy automated risk-adjusted fee matrices on Core Banking; (ii) launch a dedicated Digital eFAST Fee Incentive offering a 5% to 10% fee reduction for e-guarantees submitted and issued online 24/7; and (iii) adopt flexible collateral margin policies, reducing cash margin requirements for short-term tender guarantees (TG) to liberate contractor working capital."
     )
 
     # ==================== SECTION V: REFERENCES ====================
@@ -426,7 +426,7 @@ def generate_option1_docx():
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Thesis_Design_Option1_Fee_Income_Final.docx"
     doc.save(output_filename)
-    print(f"Successfully updated Option 1 Thesis Design Word document with eFAST in Solution 3 at {output_filename}!")
+    print(f"Successfully refined Q3 and Q4 distinct academic focus in {output_filename}!")
 
 if __name__ == "__main__":
     generate_option1_docx()
