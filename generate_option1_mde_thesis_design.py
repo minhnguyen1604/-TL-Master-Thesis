@@ -373,13 +373,13 @@ def generate_option1_docx():
     )
 
     add_numbered(
-        "3. Policy Response to Q3 (Risk-Adjusted Pricing & Relationship Bundling):",
-        "Addressing the moderating impacts of credit ratings (β6 = -0.18) and relationship tenure (β7 = -0.14), VietinBank must transition from standard flat fee schedules to a automated Risk-Adjusted Fee Pricing Matrix embedded in Core Banking. High-quality corporate clients (AAA/AA ratings) and long-term relationship clients should receive automated fee discount incentives, while lower rating tiers (B/C ratings) should incur risk surcharges."
+        "3. Policy Response to Q3 (Risk Pricing, Relationship Bundling & eFAST Digital Alignment):",
+        "Addressing the moderating impacts of credit ratings (β6 = -0.18), relationship tenure (β7 = -0.14), and eFAST digital adoption (β8 = +0.28), VietinBank must transition from standard flat fee schedules to an automated Risk-Adjusted & Digital Fee Matrix embedded in Core Banking. High-quality corporate clients (AAA/AA ratings) and long-term relationship clients should receive automated fee discount incentives, while eFAST online users receive streamlined processing fee waivers."
     )
 
     add_numbered(
         "4. Policy Response to Q4 (Digital eFAST Fee Incentives & Margin Flexibility):",
-        "Addressing digital adoption (β8 = +0.28) and collateral margin constraints (β2 = -0.12), VietinBank should launch a Digital eFAST Fee Incentive program offering a 5% to 10% fee reduction for e-guarantees submitted and processed online 24/7. Concurrently, VietinBank should adopt flexible margin policies, reducing cash margin requirements for short-term tender guarantees (TG) to liberate contractor working capital."
+        "Addressing digital channel adoption (DIGITAL) and collateral margin constraints (MARGIN_RATIO), VietinBank should launch a dedicated Digital eFAST Guarantee Incentive program offering a 5% to 10% fee reduction for e-guarantees submitted and issued online 24/7. Concurrently, VietinBank should adopt flexible collateral margin policies, reducing cash margin requirements for short-term tender guarantees (TG) to liberate contractor working capital."
     )
 
     # ==================== SECTION V: REFERENCES ====================
@@ -426,7 +426,7 @@ def generate_option1_docx():
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Thesis_Design_Option1_Fee_Income_Final.docx"
     doc.save(output_filename)
-    print(f"Successfully aligned Section IV recommendations 1-to-1 with Section 1.3 sub-questions Q1-Q4 in {output_filename}!")
+    print(f"Successfully updated Option 1 Thesis Design Word document with eFAST in Solution 3 at {output_filename}!")
 
 if __name__ == "__main__":
     generate_option1_docx()

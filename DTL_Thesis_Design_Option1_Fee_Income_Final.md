@@ -99,11 +99,11 @@ To ensure strict academic consistency, the managerial recommendations formulated
 2. **Policy Response to Q2 (Volume-Tenor Tiered Fee Elasticities):**  
    Based on the empirical elasticity estimates ($\beta_1 = +0.65$ for limit size and $\beta_3 = +0.25$ for tenor), VietinBank should implement a Volume-Tenor Tiered Guarantee Fee Schedule. For large-scale multi-year guarantee limits, VietinBank should apply progressive fee brackets that maximize absolute fee revenue (`ln_FEE`) while offering competitive fee yield rates (`FEE_YIELD`) to prevent client disintermediation.
 
-3. **Policy Response to Q3 (Risk-Adjusted Pricing & Relationship Bundling):**  
-   Addressing the moderating impacts of credit ratings ($\beta_6 = -0.18$) and relationship tenure ($\beta_7 = -0.14$), VietinBank must transition from standard flat fee schedules to an automated Risk-Adjusted Fee Pricing Matrix embedded in Core Banking. High-quality corporate clients (AAA/AA ratings) and long-term relationship clients should receive automated fee discount incentives, while lower rating tiers (B/C ratings) should incur risk surcharges.
+3. **Policy Response to Q3 (Risk Pricing, Relationship Bundling & eFAST Digital Alignment):**  
+   Addressing the moderating impacts of credit ratings ($\beta_6 = -0.18$), relationship tenure ($\beta_7 = -0.14$), and eFAST digital adoption ($\beta_8 = +0.28$), VietinBank must transition from standard flat fee schedules to an automated Risk-Adjusted & Digital Fee Matrix embedded in Core Banking. High-quality corporate clients (AAA/AA ratings) and long-term relationship clients should receive automated fee discount incentives, while eFAST online users receive streamlined processing fee waivers.
 
 4. **Policy Response to Q4 (Digital eFAST Fee Incentives & Margin Flexibility):**  
-   Addressing digital adoption ($\beta_8 = +0.28$) and collateral margin constraints ($\beta_2 = -0.12$), VietinBank should launch a Digital eFAST Fee Incentive program offering a 5% to 10% fee reduction for e-guarantees submitted and processed online 24/7. Concurrently, VietinBank should adopt flexible margin policies, reducing cash margin requirements for short-term tender guarantees (TG) to liberate contractor working capital.
+   Addressing digital channel adoption (`DIGITAL`) and collateral margin constraints (`MARGIN_RATIO`), VietinBank should launch a dedicated Digital eFAST Guarantee Incentive program offering a 5% to 10% fee reduction for e-guarantees submitted and issued online 24/7. Concurrently, VietinBank should adopt flexible collateral margin policies, reducing cash margin requirements for short-term tender guarantees (TG) to liberate contractor working capital.
 
 ---
 
