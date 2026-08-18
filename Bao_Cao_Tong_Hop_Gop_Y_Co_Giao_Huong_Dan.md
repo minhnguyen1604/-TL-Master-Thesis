@@ -28,6 +28,17 @@
 | **4** | **Thang đo phải bám sát Bảng hỏi gốc (n = 800):**<br>Không tự xây dựng thang đo mới rồi gán ép vào bộ dữ liệu đã thu thập. | Đảm bảo tính chân thực: Mọi biến trong đề cương phải có cột dữ liệu tương ứng trong file khảo sát 34 câu. | **Ánh xạ 100% hệ thống 7 biến độc lập và biến phụ thuộc** khớp hoàn toàn với 34 câu hỏi thực tế trong Phiếu khảo sát VietinBank. |
 | **5** | **Chuẩn hóa Mục tiêu & Câu hỏi nghiên cứu:**<br>Viết lại mục tiêu tổng quát và 4 mục tiêu cụ thể tiếng Anh chuẩn NEU MDE, bổ sung phân tích khác biệt nhóm. | Nâng cao chuẩn mực học thuật quốc tế và mở rộng góc nhìn quản trị thông qua kiểm định so sánh nhóm doanh nghiệp. | **Cập nhật nguyên văn 100% bộ Mục tiêu tiếng Anh của Giảng viên** vào Mục 1.2 & 1.3; bổ sung kiểm định ANOVA & t-test ở Mục tiêu 3. |
 
+### 1.3. Giải trình Cơ sở Học thuật & Thực tiễn về việc GIỮ LẠI biến Chuyển đổi số eFAST (DIGITAL_CONV)
+Học viên xin phép được giải trình làm rõ lý do vì sao trong quá trình rút gọn mô hình từ 10 biến xuống 7 biến, **biến Chuyển đổi số eFAST (`DIGITAL_CONV`) vẫn được giữ lại làm một biến độc lập trọng tâm** trong mô hình:
+1. **Tính thời sự và xu hướng chuyển đổi số tất yếu của ngành Ngân hàng:**  
+   Chuyển đổi số là trọng tâm chiến lược của Chính phủ và Ngân hàng TMCP Công thương Việt Nam. Theo Thông tư số 61/2024/TT-NHNN (có hiệu lực từ ngày 01/4/2025 thay thế Thông tư 11/2022/TT-NHNN), nghiệp vụ Bảo lãnh Điện tử (e-guarantees) đã được luật hóa toàn diện. Hiện nay, tính năng nộp đề nghị online, thẩm định số hóa STP và cấp Thư bảo lãnh điện tử 24/7 qua nền tảng VietinBank eFAST đang là "vũ khí cạnh tranh sắc bén nhất" giúp VietinBank thu hút các doanh nghiệp xây dựng, nhà thầu và doanh nghiệp thương mại.
+2. **Cơ sở lý thuyết vững chắc (Technology Acceptance Model - TAM):**  
+   Biến `DIGITAL_CONV` được bảo chứng vững chắc bởi Mô hình Chấp nhận Công nghệ TAM (Davis, 1989; Venkatesh et al., 2003). Tính hữu ích cảm nhận (Perceived Usefulness) và Tính dễ sử dụng (Perceived Ease-of-Use) của giao dịch số hóa eFAST tác động trực tiếp, mạnh mẽ đến thái độ và quyết định lựa chọn ngân hàng phục vụ của khách hàng doanh nghiệp hiện đại.
+3. **Hoàn toàn phù hợp với khuyến nghị quy mô 6–7 biến của Giảng viên:**  
+   Sau khi rút gọn và tinh giản các biến phụ, việc giữ lại biến `DIGITAL_CONV` cấu thành đúng hệ thống 7 biến độc lập (nằm trọn vẹn trong khoảng 6–7 biến cô khuyên). Mô hình không bị dàn trải nhưng lại có được một điểm nhấn công nghệ rất sáng, giúp bài luận văn vừa đạt chuẩn học thuật vừa mang hơi thở thực tiễn sinh động.
+4. **Dữ liệu có sẵn và đo lường độc lập trong bảng khảo sát gốc ($n = 800$):**  
+   Các câu hỏi về tính năng nộp hồ sơ eFAST 24/7, tốc độ cấp mã bảo lãnh điện tử và tra cứu trực tuyến đã được thu thập đầy đủ trong tập dữ liệu 800 doanh nghiệp, đảm bảo tính khả thi tuyệt đối khi phân tích EFA và hồi quy OLS.
+
 ---
 
 ## PHẦN II: TỔNG HỢP CÁC NỘI DUNG ĐÃ ĐIỀU CHỈNH TRONG FILE THESIS DESIGN

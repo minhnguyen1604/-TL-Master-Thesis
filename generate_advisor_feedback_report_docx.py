@@ -191,6 +191,43 @@ def generate_report_docx():
         r_cells[1].paragraphs[0].add_run(rsn)
         r_cells[2].paragraphs[0].add_run(sol)
 
+    doc.add_paragraph().paragraph_format.space_after = Pt(8)
+
+    # 1.3 GIẢI TRÌNH CƠ SỞ GIỮ LẠI BIẾN CHUYỂN ĐỔI SỐ EFAST
+    doc.add_heading("1.3. Giải trình Cơ sở Học thuật & Thực tiễn về việc GIỮ LẠI biến Chuyển đổi số eFAST (DIGITAL_CONV)", level=2)
+    add_body(
+        "Học viên xin phép được giải trình làm rõ lý do vì sao trong quá trình rút gọn mô hình từ 10 biến xuống 7 biến, "
+        "biến Chuyển đổi số eFAST (DIGITAL_CONV) vẫn được giữ lại làm một biến độc lập trọng tâm trong mô hình:"
+    )
+    add_numbered(
+        "1.",
+        "Tính thời sự và xu hướng chuyển đổi số tất yếu của ngành Ngân hàng: "
+        "Chuyển đổi số là trọng tâm chiến lược của Chính phủ và Ngân hàng TMCP Công thương Việt Nam. Theo Thông tư số 61/2024/TT-NHNN "
+        "(có hiệu lực từ ngày 01/4/2025 thay thế Thông tư 11/2022/TT-NHNN), nghiệp vụ Bảo lãnh Điện tử (e-guarantees) đã được luật hóa toàn diện. "
+        "Hiện nay, tính năng nộp đề nghị online, thẩm định số hóa STP và cấp Thư bảo lãnh điện tử 24/7 qua nền tảng VietinBank eFAST đang là "
+        "vũ khí cạnh tranh sắc bén nhất giúp VietinBank thu hút các doanh nghiệp xây dựng, nhà thầu và doanh nghiệp thương mại."
+    )
+    add_numbered(
+        "2.",
+        "Cơ sở lý thuyết vững chắc (Technology Acceptance Model - TAM): "
+        "Biến DIGITAL_CONV được bảo chứng vững chắc bởi Mô hình Chấp nhận Công nghệ TAM (Davis, 1989; Venkatesh et al., 2003). "
+        "Tính hữu ích cảm nhận (Perceived Usefulness) và Tính dễ sử dụng (Perceived Ease-of-Use) của giao dịch số hóa eFAST tác động trực tiếp, "
+        "mạnh mẽ đến thái độ và quyết định lựa chọn ngân hàng phục vụ của khách hàng doanh nghiệp hiện đại."
+    )
+    add_numbered(
+        "3.",
+        "Hoàn toàn phù hợp với khuyến nghị quy mô 6–7 biến của Giảng viên: "
+        "Sau khi rút gọn và tinh giản các biến phụ, việc giữ lại biến DIGITAL_CONV cấu thành đúng hệ thống 7 biến độc lập "
+        "(nằm trọn vẹn trong khoảng 6–7 biến cô khuyên). Mô hình không bị dàn trải nhưng lại có được một điểm nhấn công nghệ rất sáng, "
+        "giúp bài luận văn vừa đạt chuẩn học thuật vừa mang hơi thở thực tiễn sinh động."
+    )
+    add_numbered(
+        "4.",
+        "Dữ liệu có sẵn và đo lường độc lập trong bảng khảo sát gốc (n = 800): "
+        "Các câu hỏi về tính năng nộp hồ sơ eFAST 24/7, tốc độ cấp mã bảo lãnh điện tử và tra cứu trực tuyến đã được thu thập đầy đủ "
+        "trong tập dữ liệu 800 doanh nghiệp, đảm bảo tính khả thi tuyệt đối khi phân tích EFA và hồi quy OLS."
+    )
+
     doc.add_paragraph().paragraph_format.space_after = Pt(12)
 
     # ==================== PHẦN II ====================
@@ -282,7 +319,7 @@ def generate_report_docx():
     # Save output file
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/Bao_Cao_Tong_Hop_Gop_Y_Co_Giao_Huong_Dan.docx"
     doc.save(output_filename)
-    print(f"Successfully generated Advisor Feedback Report at {output_filename}!")
+    print(f"Successfully updated Advisor Feedback Report with eFAST section at {output_filename}!")
 
 if __name__ == "__main__":
     generate_report_docx()
