@@ -29,7 +29,9 @@ Dự án được xây dựng và chuẩn hóa theo **2 Phương án nghiên c�
 
 ## 📂 DANH MỤC TỆP TIN TRONG KHO LƯU TRỮ (REPOSITORY MAP)
 
-### 📄 1. Hồ sơ Đề cương Luận văn (Thesis Design Proposals)
+### 📄 1. Hồ sơ Đề cương & Khung Cấu trúc Luận văn (Thesis Design & Master Thesis Templates)
+* **`DTL_Master_Thesis_Full_Structure_Template.docx`**: **File Word Khung Cấu trúc Luận văn Thạc sĩ Hoàn chỉnh (Full Master Thesis Skeleton)** – Đã dựng sẵn 100% toàn bộ hệ thống đề mục phân cấp (Heading 1, 2, 3), bìa, lời cam đoan, tóm tắt, mục lục, 4 chương, tài liệu tham khảo và phụ lục kèm hướng dẫn chi tiết dưới từng mục.
+* **`DTL_Master_Thesis_Full_Structure_Template.md`**: Bản xem trước Markdown của Khung Cấu trúc Luận văn hoàn chỉnh.
 * **`DTL_Thesis_Design_NEU_MDE_Final.docx`**: **File Word Đề cương Luận văn chính thức (Phương án 2)** – Đã cập nhật 100% theo nhận xét của TS. Hoàng Thị Thúy Nga (chuẩn 7 biến, 4 mục tiêu tiếng Anh NEU MDE, căn lề $1.0\text{ inch}$, running header có gạch chân xám `#888888`).
 * **`DTL_Thesis_Design_NEU_MDE_Final.md`**: Bản xem trước Markdown của Đề cương Phương án 2.
 * **`DTL_Thesis_Design_Option1_Fee_Income_Final.docx`**: **File Word Đề cương Luận văn Phương án 1** – Hướng Thu nhập Phí và Hiệu quả Tài chính trên dữ liệu giao dịch Core Banking.
