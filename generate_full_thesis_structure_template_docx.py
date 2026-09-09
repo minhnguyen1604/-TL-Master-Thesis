@@ -1,19 +1,30 @@
 import docx
 from docx.shared import Inches, Pt, RGBColor
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT, WD_TAB_LEADER
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
-def set_cell_background(cell, fill_hex):
+def set_cell_borders(cell, top=None, bottom=None, left=None, right=None):
     tcPr = cell._element.get_or_add_tcPr()
-    shd = OxmlElement('w:shd')
-    shd.set(qn('w:val'), 'clear')
-    shd.set(qn('w:color'), 'auto')
-    shd.set(qn('w:fill'), fill_hex)
-    tcPr.append(shd)
+    tcBorders = OxmlElement('w:tcBorders')
+    
+    borders = {'top': top, 'bottom': bottom, 'left': left, 'right': right}
+    for border_name, border_style in borders.items():
+        if border_style:
+            b_el = OxmlElement(f'w:{border_name}')
+            b_el.set(qn('w:val'), border_style.get('val', 'single'))
+            b_el.set(qn('w:sz'), str(border_style.get('sz', 4)))
+            b_el.set(qn('w:space'), '0')
+            b_el.set(qn('w:color'), border_style.get('color', '000000'))
+            tcBorders.append(b_el)
+        else:
+            b_el = OxmlElement(f'w:{border_name}')
+            b_el.set(qn('w:val'), 'none')
+            tcBorders.append(b_el)
+    tcPr.append(tcBorders)
 
-def add_bottom_border_to_paragraph(paragraph, color_hex="888888", size="6"):
+def add_bottom_border_to_paragraph(paragraph, color_hex="000000", size="6"):
     pPr = paragraph._element.get_or_add_pPr()
     pBdr = OxmlElement('w:pBdr')
     bottom = OxmlElement('w:bottom')
@@ -24,7 +35,7 @@ def add_bottom_border_to_paragraph(paragraph, color_hex="888888", size="6"):
     pBdr.append(bottom)
     pPr.append(pBdr)
 
-def generate_pristine_thesis_template():
+def generate_black_pristine_thesis_template():
     doc = docx.Document()
 
     # 1. Page Margins (1.0 inch = 2.54 cm standard)
@@ -42,9 +53,9 @@ def generate_pristine_thesis_template():
     r_head = p_head.add_run("Master Thesis – MDE31 – Dang Tu Linh")
     r_head.font.name = 'Times New Roman'
     r_head.font.size = Pt(10)
-    r_head.font.color.rgb = RGBColor(0x33, 0x33, 0x33)
+    r_head.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
     r_head.italic = True
-    add_bottom_border_to_paragraph(p_head, color_hex="888888", size="6")
+    add_bottom_border_to_paragraph(p_head, color_hex="000000", size="4")
 
     # Configure Styles
     styles = doc.styles
@@ -53,7 +64,7 @@ def generate_pristine_thesis_template():
     style_normal = styles['Normal']
     style_normal.font.name = 'Times New Roman'
     style_normal.font.size = Pt(12)
-    style_normal.font.color.rgb = RGBColor(0x22, 0x22, 0x22)
+    style_normal.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
     style_normal.paragraph_format.line_spacing = 1.15
     style_normal.paragraph_format.space_after = Pt(6)
 
@@ -62,7 +73,7 @@ def generate_pristine_thesis_template():
     style_h1.font.name = 'Times New Roman'
     style_h1.font.size = Pt(14)
     style_h1.font.bold = True
-    style_h1.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    style_h1.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
     style_h1.paragraph_format.space_before = Pt(14)
     style_h1.paragraph_format.space_after = Pt(6)
 
@@ -71,7 +82,7 @@ def generate_pristine_thesis_template():
     style_h2.font.name = 'Times New Roman'
     style_h2.font.size = Pt(12.5)
     style_h2.font.bold = True
-    style_h2.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    style_h2.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
     style_h2.paragraph_format.space_before = Pt(10)
     style_h2.paragraph_format.space_after = Pt(4)
 
@@ -81,7 +92,7 @@ def generate_pristine_thesis_template():
     style_h3.font.size = Pt(12)
     style_h3.font.bold = True
     style_h3.font.italic = True
-    style_h3.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    style_h3.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
     style_h3.paragraph_format.space_before = Pt(6)
     style_h3.paragraph_format.space_after = Pt(2)
 
@@ -89,7 +100,47 @@ def generate_pristine_thesis_template():
         p = doc.add_paragraph()
         p.alignment = align
         p.paragraph_format.space_after = Pt(space_after)
-        p.add_run(text)
+        r = p.add_run(text)
+        r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        return p
+
+    def add_toc_line(title, page_num, level=1):
+        p = doc.add_paragraph()
+        p.paragraph_format.space_after = Pt(3)
+        p.paragraph_format.line_spacing = 1.15
+        
+        # Add tab stop at 6.5 inches (right aligned with dots)
+        tab_stops = p.paragraph_format.tab_stops
+        tab_stops.add_tab_stop(Inches(6.5), WD_TAB_ALIGNMENT.RIGHT, WD_TAB_LEADER.DOTS)
+        
+        if level == 1:
+            p.paragraph_format.left_indent = Inches(0.0)
+            p.paragraph_format.space_before = Pt(4)
+            r1 = p.add_run(title)
+            r1.bold = True
+            r1.font.size = Pt(11)
+            r1.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+            r2 = p.add_run(f"\t{page_num}")
+            r2.bold = True
+            r2.font.size = Pt(11)
+            r2.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        elif level == 2:
+            p.paragraph_format.left_indent = Inches(0.25)
+            r1 = p.add_run(title)
+            r1.font.size = Pt(10.5)
+            r1.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+            r2 = p.add_run(f"\t{page_num}")
+            r2.font.size = Pt(10.5)
+            r2.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        elif level == 3:
+            p.paragraph_format.left_indent = Inches(0.5)
+            r1 = p.add_run(title)
+            r1.font.size = Pt(10)
+            r1.italic = True
+            r1.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+            r2 = p.add_run(f"\t{page_num}")
+            r2.font.size = Pt(10)
+            r2.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
         return p
 
     # ==================== COVER PAGE ====================
@@ -99,7 +150,7 @@ def generate_pristine_thesis_template():
     r = p_cov1.add_run("NATIONAL ECONOMICS UNIVERSITY\nVIETNAM-NETHERLANDS MASTER’S PROGRAM IN DEVELOPMENT ECONOMICS (MDE)")
     r.bold = True
     r.font.size = Pt(13)
-    r.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_cov2 = doc.add_paragraph()
     p_cov2.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -108,7 +159,7 @@ def generate_pristine_thesis_template():
     r = p_cov2.add_run("MASTER THESIS")
     r.bold = True
     r.font.size = Pt(18)
-    r.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_cov3 = doc.add_paragraph()
     p_cov3.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -116,7 +167,7 @@ def generate_pristine_thesis_template():
     r = p_cov3.add_run("FACTORS AFFECTING CORPORATE CUSTOMERS’ DECISION TO CHOOSE BANK GUARANTEE SERVICES AT VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE (VIETINBANK)")
     r.bold = True
     r.font.size = Pt(14)
-    r.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_cov4 = doc.add_paragraph()
     p_cov4.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -124,12 +175,14 @@ def generate_pristine_thesis_template():
     r = p_cov4.add_run("Student: DANG TU LINH")
     r.bold = True
     r.font.size = Pt(12)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_cov5 = doc.add_paragraph()
     p_cov5.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p_cov5.paragraph_format.space_after = Pt(4)
     r = p_cov5.add_run("Student ID / Class: MDE Class 31")
     r.font.size = Pt(12)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_cov6 = doc.add_paragraph()
     p_cov6.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -137,12 +190,14 @@ def generate_pristine_thesis_template():
     r = p_cov6.add_run("Academic Supervisor: Dr. HOANG THI THUY NGA")
     r.bold = True
     r.font.size = Pt(12)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_cov7 = doc.add_paragraph()
     p_cov7.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p_cov7.add_run("Hanoi, 2026")
     r.italic = True
     r.font.size = Pt(11)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     doc.add_page_break()
 
@@ -153,7 +208,7 @@ def generate_pristine_thesis_template():
     r = p_t1.add_run("NATIONAL ECONOMICS UNIVERSITY\nERASMUS UNIVERSITY ROTTERDAM - ISS")
     r.bold = True
     r.font.size = Pt(12)
-    r.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_t2 = doc.add_paragraph()
     p_t2.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -162,6 +217,7 @@ def generate_pristine_thesis_template():
     r = p_t2.add_run("MASTER’S THESIS IN DEVELOPMENT ECONOMICS")
     r.bold = True
     r.font.size = Pt(15)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_t3 = doc.add_paragraph()
     p_t3.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -169,7 +225,7 @@ def generate_pristine_thesis_template():
     r = p_t3.add_run("FACTORS AFFECTING CORPORATE CUSTOMERS’ DECISION TO CHOOSE BANK GUARANTEE SERVICES AT VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE (VIETINBANK)")
     r.bold = True
     r.font.size = Pt(13)
-    r.font.color.rgb = RGBColor(0x00, 0x33, 0x66)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_t4 = doc.add_paragraph()
     p_t4.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -177,6 +233,7 @@ def generate_pristine_thesis_template():
     r = p_t4.add_run("Author: DANG TU LINH")
     r.bold = True
     r.font.size = Pt(12)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_t5 = doc.add_paragraph()
     p_t5.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -184,12 +241,14 @@ def generate_pristine_thesis_template():
     r = p_t5.add_run("Academic Supervisor: Dr. HOANG THI THUY NGA")
     r.bold = True
     r.font.size = Pt(12)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     p_t6 = doc.add_paragraph()
     p_t6.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = p_t6.add_run("A thesis submitted in partial fulfillment of the requirements for the degree of\nMaster of Arts in Development Economics\nHanoi, June 2026")
     r.italic = True
     r.font.size = Pt(11)
+    r.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     doc.add_page_break()
 
@@ -200,8 +259,12 @@ def generate_pristine_thesis_template():
     p_sig = doc.add_paragraph()
     p_sig.alignment = WD_ALIGN_PARAGRAPH.RIGHT
     p_sig.paragraph_format.space_after = Pt(4)
-    p_sig.add_run("Hanoi, June 2026\nStudent Author\n\n\n\n").italic = True
-    p_sig.add_run("Dang Tu Linh").bold = True
+    r_s1 = p_sig.add_run("Hanoi, June 2026\nStudent Author\n\n\n\n")
+    r_s1.italic = True
+    r_s1.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+    r_s2 = p_sig.add_run("Dang Tu Linh")
+    r_s2.bold = True
+    r_s2.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     doc.add_page_break()
 
@@ -215,14 +278,108 @@ def generate_pristine_thesis_template():
     p_abs.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     p_abs.paragraph_format.space_before = Pt(12)
     p_abs.paragraph_format.space_after = Pt(12)
-    r_abs = p_abs.add_run("Keywords: ")
-    r_abs.bold = True
-    p_abs.add_run("Bank Guarantee Services, Corporate Selection Decision, Price Competitiveness, eFAST Digital Adoption, OLS Multiple Regression, VietinBank.")
+    r_abs1 = p_abs.add_run("Keywords: ")
+    r_abs1.bold = True
+    r_abs1.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+    r_abs2 = p_abs.add_run("Bank Guarantee Services, Corporate Selection Decision, Price Competitiveness, eFAST Digital Adoption, OLS Multiple Regression, VietinBank.")
+    r_abs2.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     doc.add_page_break()
 
     # ==================== TABLE OF CONTENTS ====================
     doc.add_heading("TABLE OF CONTENTS", level=1)
+
+    # Add TOC entries
+    toc_items = [
+        ("STATEMENT OF AUTHORSHIP", "iii", 1),
+        ("ACKNOWLEDGEMENTS", "iv", 1),
+        ("ABSTRACT", "v", 1),
+        ("LIST OF ABBREVIATIONS", "vii", 1),
+        ("LIST OF TABLES", "viii", 1),
+        ("LIST OF FIGURES", "ix", 1),
+        ("CHAPTER 1: INTRODUCTION", "1", 1),
+        ("1.1. Research Rationales & Background", "1", 2),
+        ("1.2. Research Problem & Industry Context at VietinBank", "3", 2),
+        ("1.3. Research Objectives", "4", 2),
+        ("1.3.1. General Objective", "4", 3),
+        ("1.3.2. Specific Objectives", "4", 3),
+        ("1.4. Research Questions", "5", 2),
+        ("1.5. Scope and Boundaries of the Study", "5", 2),
+        ("1.6. Significance & Contributions of the Study", "6", 2),
+        ("1.7. Structure of the Thesis", "6", 2),
+        ("CHAPTER 2: LITERATURE REVIEW AND THEORETICAL FRAMEWORK", "8", 1),
+        ("2.1. Overview of Bank Guarantee Services in Commercial Banking", "8", 2),
+        ("2.1.1. Nature and Economic Functions of Bank Guarantees", "8", 3),
+        ("2.1.2. Main Types of Corporate Bank Guarantees", "9", 3),
+        ("2.1.3. Legal and Regulatory Framework", "11", 3),
+        ("2.2. Theoretical Foundations", "13", 2),
+        ("2.2.1. Financial Intermediation & Delegated Monitoring Theory", "13", 3),
+        ("2.2.2. Credit Risk Pricing & Contingent Claim Theory", "14", 3),
+        ("2.2.3. Service Quality Theory & SERVQUAL Model", "16", 3),
+        ("2.2.4. Relationship Banking Theory", "18", 3),
+        ("2.2.5. Technology Acceptance Model (TAM) & Digital Banking", "20", 3),
+        ("2.3. Empirical Literature on Corporate Bank Selection", "22", 2),
+        ("2.3.1. International Empirical Studies", "22", 3),
+        ("2.3.2. Empirical Studies in the Vietnamese Banking Context", "24", 3),
+        ("2.4. Research Gaps", "26", 2),
+        ("2.5. Conceptual Framework and Research Hypotheses", "27", 2),
+        ("2.5.1. Conceptual Research Framework", "27", 3),
+        ("2.5.2. Hypothesis Development", "28", 3),
+        ("CHAPTER 3: RESEARCH METHODOLOGY AND EMPIRICAL DESIGN", "31", 1),
+        ("3.1. Overall Research Design & Analytical Process", "31", 2),
+        ("3.2. Questionnaire Design & Measurement Scales", "32", 2),
+        ("3.2.1. Operationalization of Variables", "32", 3),
+        ("3.2.2. Mapping Scales with the Official 34-Item Survey Questionnaire", "35", 3),
+        ("3.3. Population, Sampling Strategy and Data Collection", "36", 2),
+        ("3.3.1. Target Population & Sampling Method", "36", 3),
+        ("3.3.2. Sample Size Determination", "37", 3),
+        ("3.3.3. Survey Administration across 155 VietinBank Branches", "38", 3),
+        ("3.4. Econometric & Quantitative Analytical Methods", "39", 2),
+        ("3.4.1. Descriptive Statistics", "39", 3),
+        ("3.4.2. Scale Reliability Testing (Cronbach’s Alpha)", "40", 3),
+        ("3.4.3. Exploratory Factor Analysis (EFA)", "41", 3),
+        ("3.4.4. Factor Scores Extraction Method", "42", 3),
+        ("3.4.5. Pearson Correlation Analysis & Multicollinearity Diagnostics (VIF)", "43", 3),
+        ("3.4.6. Multiple Linear Regression Model Specification (OLS)", "44", 3),
+        ("3.4.7. Sub-Group Difference Testing Methods (ANOVA & t-test)", "45", 3),
+        ("CHAPTER 4: EMPIRICAL RESULTS, DISCUSSION AND MANAGERIAL RECOMMENDATIONS", "47", 1),
+        ("4.1. Descriptive Statistics of the Sample (n = 800)", "47", 2),
+        ("4.1.1. Ownership Type Distribution", "47", 3),
+        ("4.1.2. Firm Revenue Scale Distribution", "49", 3),
+        ("4.1.3. Operating Experience Distribution", "50", 3),
+        ("4.1.4. Usage Distribution of Bank Guarantee Products", "51", 3),
+        ("4.2. Scale Reliability Analysis Results (Cronbach’s Alpha)", "53", 2),
+        ("4.3. Exploratory Factor Analysis Results (EFA)", "55", 2),
+        ("4.3.1. EFA for Independent Variables", "55", 3),
+        ("4.3.2. EFA for Dependent Variable (DEC)", "58", 3),
+        ("4.4. Correlation Analysis & Multicollinearity Diagnostics (VIF)", "59", 2),
+        ("4.5. Multiple Linear Regression Results (OLS)", "61", 2),
+        ("4.5.1. Model Summary & Goodness of Fit", "61", 3),
+        ("4.5.2. Estimated Coefficients and Hypothesis Testing", "63", 3),
+        ("4.6. Sub-Group Difference Analysis Results (ANOVA & t-test)", "66", 2),
+        ("4.6.1. Selection Differences across Ownership Types", "66", 3),
+        ("4.6.2. Selection Differences across Firm Scales and Operating Experience", "68", 3),
+        ("4.6.3. Selection Differences across Guarantee Product Types", "70", 3),
+        ("4.7. Discussion of Empirical Findings", "72", 2),
+        ("4.8. Managerial Implications & Policy Recommendations for VietinBank", "75", 2),
+        ("4.8.1. Enhancing Core Service Capabilities (Response to Objective 1)", "75", 3),
+        ("4.8.2. Strategies for Price Competitiveness & Processing Speed (Response to Objective 2)", "77", 3),
+        ("4.8.3. Tailored Guarantee Packages for Corporate Segments (Response to Objective 3)", "79", 3),
+        ("4.8.4. Breakthrough Digital Transformation Strategy via VietinBank eFAST (Response to Objective 4)", "81", 3),
+        ("4.9. Policy Recommendations for the State Bank of Vietnam", "83", 2),
+        ("4.10. Research Limitations and Suggestions for Future Research", "85", 2),
+        ("REFERENCES", "87", 1),
+        ("APPENDICES", "92", 1),
+        ("Appendix 1: Official 34-Item Survey Questionnaire", "92", 2),
+        ("Appendix 2: Sample Demographic Characteristics Output", "96", 2),
+        ("Appendix 3: Cronbach’s Alpha Reliability Analysis Output", "98", 2),
+        ("Appendix 4: EFA Total Variance Explained & Rotated Component Matrix Output", "100", 2),
+        ("Appendix 5: OLS Multiple Regression, VIF & Sub-group ANOVA Output", "103", 2)
+    ]
+
+    for t_title, t_page, t_lvl in toc_items:
+        add_toc_line(t_title, t_page, level=t_lvl)
+
     doc.add_page_break()
 
     # ==================== LIST OF ABBREVIATIONS ====================
@@ -233,11 +390,17 @@ def generate_pristine_thesis_template():
     col_w = [Inches(2.0), Inches(4.5)]
     for i, w in enumerate(col_w): t_abbr.rows[0].cells[i].width = w
     hdr = t_abbr.rows[0].cells
-    hdr[0].paragraphs[0].add_run("Abbreviation").bold = True
-    hdr[1].paragraphs[0].add_run("Full Term / Meaning").bold = True
-    for c in hdr: 
-        set_cell_background(c, "003366")
-        c.paragraphs[0].runs[0].font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
+    
+    r1 = hdr[0].paragraphs[0].add_run("Abbreviation")
+    r1.bold = True
+    r1.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+    
+    r2 = hdr[1].paragraphs[0].add_run("Full Term / Meaning")
+    r2.bold = True
+    r2.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+    
+    set_cell_borders(hdr[0], top={'sz': 12, 'val': 'single', 'color': '000000'}, bottom={'sz': 8, 'val': 'single', 'color': '000000'})
+    set_cell_borders(hdr[1], top={'sz': 12, 'val': 'single', 'color': '000000'}, bottom={'sz': 8, 'val': 'single', 'color': '000000'})
     
     sample_abbr = [
         ("ANOVA", "Analysis of Variance"),
@@ -260,11 +423,19 @@ def generate_pristine_thesis_template():
         ("URDG 758", "Uniform Rules for Demand Guarantees, ICC Publication No. 758"),
         ("VIF", "Variance Inflation Factor")
     ]
-    for a, e in sample_abbr:
+    for idx, (a, e) in enumerate(sample_abbr):
         rc = t_abbr.add_row().cells
         for i, w in enumerate(col_w): rc[i].width = w
-        rc[0].paragraphs[0].add_run(a).bold = True
-        rc[1].paragraphs[0].add_run(e)
+        ra = rc[0].paragraphs[0].add_run(a)
+        ra.bold = True
+        ra.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        re = rc[1].paragraphs[0].add_run(e)
+        re.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        
+        # Bottom border on the last row
+        if idx == len(sample_abbr) - 1:
+            set_cell_borders(rc[0], bottom={'sz': 12, 'val': 'single', 'color': '000000'})
+            set_cell_borders(rc[1], bottom={'sz': 12, 'val': 'single', 'color': '000000'})
 
     doc.add_page_break()
 
@@ -346,20 +517,19 @@ def generate_pristine_thesis_template():
     doc.add_heading("3.2. Questionnaire Design & Measurement Scales", level=2)
     doc.add_heading("3.2.1. Operationalization of Variables", level=3)
 
-    # Table 3.1
+    # Table 3.1 - Clean Academic Black & White Style
     t_v = doc.add_table(rows=1, cols=5)
     t_v.alignment = WD_TABLE_ALIGNMENT.CENTER
     col_w_v = [Inches(1.2), Inches(1.8), Inches(2.5), Inches(0.9), Inches(0.6)]
     for i, w in enumerate(col_w_v): t_v.rows[0].cells[i].width = w
     hdr_v = t_v.rows[0].cells
-    hdr_v[0].paragraphs[0].add_run("Code").bold = True
-    hdr_v[1].paragraphs[0].add_run("Variable Name").bold = True
-    hdr_v[2].paragraphs[0].add_run("Measurement Content (34 Items)").bold = True
-    hdr_v[3].paragraphs[0].add_run("Type").bold = True
-    hdr_v[4].paragraphs[0].add_run("Sign").bold = True
-    for c in hdr_v: 
-        set_cell_background(c, "003366")
-        c.paragraphs[0].runs[0].font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)
+    
+    h_titles = ["Code", "Variable Name", "Measurement Content (34 Items)", "Type", "Sign"]
+    for i, title in enumerate(h_titles):
+        rh = hdr_v[i].paragraphs[0].add_run(title)
+        rh.bold = True
+        rh.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        set_cell_borders(hdr_v[i], top={'sz': 12, 'val': 'single', 'color': '000000'}, bottom={'sz': 8, 'val': 'single', 'color': '000000'})
 
     v_data = [
         ("DEC", "Selection Decision", "Preference & priority choice of VietinBank over competitors (4 items)", "Dependent (Y)", "N/A"),
@@ -371,14 +541,19 @@ def generate_pristine_thesis_template():
         ("STAFF_QUAL", "Staff Professionalism", "RM competence, legal advisory on Bidding Law & TT61 (4 items)", "Independent (X6)", "+"),
         ("COLL_POLICY", "Collateral Flexibility", "Flexible cash margin ratio & diverse pledged collateral (4 items)", "Independent (X7)", "+")
     ]
-    for c, n, m, t, s in v_data:
+    for idx, (c, n, m, t, s) in enumerate(v_data):
         rc = t_v.add_row().cells
         for i, w in enumerate(col_w_v): rc[i].width = w
-        rc[0].paragraphs[0].add_run(c).bold = True
-        rc[1].paragraphs[0].add_run(n)
-        rc[2].paragraphs[0].add_run(m)
-        rc[3].paragraphs[0].add_run(t)
-        rc[4].paragraphs[0].add_run(s).bold = True
+        r_c = rc[0].paragraphs[0].add_run(c); r_c.bold = True; r_c.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        r_n = rc[1].paragraphs[0].add_run(n); r_n.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        r_m = rc[2].paragraphs[0].add_run(m); r_m.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        r_t = rc[3].paragraphs[0].add_run(t); r_t.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        r_s = rc[4].paragraphs[0].add_run(s); r_s.bold = True; r_s.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
+        
+        # Bottom border on the last row
+        if idx == len(v_data) - 1:
+            for cell in rc:
+                set_cell_borders(cell, bottom={'sz': 12, 'val': 'single', 'color': '000000'})
 
     doc.add_heading("3.2.2. Mapping Scales with the Official 34-Item Survey Questionnaire", level=3)
 
@@ -403,6 +578,7 @@ def generate_pristine_thesis_template():
     )
     r_eq.bold = True
     r_eq.font.size = Pt(10.5)
+    r_eq.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     doc.add_heading("3.4.7. Sub-Group Difference Testing Methods (ANOVA & t-test)", level=3)
 
@@ -489,7 +665,9 @@ def generate_pristine_thesis_template():
         p_ref.paragraph_format.left_indent = Inches(0)
         p_ref.paragraph_format.first_line_indent = Inches(0)
         p_ref.paragraph_format.space_after = Pt(6)
-        p_ref.add_run(ref).font.size = Pt(10.5)
+        r_ref = p_ref.add_run(ref)
+        r_ref.font.size = Pt(10.5)
+        r_ref.font.color.rgb = RGBColor(0x00, 0x00, 0x00)
 
     doc.add_page_break()
 
@@ -504,7 +682,7 @@ def generate_pristine_thesis_template():
     # Output file path
     output_filename = "c:/Users/nguyen.tuan.minh/Desktop/DTL-Master-Project/DTL_Master_Thesis_Full_Structure_Template.docx"
     doc.save(output_filename)
-    print(f"Successfully generated 100% Pure English Pristine Thesis Template at {output_filename}!")
+    print(f"Successfully generated 100% Pure Black Pristine Thesis Template with Complete Table of Contents at {output_filename}!")
 
 if __name__ == "__main__":
-    generate_pristine_thesis_template()
+    generate_black_pristine_thesis_template()
