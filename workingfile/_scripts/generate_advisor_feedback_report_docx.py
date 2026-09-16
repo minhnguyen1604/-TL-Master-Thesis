@@ -97,8 +97,8 @@ def build():
          "thay vì chuyển sang ngân hàng khác, và sẵn sàng giới thiệu cho đối tác.",
          "Phiếu khảo sát mục VIII; Đề cương mục 3.3 và Bảng 2"],
         ["4", "Thang đo phải bám sát bảng hỏi gốc, không tự xây thang đo mới rồi gán vào bộ dữ liệu.",
-         "Đã dựng lại phiếu khảo sát để mỗi nhân tố trong mô hình tương ứng đúng một nhóm câu hỏi: 7 nhân tố × 3 "
-         "biến quan sát + 4 biến quan sát của DEC = 25 câu. Mã câu hỏi trong phiếu trùng khớp với mã nhân tố "
+         "Đã dựng lại phiếu khảo sát để mỗi nhân tố trong mô hình tương ứng đúng một nhóm câu hỏi: 7 nhân tố × 4 "
+         "biến quan sát + 4 biến quan sát của DEC = 32 câu. Mã câu hỏi trong phiếu trùng khớp với mã nhân tố "
          "trong mô hình, không còn câu hỏi thừa nằm ngoài mô hình và không còn biến nào trong mô hình thiếu câu "
          "hỏi tương ứng.",
          "Phiếu khảo sát Phần II; Đề cương Bảng 1 cột “Items”"],
@@ -142,7 +142,25 @@ def build():
            "rồi loại bỏ ở khâu phân tích.", after=8)
 
     H(doc, "V. CÁC NỘI DUNG HỌC VIÊN CHỦ ĐỘNG BỔ SUNG THÊM")
-    for t in ["Bổ sung mục Câu hỏi nghiên cứu (RQ1–RQ4) và bộ giả thuyết H1–H7 kèm H8 cho kiểm định khác biệt "
+    for t in ["Nâng số biến quan sát của mỗi nhân tố từ 3 lên 4 câu. Với 3 câu, nếu phân tích nhân tố khám phá "
+              "loại một biến quan sát thì nhân tố chỉ còn 2 câu — dưới ngưỡng tối thiểu để định danh, buộc phải "
+              "giữ lại câu không đạt hoặc bỏ cả nhân tố. Với 4 câu, loại một vẫn còn 3 và mô hình vẫn vững. Việc "
+              "này không đi ngược khuyến nghị của cô, vì cô yêu cầu rút gọn số biến độc lập chứ không phải số "
+              "biến quan sát của mỗi biến; tổng phiếu là 32 câu, thời gian trả lời khoảng 7 phút.",
+              "Bổ sung câu hỏi sàng lọc ở đầu phiếu: doanh nghiệp không phát hành thư bảo lãnh nào tại VietinBank "
+              "trong 12 tháng gần đây sẽ dừng tại đó. Trước đây phiếu không có bước này nên doanh nghiệp không có "
+              "trải nghiệm thực tế vẫn có thể điền, và toàn bộ đánh giá của họ là phỏng đoán.",
+              "Bổ sung phương án “Chưa sử dụng” cho nhóm câu hỏi về bảo lãnh điện tử eFAST. Doanh nghiệp chưa từng "
+              "dùng kênh này nếu buộc phải chấm điểm 1–5 thì sẽ đoán, làm nhiễu chính biến DIGITAL_CONV. Tỷ lệ "
+              "doanh nghiệp chọn phương án này được báo cáo riêng và bản thân nó là một phát hiện có giá trị.",
+              "Bổ sung một câu hỏi đối chứng ở cuối phiếu, đề nghị doanh nghiệp ước tính tỷ trọng giá trị bảo lãnh "
+              "đặt tại VietinBank trong 12 tháng qua. Câu này không vào mô hình hồi quy mà dùng làm biến tiêu "
+              "chuẩn: nếu thang đo DEC (đo thái độ) tương quan có ý nghĩa với tỷ trọng thực tế (đo hành vi), đó là "
+              "bằng chứng thực nghiệm cho thấy thang đo đo đúng thứ cần đo.",
+              "Tách các câu hỏi kép trong bản trước. Ví dụ câu về năng lực tư vấn pháp lý trước đây hỏi cùng lúc về "
+              "Luật Đấu thầu, Thông tư 61 và thông lệ URDG 758 — doanh nghiệp đồng ý với phần này nhưng không đồng "
+              "ý với phần kia sẽ buộc phải chọn bừa. Mỗi câu hỏi hiện chỉ đo một nội dung.",
+              "Bổ sung mục Câu hỏi nghiên cứu (RQ1–RQ4) và bộ giả thuyết H1–H7 kèm H8 cho kiểm định khác biệt "
               "nhóm, do bản trước chỉ nêu kỳ vọng kết quả mà chưa phát biểu giả thuyết chính thức.",
               "Bổ sung mục Phạm vi nghiên cứu, xác định rõ đề tài đo mức độ ưu tiên lựa chọn và ý định duy trì "
               "trong nhóm khách hàng hiện hữu, không phải mô hình lựa chọn ngân hàng lần đầu của toàn thị trường.",

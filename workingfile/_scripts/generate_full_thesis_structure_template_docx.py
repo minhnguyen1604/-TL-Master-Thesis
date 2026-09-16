@@ -329,7 +329,7 @@ def generate_black_pristine_thesis_template():
         ("3.1. Overall Research Design & Analytical Process", "31", 2),
         ("3.2. Questionnaire Design & Measurement Scales", "32", 2),
         ("3.2.1. Operationalization of Variables", "32", 3),
-        ("3.2.2. Mapping Scales with the Official 25-Item Survey Questionnaire", "35", 3),
+        ("3.2.2. Mapping Scales with the Official 32-Item Survey Questionnaire", "35", 3),
         ("3.3. Population, Sampling Strategy and Data Collection", "36", 2),
         ("3.3.1. Target Population & Sampling Method", "36", 3),
         ("3.3.2. Sample Size Determination", "37", 3),
@@ -527,7 +527,7 @@ def generate_black_pristine_thesis_template():
     for i, w in enumerate(col_w_v): t_v.rows[0].cells[i].width = w
     hdr_v = t_v.rows[0].cells
     
-    h_titles = ["Code", "Variable Name", "Measurement Content (34 Items)", "Type", "Sign"]
+    h_titles = ["Code", "Variable Name", "Measurement Content (25 Items)", "Type", "Sign"]
     for i, title in enumerate(h_titles):
         rh = hdr_v[i].paragraphs[0].add_run(title)
         rh.bold = True
@@ -558,7 +558,7 @@ def generate_black_pristine_thesis_template():
             for cell in rc:
                 set_cell_borders(cell, bottom={'sz': 12, 'val': 'single', 'color': '000000'})
 
-    doc.add_heading("3.2.2. Mapping Scales with the Official 25-Item Survey Questionnaire", level=3)
+    doc.add_heading("3.2.2. Mapping Scales with the Official 32-Item Survey Questionnaire", level=3)
 
     doc.add_heading("3.3. Population, Sampling Strategy and Data Collection", level=2)
     doc.add_heading("3.3.1. Target Population & Sampling Method", level=3)
@@ -632,38 +632,7 @@ def generate_black_pristine_thesis_template():
     # ==================== REFERENCES ====================
     doc.add_heading("REFERENCES", level=1)
 
-    refs = [
-        "Al-Sabbagh, M. and Al-Khathlan, K. (2018) 'Factors influencing corporate clients’ choice of commercial banks for trade finance services', Journal of Financial Services Marketing, 23(2), pp. 71–82.",
-        "Baltagi, B.H. (2008) Econometric Analysis of Panel Data. 4th edn. Chichester: Wiley.",
-        "Barru, D.J. (2005) 'How to Guarantee Contractor Performance on International Construction Projects: Comparing Surety Bonds with Bank Guarantees and Standby Letters of Credit', The George Washington International Law Review, 37(1), pp. 51–94.",
-        "Berger, A.N. and Udell, G.F. (1995) 'Relationship Lending and Lines of Credit in Small Firm Finance', Journal of Business, 68(3), pp. 351–381.",
-        "Bertrams, R.I.V.F. (2013) Bank Guarantees in International Trade. 4th edn. The Hague: Kluwer Law International.",
-        "Boot, A.W.A. (2000) 'Relationship Banking: What Do We Know?', Journal of Financial Intermediation, 9(1), pp. 7–25.",
-        "Carletti, E., Leonello, A. and Marquez, R. (2023) 'Loan guarantees, bank underwriting policies and financial fragility', Journal of Financial Economics, 149(2), pp. 260–295.",
-        "Davis, F.D. (1989) 'Perceived Usefulness, Perceived Ease of Use, and User Acceptance of Information Technology', MIS Quarterly, 13(3), pp. 319–340.",
-        "DeYoung, R. and Roland, K.P. (2001) 'Product Mix, Revenue Mix, and Risk at Commercial Banks', Journal of Financial Intermediation, 10(2), pp. 115–144.",
-        "Diamond, D.W. (1984) 'Financial Intermediation and Delegated Monitoring', Review of Economic Studies, 51(3), pp. 393–414.",
-        "Hassan, A.A. et al. (2018) 'The problems and abuse of performance bond in the construction industry', IOP Conference Series: Earth and Environmental Science, 143, p. 012045.",
-        "Ho Dinh Phi et al. (2023) 'Effect of Service Quality on Customer Loyalty: the Mediation of Customer Satisfaction, and Corporate Reputation in Banking Industry', Eurasian Journal of Business and Management, 11(3), pp. 145–160.",
-        "International Chamber of Commerce (2010) Uniform Rules for Demand Guarantees (URDG 758). ICC Publication No. 758. Paris: ICC.",
-        "Kaur, M. et al. (2021) 'The determinants of bank selection criteria of SMEs: a fuzzy analytic hierarchy approach', Journal of Science and Technology Policy Management, 12(4), pp. 580–605.",
-        "Le Van Dung (2021) 'The nature of payment guarantee relationships at credit institutions', Industry and Trade Magazine, 8(April), pp. 45–52.",
-        "Merton, R.C. (1974) 'On the Pricing of Corporate Debt: The Risk Structure of Interest Rates', Journal of Finance, 29(2), pp. 449–470.",
-        "Narteh, B. (2013) 'SME bank selection and patronage behaviour in the Ghanaian banking industry', Management Research Review, 36(11), pp. 1061–1080.",
-        "Nguyen, H. et al. (2024) 'The impact of service innovation on customer satisfaction and customer loyalty: a case in Vietnamese retail banks', Future Business Journal, 10(1), p. 14.",
-        "Nguyen Thi Nhung and Nguyen Duy Phu (2015) 'Payment guarantees at Vietnamese commercial banks', Development and Integration Magazine, 25(35), pp. 62–67.",
-        "Oke, A.E. (2018) 'Bonding capability of Nigerian contracting firms', Engineering, Construction and Architectural Management, 25(8), pp. 1012–1024.",
-        "Parasuraman, A., Zeithaml, V.A. and Berry, L.L. (1988) 'SERVQUAL: A Multiple-Item Scale for Measuring Consumer Perceptions of Service Quality', Journal of Retailing, 64(1), pp. 12–40.",
-        "Phan Thi Hang Nga et al. (2024) 'Service quality, customer satisfaction and loyalty: a case study in Vietnamese SMEs', Cogent Business & Management, 11(1), p. 2304512.",
-        "Ramakrishnan, R.T.S. and Thakor, A.V. (1984) 'Information Reliability and a Theory of Financial Intermediation', Review of Economic Studies, 51(3), pp. 415–432.",
-        "State Bank of Vietnam (2024) Circular No. 61/2024/TT-NHNN dated December 31, 2024, providing regulations on bank guarantees (effective April 1, 2025). Hanoi: SBV.",
-        "Stiglitz, J.E. and Weiss, A. (1981) 'Credit Rationing in Markets with Imperfect Information', American Economic Review, 71(3), pp. 393–410.",
-        "Turnbull, P.W. and Gibbs, M.L. (1989) 'The Selection of Banks and Banking Services among Corporate Customers in South Africa', International Journal of Bank Marketing, 7(5), pp. 36–42.",
-        "Venkatesh, V. et al. (2003) 'User Acceptance of Information Technology: Toward a Unified View', MIS Quarterly, 27(3), pp. 425–478.",
-        "Zeithaml, V.A. (1988) 'Consumer Perceptions of Price, Quality, and Value: A Means-End Model and Synthesis of Evidence', Journal of Marketing, 52(3), pp. 2–22.",
-        "Zeithaml, V.A., Berry, L.L. and Parasuraman, A. (1996) 'The Behavioral Consequences of Service Quality', Journal of Marketing, 60(2), pp. 31–46.",
-        "Zelie, E.M. (2023) 'Factors determining bank selection by micro- and small-sized enterprises: evidence from Ethiopia', International Journal of Bank Marketing, 41(5), pp. 1120–1142."
-    ]
+    from generate_final_mde_thesis_design import REFS as refs
 
     for ref in refs:
         p_ref = doc.add_paragraph()
@@ -685,7 +654,7 @@ def generate_black_pristine_thesis_template():
     doc.add_heading("Appendix 4: OLS Multiple Regression, VIF & Sub-group ANOVA Output", level=2)
 
     # Output file path
-    output_filename = "c:/Users/Admin/OneDrive/Desktop/ĐTL-Master-Thesis/DTL_Master_Thesis_Full_Structure_Template.docx"
+    output_filename = "DTL_Master_Thesis_Full_Structure_Template.docx"
     doc.save(output_filename)
     print("Successfully generated Thesis Template docx!")
 

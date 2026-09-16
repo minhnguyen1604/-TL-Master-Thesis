@@ -1,28 +1,28 @@
-## NATIONAL ECONOMICS UNIVERSITY
+NATIONAL ECONOMICS UNIVERSITY
 VIETNAM-NETHERLANDS MASTER’S PROGRAM IN DEVELOPMENT ECONOMICS (MDE)
 
-# MASTER THESIS
+MASTER THESIS
 
-## FACTORS AFFECTING CORPORATE CUSTOMERS’ DECISION TO CHOOSE BANK GUARANTEE SERVICES AT VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE (VIETINBANK)
+FACTORS AFFECTING CORPORATE CUSTOMERS’ DECISION TO CHOOSE BANK GUARANTEE SERVICES AT VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE (VIETINBANK)
 
-### Student: DANG TU LINH
+Student: DANG TU LINH
 
 Student ID / Class: MDE Class 31
 
-### Academic Supervisor: Dr. HOANG THI THUY NGA
+Academic Supervisor: Dr. HOANG THI THUY NGA
 
 Hanoi, 2026
 
-### NATIONAL ECONOMICS UNIVERSITY
+NATIONAL ECONOMICS UNIVERSITY
 ERASMUS UNIVERSITY ROTTERDAM - ISS
 
-# MASTER’S THESIS IN DEVELOPMENT ECONOMICS
+MASTER’S THESIS IN DEVELOPMENT ECONOMICS
 
-## FACTORS AFFECTING CORPORATE CUSTOMERS’ DECISION TO CHOOSE BANK GUARANTEE SERVICES AT VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE (VIETINBANK)
+FACTORS AFFECTING CORPORATE CUSTOMERS’ DECISION TO CHOOSE BANK GUARANTEE SERVICES AT VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE (VIETINBANK)
 
-### Author: DANG TU LINH
+Author: DANG TU LINH
 
-### Academic Supervisor: Dr. HOANG THI THUY NGA
+Academic Supervisor: Dr. HOANG THI THUY NGA
 
 A thesis submitted in partial fulfillment of the requirements for the degree of
 Master of Arts in Development Economics
@@ -123,7 +123,7 @@ CHAPTER 3: RESEARCH METHODOLOGY AND EMPIRICAL DESIGN	31
 
 3.2.1. Operationalization of Variables	32
 
-3.2.2. Mapping Scales with the Official 25-Item Survey Questionnaire	35
+3.2.2. Mapping Scales with the Official 32-Item Survey Questionnaire	35
 
 3.3. Population, Sampling Strategy and Data Collection	36
 
@@ -271,13 +271,13 @@ The general objective of this study is to identify and assess the factors associ
 
 ### 1.4. Research Questions
 
-- Research Question 1: What key factors significantly influence corporate customers’ decision to choose VietinBank for bank guarantee services?
+• Research Question 1: What key factors significantly influence corporate customers’ decision to choose VietinBank for bank guarantee services?
 
-- Research Question 2: What is the direction and relative importance of each factor in explaining corporate selection decisions?
+• Research Question 2: What is the direction and relative importance of each factor in explaining corporate selection decisions?
 
-- Research Question 3: Do corporate selection decisions significantly differ across corporate ownership types, firm revenue sizes, operating tenure, and guarantee product lines?
+• Research Question 3: Do corporate selection decisions significantly differ across corporate ownership types, firm revenue sizes, operating tenure, and guarantee product lines?
 
-- Research Question 4: What actionable managerial recommendations should VietinBank implement to enhance its competitive standing, product attractiveness, and client retention?
+• Research Question 4: What actionable managerial recommendations should VietinBank implement to enhance its competitive standing, product attractiveness, and client retention?
 
 ### 1.5. Scope and Boundaries of the Study
 
@@ -321,21 +321,21 @@ The general objective of this study is to identify and assess the factors associ
 
 #### 2.5.2. Hypothesis Development
 
-- Hypothesis H1: Price Competitiveness (COST_COMP) has a positive impact on corporate customers' decision to choose VietinBank.
+• Hypothesis H1: Price Competitiveness (COST_COMP) has a positive impact on corporate customers' decision to choose VietinBank.
 
-- Hypothesis H2: Processing Speed (PROC_SPEED) has a positive impact on corporate customers' decision to choose VietinBank.
+• Hypothesis H2: Processing Speed (PROC_SPEED) has a positive impact on corporate customers' decision to choose VietinBank.
 
-- Hypothesis H3: Digital eFAST Convenience (DIGITAL_CONV) has a positive impact on corporate customers' decision to choose VietinBank.
+• Hypothesis H3: Digital eFAST Convenience (DIGITAL_CONV) has a positive impact on corporate customers' decision to choose VietinBank.
 
-- Hypothesis H4: Bank Reputation (BANK_REP) has a positive impact on corporate customers' decision to choose VietinBank.
+• Hypothesis H4: Bank Reputation (BANK_REP) has a positive impact on corporate customers' decision to choose VietinBank.
 
-- Hypothesis H5: Relationship Banking & Limits (RELATIONSHIP) has a positive impact on corporate customers' decision to choose VietinBank.
+• Hypothesis H5: Relationship Banking & Limits (RELATIONSHIP) has a positive impact on corporate customers' decision to choose VietinBank.
 
-- Hypothesis H6: Staff Professionalism (STAFF_QUAL) has a positive impact on corporate customers' decision to choose VietinBank.
+• Hypothesis H6: Staff Professionalism (STAFF_QUAL) has a positive impact on corporate customers' decision to choose VietinBank.
 
-- Hypothesis H7: Collateral & Margin Flexibility (COLL_POLICY) has a positive impact on corporate customers' decision to choose VietinBank.
+• Hypothesis H7: Collateral & Margin Flexibility (COLL_POLICY) has a positive impact on corporate customers' decision to choose VietinBank.
 
-- Hypothesis H8: Corporate selection priority differs significantly across ownership type, firm revenue size, operating tenure, and primary guarantee product line.
+• Hypothesis H8: Corporate selection priority differs significantly across ownership type, firm revenue size, operating tenure, and primary guarantee product line.
 
 ## CHAPTER 3: RESEARCH METHODOLOGY AND EMPIRICAL DESIGN
 
@@ -345,7 +345,7 @@ The general objective of this study is to identify and assess the factors associ
 
 #### 3.2.1. Operationalization of Variables
 
-| Code | Variable Name | Measurement Content (34 Items) | Type | Sign |
+| Code | Variable Name | Measurement Content (25 Items) | Type | Sign |
 | --- | --- | --- | --- | --- |
 | DEC | Selection Decision | Preference & priority choice of VietinBank over competitors (4 items) | Dependent (Y) | N/A |
 | COST_COMP | Price Competitiveness | Fee reasonableness, competitive pricing & discount incentives (4 items) | Independent (X1) | + |
@@ -356,7 +356,7 @@ The general objective of this study is to identify and assess the factors associ
 | STAFF_QUAL | Staff Professionalism | RM competence, legal advisory on Bidding Law & TT61 (4 items) | Independent (X6) | + |
 | COLL_POLICY | Collateral Flexibility | Flexible cash margin ratio & diverse pledged collateral (4 items) | Independent (X7) | + |
 
-#### 3.2.2. Mapping Scales with the Official 25-Item Survey Questionnaire
+#### 3.2.2. Mapping Scales with the Official 32-Item Survey Questionnaire
 
 ### 3.3. Population, Sampling Strategy and Data Collection
 

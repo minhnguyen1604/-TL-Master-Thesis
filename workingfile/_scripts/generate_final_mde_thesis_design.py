@@ -277,15 +277,15 @@ def build():
     table(doc, [
         ["Code", "Construct", "Measurement content", "Items", "Type", "Sign"],
         ["DEC", "Selection Priority & Patronage Intention", "Degree of priority given to VietinBank relative to competing banks when guarantee needs arise", "DEC1–DEC4", "Dependent", "—"],
-        ["COST_COMP", "Price Competitiveness", "Fee reasonableness, competitiveness versus other banks, discount policy", "COMP1–COMP3", "X1", "+"],
-        ["PROC_SPEED", "Processing Speed", "Appraisal turnaround, procedural simplicity, issuance lead time", "SPEED1–SPEED3", "X2", "+"],
-        ["DIGITAL_CONV", "Digital eFAST Convenience", "24/7 online submission, e-guarantee with digital signature, online verification", "DIGI1–DIGI3", "X3", "+"],
-        ["BANK_REP", "Bank Reputation", "Market standing, beneficiary acceptance of the guarantee, financial strength", "REPU1–REPU3", "X4", "+"],
-        ["RELATIONSHIP", "Relationship & Limits", "Credit history, multi-product ties, flexibility of guarantee limits", "RELA1–RELA3", "X5", "+"],
-        ["STAFF_QUAL", "Staff Professionalism", "Technical competence, legal advisory (Bidding Law, Circular 61, URDG 758), responsiveness", "STAFF1–STAFF3", "X6", "+"],
-        ["COLL_POLICY", "Collateral & Margin Flexibility", "Flexible margin ratio, diversity of accepted collateral, valuation procedure", "COLL1–COLL3", "X7", "+"],
+        ["COST_COMP", "Price Competitiveness", "Fee reasonableness, competitiveness versus other banks, discount policy", "COMP1–COMP4", "X1", "+"],
+        ["PROC_SPEED", "Processing Speed", "Appraisal turnaround, procedural simplicity, issuance lead time", "SPEED1–SPEED4", "X2", "+"],
+        ["DIGITAL_CONV", "Digital eFAST Convenience", "24/7 online submission, e-guarantee with digital signature, online verification", "DIGI1–DIGI4", "X3", "+"],
+        ["BANK_REP", "Bank Reputation", "Market standing, beneficiary acceptance of the guarantee, financial strength", "REPU1–REPU4", "X4", "+"],
+        ["RELATIONSHIP", "Relationship & Limits", "Credit history, multi-product ties, flexibility of guarantee limits", "RELA1–RELA4", "X5", "+"],
+        ["STAFF_QUAL", "Staff Professionalism", "Technical competence, legal advisory (Bidding Law, Circular 61, URDG 758), responsiveness", "STAFF1–STAFF4", "X6", "+"],
+        ["COLL_POLICY", "Collateral & Margin Flexibility", "Flexible margin ratio, diversity of accepted collateral, valuation procedure", "COLL1–COLL4", "X7", "+"],
     ], [0.95, 1.25, 2.55, 0.85, 0.6, 0.4])
-    P(doc, "Source: author's design. Total 25 Likert items = 7 constructs × 3 items + 4 dependent items.",
+    P(doc, "Source: author's design. Total 32 Likert items = 7 constructs × 4 items + 4 dependent items.",
       9.5, italic=True, align=C, after=8)
 
     H(doc, "3.3. Operationalisation of the Dependent Construct", 2)
@@ -308,13 +308,16 @@ def build():
            "a binary act of choice, OLS estimation is appropriate; a discrete-choice specification would be "
            "required only if the outcome were an observed switch between banks.", after=8)
 
+    P(doc, "A single behavioural item is collected alongside the attitudinal block, asking the enterprise to estimate the share of its total guarantee value placed with VietinBank over the preceding twelve months. This item does not enter the regression; it serves as a criterion against which the attitudinal DEC scale is validated, since a scale claiming to measure patronage priority should correlate with the share of business actually placed. The association is tested by Spearman rank correlation and reported alongside the reliability results.", after=8)
     H(doc, "3.4. Population, Sampling Strategy and Data Collection", 2)
     P(doc, "The target population comprises corporate enterprises currently using guarantee services at VietinBank "
-           "branches nationwide. Data will be collected through the structured questionnaire presented above, "
+           "branches nationwide. Eligibility is enforced by a screening question asking whether the enterprise "
+           "has had a guarantee issued at VietinBank within the preceding twelve months; enterprises answering "
+           "no are excluded before the substantive items. Data will be collected through the structured questionnaire presented above, "
            "distributed via relationship managers across 155 domestic branches, with a target of n = 800 valid "
            "responses. Respondents are the officers responsible for guarantee transactions (CFO or board member, "
            "chief accountant, tender manager, or the assigned specialist). The target sample comfortably exceeds "
-           "conventional minima — five observations per item (5 × 25 = 125) for EFA and 50 + 8k = 106 for "
+           "conventional minima — five observations per item (5 × 32 = 160) for EFA and 50 + 8k = 106 for "
            "regression with seven predictors. Data screening will remove incomplete forms and straight-lined "
            "responses before analysis. Because the questionnaire is distributed through the bank's own channel, "
            "social desirability bias is acknowledged as a limitation; descriptive statistics will be inspected for "
