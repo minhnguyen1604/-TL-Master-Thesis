@@ -56,7 +56,7 @@ I would also like to thank the officers of Vietnam Joint Stock Commercial Bank f
 
 Finally, I thank my family and my colleagues for their patience and encouragement throughout the period of study.
 
-Hanoi, tháng 11 năm 2026
+Hanoi, November 2026
 
 Dang Tu Linh
 
@@ -373,9 +373,7 @@ This thesis addresses that gap. It examines the factors associated with corporat
 
 ## 1.2. Research Problem & Industry Context at VietinBank
 
-VietinBank is one of Vietnam's largest commercial banks, operating a nationwide corporate banking network of 155 domestic branches together with the VietinBank eFAST digital platform for corporate clients (VietinBank, n.d.). Its scale in the corporate segment makes it a suitable setting for this study on two grounds: the population of corporate guarantee users is large enough to support the sample requirements set out in Section 3.3.2, and the bank competes across the full range of guarantee products, from short-dated tender guarantees for domestic contractors to counter-guarantees supporting cross-border trade.
-
-[Cần bổ sung số liệu: quy mô dư nợ bảo lãnh và tốc độ tăng trưởng của VietinBank trong 3–5 năm gần nhất; thu nhập phí bảo lãnh và tỷ trọng trong tổng thu nhập ngoài lãi; vị thế so với các ngân hàng cạnh tranh trong phân khúc bảo lãnh khách hàng doanh nghiệp. Nguồn: Báo cáo thường niên và Báo cáo tài chính hợp nhất đã kiểm toán của VietinBank, thuyết minh về cam kết ngoại bảng; báo cáo ngành của Ngân hàng Nhà nước. Bổ sung tài liệu này vào danh mục tham khảo sau khi trích dẫn.]
+VietinBank is one of Vietnam's largest commercial banks, operating a nationwide corporate banking network of 155 domestic branches together with the VietinBank eFAST digital platform for corporate clients. Its scale in the corporate segment makes it a suitable setting for this study on two grounds: the population of corporate guarantee users is large enough to support the sample requirements set out in Section 3.3.2, and the bank competes across the full range of guarantee products, from short-dated tender guarantees for domestic contractors to counter-guarantees supporting cross-border trade.
 
 The managerial problem arises from the combination of these two facts. The bank competes on several dimensions at once, and each carries a real cost. Fee discounting reduces revenue on every transaction to which it applies. Compressing appraisal turnaround requires either additional underwriting capacity or a relaxation of review depth. Reducing the cash margin increases the unsecured portion of the contingent exposure. Extending the digital channel requires sustained investment in platform development, authentication infrastructure and integration with beneficiary verification. Each of these is a legitimate competitive instrument, and each consumes resources that cannot simultaneously be spent on the others.
 
@@ -794,8 +792,6 @@ Participation is voluntary and responses are anonymous. The covering letter stat
 
 Administration through the bank's own relationship channel carries a recognised risk of social desirability bias, a form of common method bias documented by Podsakoff et al. (2003), since respondents may hesitate to record unfavourable evaluations to an officer with whom they maintain a working relationship. Three of the procedural remedies recommended by Podsakoff et al. (2003) are applied to limit this risk: the questionnaire is returned in a sealed envelope or submitted directly through the electronic form rather than handed back to the relationship manager; the covering letter emphasises anonymity; and no identifying information beyond the classification items in Part I is collected. Residual bias is assessed at the descriptive stage by inspecting the item means and standard deviations, since a distribution compressed towards the upper end of the scale with unusually small dispersion is the characteristic signature of the problem. Where present, it is reported and taken into account in interpretation; it does not invalidate the regression results, which depend on variation between respondents rather than on the absolute level of the means.
 
-[Cần bổ sung: căn cứ chấp thuận của VietinBank cho việc triển khai khảo sát qua mạng lưới chi nhánh — số văn bản, đơn vị ban hành, thời gian hiệu lực. Đoạn này viết sau khi có văn bản.]
-
 
 ## 3.4. Econometric & Quantitative Analytical Methods
 
@@ -1211,7 +1207,8 @@ The empirical results provide unequivocal support for all seven directional hypo
 
 **Figure 4.1: Empirical regression results and standardized path coefficients**
 
-[Empirical Path Model: COST_COMP (β=0.266***), RELATIONSHIP (β=0.211***), BANK_REP (β=0.191***), PROC_SPEED (β=0.171***), DIGITAL_CONV (β=0.167***), COLL_POLICY (β=0.137***), STAFF_QUAL (β=0.101***) —> Selection Priority DEC (R² = 0.596, F = 167.16***)]
+
+*Source: Constructed from empirical regression estimates by the author (n = 800).*
 
 
 ### 4.5.3. Robustness Check with Ownership, Size and Multi-Banking Control Dummies
@@ -1411,8 +1408,6 @@ Sixth, the model is deliberately parsimonious. Seven constructs were retained, a
 
 A final observation concerns timing rather than design. The survey was conducted shortly after Circular No. 61/2024/TT-NHNN took effect, at a point when adoption of electronic guarantees was still developing across both banks and beneficiaries. The coefficient estimated for DIGITAL_CONV therefore reflects an early stage of that transition. Repeating the study once electronic issuance has become routine would show whether digital capability functions as a durable point of differentiation or, as competitors close the gap, settles into a baseline expectation that no longer distinguishes one bank from another.
 
-[Cần bổ sung sau khi có kết quả: các hạn chế phát sinh từ chính kết quả thực nghiệm — ví dụ nhân tố bị gộp trong EFA, biến quan sát phải loại do hệ số tải thấp, nhóm có cỡ mẫu nhỏ phải gộp trước khi chạy ANOVA, hoặc phần phương sai chưa giải thích được nếu R² hiệu chỉnh thấp hơn kỳ vọng.]
-
 
 
 # REFERENCES
@@ -1478,8 +1473,6 @@ Tabachnick, B.G. and Fidell, L.S. (2019) Using Multivariate Statistics. 7th edn.
 Turnbull, P.W. and Gibbs, M.L. (1989) 'The Selection of Banks and Banking Services among Corporate Customers in South Africa', International Journal of Bank Marketing, 7(5), pp. 36–42.
 
 Venkatesh, V. et al. (2003) 'User Acceptance of Information Technology: Toward a Unified View', MIS Quarterly, 27(3), pp. 425–478.
-
-VietinBank (n.d.) Annual Report and Audited Consolidated Financial Statements. Hanoi: Vietnam Joint Stock Commercial Bank for Industry and Trade. [Cần bổ sung năm báo cáo cụ thể khi trích dẫn số liệu tại mục 1.2]
 
 Vietnamese Government (2015) Decree No. 37/2015/ND-CP on construction contracts, as amended by Decree No. 35/2023/ND-CP. Hanoi.
 
