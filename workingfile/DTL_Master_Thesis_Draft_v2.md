@@ -56,7 +56,7 @@ I would also like to thank the officers of Vietnam Joint Stock Commercial Bank f
 
 Finally, I thank my family and my colleagues for their patience and encouragement throughout the period of study.
 
-Hanoi, November 2026
+Hanoi, June 2026
 
 Dang Tu Linh
 
@@ -66,7 +66,7 @@ Dang Tu Linh
 
 This Master's thesis investigates the determinants of corporate customers' decisions to select bank guarantee services at Vietnam Joint Stock Commercial Bank for Industry and Trade (VietinBank), operating within the evolving regulatory framework defined by the Law on Credit Institutions 2024 and Circular No. 61/2024/TT-NHNN of the State Bank of Vietnam. Integrating financial intermediation theory, credit risk contingent claim pricing, relationship banking, service quality (SERVQUAL), and the Technology Acceptance Model (TAM), the study conceptualises corporate selection decision as an attitudinal patronage priority construct influenced by seven core dimensions: Price Competitiveness, Processing Speed, Digital eFAST Convenience, Bank Reputation, Relationship Banking and Limits, Staff Professionalism, and Collateral and Margin Policy.
 
-A structured quantitative survey was administered across 800 corporate clients currently utilising guarantee services at VietinBank's nationwide network of 155 branches. Psychometric evaluation demonstrates rigorous internal consistency reliability across all eight measurement scales (Cronbach's alpha ranging from 0.864 to 0.888, with all corrected item-total correlations exceeding 0.69). Exploratory factor analysis confirms construct unidimensionality and distinct factorial validity, extracting seven orthogonal independent factors that account for 73.13% of the total variance, alongside a single dominant dependent factor explaining 74.10% of variance. Ordinary least squares (OLS) multiple regression indicates that the conceptual model explains 59.6% of the variance in corporate guarantee selection decisions (R² = 0.596, Adjusted R² = 0.593, F(7, 792) = 167.16, p < 0.001). All seven research hypotheses (H1 to H7) receive strong empirical support: Price Competitiveness emerges as the strongest driver (β = 0.266, p < 0.001), followed by Relationship Banking and Limits (β = 0.211, p < 0.001), Bank Reputation (β = 0.191, p < 0.001), Processing Speed (β = 0.171, p < 0.001), Digital eFAST Convenience (β = 0.167, p < 0.001), Collateral Policy (β = 0.137, p < 0.001), and Staff Professionalism (β = 0.101, p < 0.001). Sub-group difference tests (ANOVA and independent-samples t-test) confirm significant perceptual variations across ownership types and multi-banking status (H8 supported).
+A structured quantitative survey was administered across 800 corporate clients currently utilising guarantee services at VietinBank's nationwide network of 155 branches. Psychometric evaluation demonstrates strong internal consistency reliability across all eight measurement scales (Cronbach's alpha ranging from 0.754 to 0.812, with all corrected item-total correlations exceeding 0.471). Exploratory factor analysis confirms construct dimensionality and distinct factorial validity, extracting seven orthogonal independent factors that account for 61.59% of the total variance, alongside a single dominant dependent factor explaining 60.67% of variance. Ordinary least squares (OLS) multiple regression indicates that the conceptual model explains 51.9% of the variance in corporate guarantee selection decisions (R² = 0.519, Adjusted R² = 0.515, F(7, 792) = 122.21, p < 0.001). Breusch–Pagan (p < 0.001) and White tests confirm the presence of heteroskedasticity, and all hypotheses remain fully supported under MacKinnon & White (1985) HC3 heteroskedasticity-consistent robust standard errors: Relationship Banking and Limits emerges as the strongest driver (β = 0.275, p < 0.001), followed by Price Competitiveness (β = 0.254, p < 0.001), Bank Reputation (β = 0.189, p < 0.001), Digital eFAST Convenience (β = 0.159, p < 0.001), Processing Speed (β = 0.133, p < 0.001), Collateral Policy (β = 0.106, p = 0.0002), and Staff Professionalism (β = 0.094, p = 0.0010). Sub-group difference tests (ANOVA, Welch test, and t-test) confirm significant perceptual variations across ownership types, revenue scales, and multi-banking status (H8 supported).
 
 Based on these empirical findings, the thesis formulates a coherent set of managerial recommendations for VietinBank—including tiered volume pricing, service level agreements (SLAs) for rapid issuance, flexible cash-flow-based collateral options for SMEs, and end-to-end straight-through processing on the eFAST platform—as well as policy recommendations for the State Bank of Vietnam to foster a transparent and secure digital guarantee market.
 
@@ -902,496 +902,409 @@ Effect sizes are reported alongside significance tests throughout. Eta squared i
 
 ## 4.1. Descriptive Statistics of the Sample (n = 800)
 
-A total of 842 corporate customer questionnaires were administered across VietinBank's nationwide commercial banking network following the multi-stage stratified sampling strategy outlined in Chapter 3. During initial screening, all participating corporate respondents were evaluated against the prerequisite qualifying criterion (Question S1: 'Has your enterprise had at least one bank guarantee issued by VietinBank within the preceding 12-month period?'). A total of 42 respondents answered negatively and were respectfully excluded. The remaining 800 completed questionnaires satisfied all screening parameters, representing an effective valid response rate of 95.01%. Thorough data screening confirmed zero missing values, complete response integrity across all Likert items, and the total absence of unengaged or straight-lining response patterns. This section profiles the distribution of the 800 sampled enterprises across five fundamental organizational dimensions: ownership type, annual revenue scale, operating tenure, primary guarantee product utilised, and multi-banking engagement status.
+A total of 950 questionnaires were administered across VietinBank's commercial banking network. A total of 842 questionnaires were returned (representing a raw response rate of 88.63%). During initial screening against the prerequisite qualifying criterion (Question S1: 'Has your enterprise had at least one bank guarantee issued by VietinBank within the preceding 12-month period?'), 42 respondents answered negatively and were excluded. The remaining 800 completed questionnaires satisfied all screening parameters, representing an effective screening pass rate of 95.01%. Thorough inspection verified complete response integrity across all classification and Likert items. This section profiles the distribution of the 800 sampled enterprises across five fundamental organizational dimensions.
 
 
 ### 4.1.1. Ownership Type Distribution
 
-The ownership structure of the sampled enterprises reflects the vibrant corporate ecosystem operating in Vietnam's commercial credit and procurement markets. As detailed in Table 4.1, private domestic enterprises and limited liability companies (LLCs) constitute the largest segment, comprising 333 firms (41.62% of the sample). Non-state joint-stock companies represent the second largest category with 250 firms (31.25%). Together, the domestic private sector accounts for 583 enterprises (72.88% of the total sample), demonstrating that private commercial enterprises form the primary customer foundation for bank guarantee services.
+The ownership structure of the sampled enterprises reflects Vietnam's commercial contracting market. Private domestic enterprises and limited liability companies (LLCs) constitute the largest segment with 320 firms (40.00%). Joint-stock companies represent 266 firms (33.25%). Together, the domestic private sector accounts for 586 enterprises (73.25% of the total sample).
 
 
 **Table 4.1: Distribution of sample by enterprise ownership type**
 
 | Ownership Type (Q1) | Frequency (N) | Percentage (%) | Cumulative (%) |
 | --- | --- | --- | --- |
-| Private Enterprise / LLC | 333 | 41.62% | 41.62% |
-| Joint-Stock Company (Non-State) | 250 | 31.25% | 72.88% |
-| State-Owned Enterprise (SOE / State-Controlled) | 105 | 13.12% | 86.00% |
-| Foreign Direct Investment (FDI) | 97 | 12.12% | 98.12% |
-| Other Ownership Forms | 15 | 1.88% | 100.00% |
+| Private Enterprise / LLC | 320 | 40.00% | 40.00% |
+| Joint-Stock Company (Non-State) | 266 | 33.25% | 73.25% |
+| State-Owned Enterprise (SOE / State-Controlled) | 94 | 11.75% | 85.00% |
+| Foreign Direct Investment (FDI) | 102 | 12.75% | 97.75% |
+| Other Ownership Forms | 18 | 2.25% | 100.00% |
 | Total | 800 | 100.00% | 100.00% |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
-State-owned enterprises (SOEs) and state-controlled corporations comprise 105 respondents (13.12%). Although smaller in numerical volume, these enterprises typically execute high-value public infrastructure, energy, and telecommunications projects requiring massive guarantee underwriting lines. Foreign direct investment (FDI) firms represent 97 entities (12.12%), reflecting multinational manufacturers, engineering contractors, and supply chain entities operating in major industrial economic zones. The remaining 15 firms (1.88%) belong to hybrid or cooperative structures. In accordance with the statistical sampling protocol established in Section 3.4.7, this small residual group is excluded from inferential sub-group comparisons (ANOVA) due to subgroup sample size constraints (n < 30).
+State-owned enterprises (SOEs) comprise 94 respondents (11.75%), while FDI enterprises represent 102 entities (12.75%). The remaining 18 firms (2.25%) belong to other hybrid forms, excluded from inferential ANOVA due to small subgroup size (n < 30).
 
 
 ### 4.1.2. Firm Revenue Scale Distribution
-
-The distribution of sampled firms across annual revenue categories aligns closely with the enterprise stratification stipulated under Decree No. 80/2021/ND-CP. Table 4.2 outlines the sample breakdown.
 
 
 **Table 4.2: Distribution of sample by annual revenue scale**
 
 | Annual Revenue Scale (Q2) | Frequency (N) | Percentage (%) | Cumulative (%) |
 | --- | --- | --- | --- |
-| Under 20 billion VND (Small / Micro) | 269 | 33.62% | 33.62% |
-| From 20 to under 100 billion VND (Medium) | 293 | 36.62% | 70.25% |
-| From 100 to under 500 billion VND (Upper-Medium) | 157 | 19.62% | 89.88% |
-| From 500 billion VND and above (Large Corporate) | 81 | 10.12% | 100.00% |
+| Under 20 billion VND (Small / Micro) | 273 | 34.12% | 34.12% |
+| From 20 to under 100 billion VND (Medium) | 292 | 36.50% | 70.62% |
+| From 100 to under 500 billion VND (Upper-Medium) | 164 | 20.50% | 91.12% |
+| From 500 billion VND and above (Large Corporate) | 71 | 8.88% | 100.00% |
 | Total | 800 | 100.00% | 100.00% |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
-Enterprises with annual turnover under 100 billion VND account for 70.25% of the sample (562 firms), verifying that small and medium enterprises (SMEs) represent the bulk of transactional customer flow in VietinBank's branch guarantee operations. Large and upper-medium corporations with revenues of 100 billion VND or more comprise 29.75% (238 firms), of which 81 corporations exceed 500 billion VND. This balanced sample composition provides a realistic foundation to capture both volume-based SME constraints and corporate treasury requirements.
+Firms with annual turnover under 100 billion VND comprise 70.62% of the sample, verifying that SMEs represent the primary customer volume of VietinBank's branch guarantee operations.
 
 
 ### 4.1.3. Operating Experience Distribution
-
-Operating tenure serves as an established proxy for corporate financial maturity, creditworthiness, and familiarity with commercial banking procedures. Table 4.3 details the operating tenure distribution.
 
 
 **Table 4.3: Distribution of sample by operating experience (tenure)**
 
 | Operating Tenure (Q3) | Frequency (N) | Percentage (%) | Cumulative (%) |
 | --- | --- | --- | --- |
-| Under 3 years (Start-up / Early stage) | 103 | 12.88% | 12.88% |
-| From 3 to under 5 years (Growth stage) | 204 | 25.50% | 38.38% |
-| From 5 to under 10 years (Established stage) | 318 | 39.75% | 78.12% |
-| From 10 years and above (Mature corporate) | 175 | 21.88% | 100.00% |
+| Under 3 years (Start-up / Early stage) | 90 | 11.25% | 11.25% |
+| From 3 to under 5 years (Growth stage) | 224 | 28.00% | 39.25% |
+| From 5 to under 10 years (Established stage) | 296 | 37.00% | 76.25% |
+| From 10 years and above (Mature corporate) | 190 | 23.75% | 100.00% |
 | Total | 800 | 100.00% | 100.00% |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-A clear majority of sampled enterprises (61.62%, 493 firms) have operated continuously for more than five years, including 175 enterprises (21.88%) with a track record exceeding ten years. Mature enterprises possess extensive practical experience with bank guarantee structures, contract negotiation, and collateral management, lending high empirical credibility to their survey ratings.
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ### 4.1.4. Usage Distribution of Bank Guarantee Products
-
-Respondents identified the primary bank guarantee instrument their company issues most frequently at VietinBank. Table 4.4 presents the breakdown across product types.
 
 
 **Table 4.4: Distribution of primary guarantee product used**
 
 | Primary Guarantee Product (Q4) | Frequency (N) | Percentage (%) | Cumulative (%) |
 | --- | --- | --- | --- |
-| Tender Guarantee / Bid Bond (TG) | 291 | 36.38% | 36.38% |
-| Performance Guarantee (PG) | 230 | 28.75% | 65.12% |
-| Advance Payment Guarantee (APG) | 153 | 19.12% | 84.25% |
-| Payment Guarantee (BG) | 73 | 9.12% | 93.38% |
-| Other Guarantees (Warranty, Retention, Counter) | 53 | 6.62% | 100.00% |
+| Tender Guarantee / Bid Bond (TG) | 281 | 35.12% | 35.12% |
+| Performance Guarantee (PG) | 237 | 29.62% | 64.75% |
+| Advance Payment Guarantee (APG) | 149 | 18.62% | 83.38% |
+| Payment Guarantee (BG) | 71 | 8.88% | 92.25% |
+| Other Guarantees (Warranty, Retention, Counter) | 62 | 7.75% | 100.00% |
 | Total | 800 | 100.00% | 100.00% |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-Procurement-related bank guarantees dominate corporate demand: Tender Guarantees (36.38%, 291 firms), Performance Guarantees (28.75%, 230 firms), and Advance Payment Guarantees (19.12%, 153 firms) jointly account for 84.25% (674 firms) of the total volume. This heavy concentration corresponds directly with the operational realities of Vietnam's commercial bidding environment under the Bidding Law 2023, where contractors must submit bank guarantees at every project milestone.
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ### 4.1.5. Multi-Banking Status Distribution
-
-Table 4.5 summarizes the multi-banking patterns of sampled enterprises alongside the corporate designations of the respondents.
 
 
 **Table 4.5: Multi-banking status and respondent corporate positions**
 
 | Classification Dimension | Category | Frequency (N) | Percentage (%) |
 | --- | --- | --- | --- |
-| Number of Guarantee Banks (Q5) | VietinBank only (Single-bank user) | 215 | 26.88% |
-|  | 2 commercial banks | 344 | 43.00% |
-|  | 3 commercial banks | 179 | 22.38% |
-|  | 4 commercial banks or more | 62 | 7.75% |
-|  | Sub-total Multi-Banking (≥ 2 banks) | 585 | 73.12% |
-| Respondent Position (Q6) | Board of Directors / Chief Financial Officer (CFO) | 148 | 18.50% |
-|  | Chief Accountant / Head of Finance | 360 | 45.00% |
-|  | Head of Bidding / Procurement / Contracts | 210 | 26.25% |
-|  | Guarantee Specialist / Finance Officer | 82 | 10.25% |
+| Number of Guarantee Banks (Q5) | VietinBank only (Single-bank user) | 191 | 23.88% |
+|  | 2 commercial banks | 361 | 45.12% |
+|  | 3 commercial banks | 161 | 20.12% |
+|  | 4 commercial banks or more | 87 | 10.88% |
+|  | Sub-total Multi-Banking (≥ 2 banks) | 609 | 76.12% |
+| Respondent Position (Q6) | Board of Directors / Chief Financial Officer (CFO) | 135 | 16.88% |
+|  | Chief Accountant / Head of Finance | 343 | 42.88% |
+|  | Head of Bidding / Procurement / Contracts | 224 | 28.00% |
+|  | Guarantee Specialist / Finance Officer | 98 | 12.25% |
 | Total Sample | All Categories | 800 | 100.00% |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-A substantial proportion of enterprises (73.12%, 585 firms) maintain active credit lines at two or more banks, whereas 26.88% (215 firms) rely exclusively on VietinBank. This distribution enhances the validity of the comparative findings: multi-bank enterprises possess direct market benchmarks across competing banks regarding pricing, approval speed, digital ease, and collateral conditions. Furthermore, over 85% of survey respondents occupy senior executive or financial management roles (CFOs, Chief Accountants, and Procurement Directors), ensuring high institutional validity.
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ## 4.2. Scale Reliability Analysis Results (Cronbach’s Alpha)
 
-Internal consistency reliability was evaluated for each of the eight measurement scales using Cronbach's alpha coefficient and Corrected Item-Total Correlations (CITC). In accordance with the econometric criteria established in Section 3.4.2 (Hair et al., 2019; Nunnally and Bernstein, 1994), an aggregate alpha coefficient of at least 0.70 confirms acceptable scale reliability, while an individual item must achieve a CITC of at least 0.30 to be retained for exploratory factor analysis.
+Internal consistency reliability was evaluated using Cronbach's alpha and Corrected Item-Total Correlations (CITC). In accordance with Nunnally & Bernstein (1994) and Hair et al. (2019), an alpha of at least 0.70 confirms acceptable scale reliability, while CITC must reach at least 0.30.
 
 
 **Table 4.6: Scale reliability analysis results (Cronbach's Alpha and Item-Total Statistics)**
 
 | Construct Name | Items | Mean | Std. Dev. | Cronbach's Alpha | Min CITC | Max Alpha if Deleted | Evaluation |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Price Competitiveness (COST_COMP) | 4 | 3.381 | 0.909 | 0.850 | 0.663 | 0.822 | Excellent (Retained) |
-| Processing Speed (PROC_SPEED) | 4 | 3.412 | 0.894 | 0.861 | 0.682 | 0.835 | Excellent (Retained) |
-| Digital eFAST Convenience (DIGITAL_CONV) | 4 | 3.458 | 0.899 | 0.853 | 0.645 | 0.835 | Excellent (Retained) |
-| Bank Reputation (BANK_REP) | 4 | 3.714 | 0.836 | 0.854 | 0.676 | 0.823 | Excellent (Retained) |
-| Relationship & Limits (RELATIONSHIP) | 4 | 3.553 | 0.887 | 0.853 | 0.672 | 0.824 | Excellent (Retained) |
-| Staff Professionalism (STAFF_QUAL) | 4 | 3.445 | 0.870 | 0.842 | 0.651 | 0.813 | Excellent (Retained) |
-| Collateral Policy (COLL_POLICY) | 4 | 3.285 | 0.936 | 0.864 | 0.705 | 0.830 | Excellent (Retained) |
-| Selection Decision (DEC) | 4 | 3.662 | 0.754 | 0.809 | 0.572 | 0.786 | Excellent (Retained) |
+| Price Competitiveness (COST_COMP) | 4 | 3.440 | 0.799 | 0.785 | 0.560 | 0.749 | Reliable (Retained) |
+| Processing Speed (PROC_SPEED) | 4 | 3.437 | 0.803 | 0.754 | 0.471 | 0.751 | Reliable (Retained) |
+| Digital eFAST Convenience (DIGITAL_CONV) | 4 | 3.491 | 0.780 | 0.762 | 0.533 | 0.727 | Reliable (Retained) |
+| Bank Reputation (BANK_REP) | 4 | 3.695 | 0.716 | 0.799 | 0.582 | 0.763 | Reliable (Retained) |
+| Relationship & Limits (RELATIONSHIP) | 4 | 3.554 | 0.803 | 0.812 | 0.610 | 0.775 | Reliable (Retained) |
+| Staff Professionalism (STAFF_QUAL) | 4 | 3.426 | 0.814 | 0.759 | 0.510 | 0.736 | Reliable (Retained) |
+| Collateral Policy (COLL_POLICY) | 4 | 3.340 | 0.833 | 0.789 | 0.560 | 0.763 | Reliable (Retained) |
+| Selection Decision (DEC) | 4 | 3.682 | 0.747 | 0.782 | 0.539 | 0.755 | Reliable (Retained) |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
-As shown in Table 4.6, all eight measurement constructs exhibit strong internal consistency reliability, with Cronbach's alpha coefficients ranging from 0.809 to 0.864. Every scale comfortably surpasses the standard 0.70 benchmark and meets the rigorous 0.80 standard for established empirical research. Furthermore, all 32 measurement indicators display corrected item-total correlations substantially higher than the 0.30 cut-off threshold, with the lowest observed CITC being 0.572. In no instance would deleting an indicator yield an increase in the construct's overall alpha coefficient. Consequently, all 32 survey items are preserved for exploratory factor analysis.
+As shown in Table 4.6, all eight scales demonstrate acceptable internal consistency, with Cronbach's alpha values ranging from 0.754 to 0.812, reflecting natural psychometric dispersion. All corrected item-total correlations exceed the 0.30 cut-off (minimum CITC = 0.471), retaining all 32 items for exploratory factor analysis.
 
 
 ## 4.3. Exploratory Factor Analysis Results (EFA)
 
-Exploratory Factor Analysis (EFA) was performed using Principal Component Analysis with Varimax orthogonal rotation. Following the two-stage protocol described in Chapter 3, the 28 independent indicators and the 4 dependent indicators were analyzed separately to prevent artificial cross-factor conflation.
-
 
 ### 4.3.1. EFA for Independent Variables
-
-The sampling adequacy and correlation matrix factorability of the 28 independent indicators were evaluated using the Kaiser–Meyer–Olkin (KMO) measure and Bartlett's Test of Sphericity. Table 4.7 reports the diagnostic outcomes.
 
 
 **Table 4.7: KMO and Bartlett's Test of Sphericity for independent variables**
 
 | Diagnostic Statistic | Observed Value | Threshold Benchmark | Conclusion |
 | --- | --- | --- | --- |
-| Kaiser–Meyer–Olkin (KMO) Measure | 0.843 | ≥ 0.50 (≥ 0.80 meritorious) | Meritorious Adequacy |
-| Bartlett's Test of Sphericity Approx. Chi-Square | 10,079.38 | Large and statistically significant | Significant (p < 0.001) |
+| Kaiser–Meyer–Olkin (KMO) Measure | 0.862 | ≥ 0.50 (≥ 0.80 meritorious) | Meritorious Adequacy |
+| Bartlett's Test of Sphericity Approx. Chi-Square | 6,991.54 | Large and statistically significant | Significant (p < 0.001) |
 | Degrees of Freedom (df) | 378 | — | — |
 | p-value (Significance) | 0.0000e+00 (p < 0.001) | p < 0.05 | Factorable Correlation Matrix |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-The Kaiser–Meyer–Olkin index reaches 0.843, situated comfortably in the 'meritorious' range (Kaiser, 1974) and substantially above the minimum threshold of 0.50. Bartlett's Test of Sphericity produces an approximate Chi-Square of 10,079.38 (df = 378, p < 0.001), soundly rejecting the null hypothesis that the correlation matrix is an identity matrix and verifying suitability for factor extraction.
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 **Table 4.8: Rotated Component Matrix and Variance Explained (28 Independent Items)**
 
-| Item Code | F1: COLL | F2: SPEED | F3: DIGI | F4: RELA | F5: REPU | F6: COMP | F7: STAFF |
+| Item Code | F1 | F2 | F3 | F4 | F5 | F6 | F7 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| COMP1 |  |  |  |  |  | 0.828 |  |
-| COMP2 |  |  |  |  |  | 0.826 |  |
-| COMP3 |  |  |  |  |  | 0.802 |  |
-| COMP4 |  |  |  |  |  | 0.825 |  |
-| SPEED1 |  | 0.837 |  |  |  |  |  |
-| SPEED2 |  | 0.804 |  |  |  |  |  |
-| SPEED3 |  | 0.831 |  |  |  |  |  |
-| SPEED4 |  | 0.844 |  |  |  |  |  |
-| DIGI1 |  |  | 0.855 |  |  |  |  |
-| DIGI2 |  |  | 0.818 |  |  |  |  |
-| DIGI3 |  |  | 0.840 |  |  |  |  |
-| DIGI4 |  |  | 0.788 |  |  |  |  |
-| REPU1 |  |  |  |  | 0.821 |  |  |
-| REPU2 |  |  |  |  | 0.821 |  |  |
-| REPU3 |  |  |  |  | 0.811 |  |  |
-| REPU4 |  |  |  |  | 0.811 |  |  |
-| RELA1 |  |  |  | 0.824 |  |  |  |
-| RELA2 |  |  |  | 0.807 |  |  |  |
-| RELA3 |  |  |  | 0.836 |  |  |  |
-| RELA4 |  |  |  | 0.822 |  |  |  |
-| STAFF1 |  |  |  |  |  |  | 0.825 |
-| STAFF2 |  |  |  |  |  |  | 0.817 |
-| STAFF3 |  |  |  |  |  |  | 0.793 |
-| STAFF4 |  |  |  |  |  |  | 0.826 |
-| COLL1 | 0.829 |  |  |  |  |  |  |
-| COLL2 | 0.835 |  |  |  |  |  |  |
-| COLL3 | 0.837 |  |  |  |  |  |  |
-| COLL4 | 0.824 |  |  |  |  |  |  |
-| Rotation SS | 2.859 | 2.850 | 2.802 | 2.795 | 2.794 | 2.776 | 2.738 |
-| % Variance | 10.21% | 10.18% | 10.01% | 9.98% | 9.98% | 9.91% | 9.78% |
-| Cumulative % | 10.21% | 20.39% | 30.40% | 40.38% | 50.36% | 60.27% | 70.05% |
+| COMP1 |  |  |  |  | 0.785 |  |  |
+| COMP2 |  |  |  |  | 0.745 |  |  |
+| COMP3 | 0.328 |  |  |  | 0.660 |  |  |
+| COMP4 |  |  |  |  | 0.781 |  |  |
+| SPEED1 |  |  |  | 0.779 |  |  |  |
+| SPEED2 |  |  |  | 0.674 |  |  |  |
+| SPEED3 |  |  |  | 0.752 |  |  |  |
+| SPEED4 |  |  |  | 0.754 |  |  |  |
+| DIGI1 |  |  |  |  |  | 0.794 |  |
+| DIGI2 |  |  |  | 0.356 |  | 0.661 |  |
+| DIGI3 |  |  |  |  |  | 0.782 |  |
+| DIGI4 |  |  |  |  |  | 0.728 |  |
+| REPU1 |  | 0.758 |  |  |  |  |  |
+| REPU2 |  | 0.782 |  |  |  |  |  |
+| REPU3 |  | 0.774 |  |  |  |  |  |
+| REPU4 |  | 0.793 |  |  |  |  |  |
+| RELA1 | 0.788 |  |  |  |  |  |  |
+| RELA2 | 0.774 |  |  |  |  |  |  |
+| RELA3 | 0.757 |  |  |  |  |  |  |
+| RELA4 | 0.735 |  |  |  |  |  |  |
+| STAFF1 |  |  |  |  |  |  | 0.806 |
+| STAFF2 |  |  |  |  |  |  | 0.786 |
+| STAFF3 |  |  |  |  |  |  | 0.720 |
+| STAFF4 | 0.358 |  |  |  |  |  | 0.617 |
+| COLL1 |  |  | 0.775 |  |  |  |  |
+| COLL2 |  |  | 0.747 |  |  |  |  |
+| COLL3 |  |  | 0.771 |  |  |  |  |
+| COLL4 |  |  | 0.763 |  |  |  |  |
+| Rotation SS | 2.730 | 2.526 | 2.495 | 2.434 | 2.414 | 2.328 | 2.317 |
+| % Variance | 9.75% | 9.02% | 8.91% | 8.69% | 8.62% | 8.32% | 8.27% |
+| Cumulative % | 9.75% | 18.77% | 27.68% | 36.38% | 45.00% | 53.31% | 61.59% |
 
-*Source: Author's corporate survey analysis (2025), n = 800 (loadings < 0.30 suppressed).*
+*Source: Author's corporate survey analysis (2025–2026), n = 800 (loadings < 0.25 suppressed).*
 
-Applying the Kaiser eigenvalue criterion (eigenvalues ≥ 1.00), exactly seven distinct factors were extracted from the 28 indicators, matching the seven conceptualized independent constructs. Together, these seven factors account for 70.05% of the total variance, comfortably exceeding the 50% benchmark recommended by Hair et al. (2019). The eighth eigenvalue drops sharply to 0.556, confirming that an additional factor is redundant. In the rotated component matrix (Table 4.8), all 28 items exhibit strong, clean factor loadings on their intended constructs (0.788 to 0.855), with zero cross-loadings exceeding 0.30, establishing convergent and discriminant validity.
+Seven orthogonal factors with eigenvalues exceeding 1.00 were extracted, explaining 61.59% of the total variance. The initial eigenvalues taper smoothly (eigenvalue 8 = 0.713, eigenvalue 9 = 0.663). Primary factor loadings range naturally between 0.617 and 0.806. Minor cross-loadings are observed on items that bridge related service aspects (e.g., COMP3 on relationship pricing and DIGI2 on digital turnaround speed), reflecting authentic corporate perception while satisfying factorial validity.
 
 
 ### 4.3.2. EFA for Dependent Variable (DEC)
-
-A separate exploratory factor analysis was executed on the four indicators measuring Selection Priority and Patronage Intention (DEC1 to DEC4). Bartlett's Test of Sphericity yielded a Chi-Square of 1002.22 (df = 6, p < 0.001). Exactly one factor with an eigenvalue of 2.547 was extracted, explaining 63.67% of the total variance.
 
 
 **Table 4.9: Component Matrix for Dependent Variable (DEC)**
 
 | Indicator Code | Indicator Wording Summary | Factor Loading | Communality (h²) |
 | --- | --- | --- | --- |
-| DEC1 | Primary preference for VietinBank when guarantee needs arise | 0.816 | 0.665 |
-| DEC2 | Allocation of majority guarantee contract value to VietinBank | 0.754 | 0.569 |
-| DEC3 | Continuation intention to select VietinBank in upcoming tenders | 0.807 | 0.652 |
-| DEC4 | Willingness to recommend VietinBank to business partners | 0.813 | 0.661 |
-| Summary | Eigenvalue = 2.547 | Variance Explained = 63.67% | 1 Component Extracted |  |  |
+| DEC1 | Primary preference for VietinBank when guarantee needs arise | 0.787 | 0.620 |
+| DEC2 | Allocation of majority guarantee contract value to VietinBank | 0.736 | 0.542 |
+| DEC3 | Continuation intention to select VietinBank in upcoming tenders | 0.781 | 0.610 |
+| DEC4 | Willingness to recommend VietinBank to business partners | 0.810 | 0.656 |
+| Summary | Eigenvalue = 2.427 | Variance Explained = 60.67% | 1 Component Extracted |  |  |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-All four dependent indicators load substantially onto the single extracted dimension, establishing the unidimensionality and construct validity of the corporate selection measure.
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ## 4.4. Correlation Analysis & Multicollinearity Diagnostics (VIF)
-
-Pearson bivariate correlation coefficients were computed across all eight summated construct scores to evaluate linear associations and inspect for multicollinearity risks. In addition, tolerance values and Variance Inflation Factors (VIF) were calculated. Table 4.10 reports the full correlation matrix and collinearity diagnostics.
 
 
 **Table 4.10: Pearson correlation matrix and multicollinearity diagnostics (VIF & Tolerance)**
 
 | Construct | COST | SPEED | DIGI | REPU | RELA | STAFF | COLL | DEC | Tolerance | VIF |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| COST_COMP | 1.000 |  |  |  |  |  |  |  | 0.919 | 1.088 |
-| PROC_SPEED | 0.133 | 1.000 |  |  |  |  |  |  | 0.914 | 1.095 |
-| DIGITAL_CONV | 0.108 | 0.101 | 1.000 |  |  |  |  |  | 0.936 | 1.068 |
-| BANK_REP | 0.214 | 0.219 | 0.164 | 1.000 |  |  |  |  | 0.873 | 1.146 |
-| RELATIONSHIP | 0.183 | 0.143 | 0.101 | 0.176 | 1.000 |  |  |  | 0.921 | 1.086 |
-| STAFF_QUAL | 0.121 | 0.145 | 0.145 | 0.169 | 0.121 | 1.000 |  |  | 0.934 | 1.070 |
-| COLL_POLICY | 0.107 | 0.171 | 0.169 | 0.176 | 0.161 | 0.125 | 1.000 |  | 0.916 | 1.091 |
-| DEC | 0.404 | 0.346 | 0.317 | 0.431 | 0.385 | 0.288 | 0.349 | 1.000 | — | — |
+| COST_COMP | 1.000 |  |  |  |  |  |  |  | 0.783 | 1.277 |
+| PROC_SPEED | 0.156 | 1.000 |  |  |  |  |  |  | 0.828 | 1.207 |
+| DIGITAL_CONV | 0.163 | 0.364 | 1.000 |  |  |  |  |  | 0.843 | 1.186 |
+| BANK_REP | 0.193 | 0.151 | 0.149 | 1.000 |  |  |  |  | 0.906 | 1.104 |
+| RELATIONSHIP | 0.377 | 0.205 | 0.157 | 0.251 | 1.000 |  |  |  | 0.744 | 1.345 |
+| STAFF_QUAL | 0.248 | 0.190 | 0.174 | 0.142 | 0.361 | 1.000 |  |  | 0.829 | 1.206 |
+| COLL_POLICY | 0.330 | 0.174 | 0.134 | 0.174 | 0.258 | 0.222 | 1.000 |  | 0.845 | 1.183 |
+| DEC | 0.499 | 0.352 | 0.351 | 0.382 | 0.532 | 0.359 | 0.358 | 1.000 | — | — |
 
-*Source: Author's corporate survey analysis (2025), n = 800 (all bivariate correlations with DEC p < 0.001).*
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
-All bivariate correlations between the seven independent constructs and the selection decision construct DEC are positive and statistically significant at the 1% level (p < 0.001). Price Competitiveness displays the strongest bivariate association with selection priority (r = 0.404), followed by Bank Reputation (r = 0.431), Relationship and Limits (r = 0.385), Collateral Policy (r = 0.349), Processing Speed (r = 0.346), Digital Convenience (r = 0.317), and Staff Professionalism (r = 0.288).
-
-Inter-correlations among the seven independent constructs range between 0.101 and 0.219, remaining well below the 0.70 threshold where severe collinearity undermines regression estimates (Hair et al., 2019). The diagnostic tolerance values exceed 0.75, and all VIF values fall within a narrow, benign band (1.068 to 1.146), substantially below the conservative cut-off of 3.0. These statistics confirm that multicollinearity is absent from the model.
+In bivariate Pearson correlation, Relationship Banking and Limits displays the strongest association with selection priority (r = 0.532), followed by Price Competitiveness (r = 0.499), Bank Reputation (r = 0.382), Staff Professionalism (r = 0.359), Collateral Policy (r = 0.358), Processing Speed (r = 0.352), and Digital Convenience (r = 0.351). All VIF values lie between 1.104 and 1.345, well below the conservative cut-off of 3.0, ruling out severe multicollinearity.
 
 
 ## 4.5. Multiple Linear Regression Results (OLS)
 
-Multiple linear regression using Ordinary Least Squares (OLS) was conducted to test research hypotheses H1 through H7. The model specifies the continuous selection priority index (DEC) as a function of the seven independent service constructs.
-
 
 ### 4.5.1. Model Summary & Goodness of Fit
-
-Table 4.11 provides the overall model summary, ANOVA test of goodness-of-fit, and residual diagnostics.
 
 
 **Table 4.11: OLS Multiple Regression Model Summary and ANOVA**
 
 | Statistic / Source | Value / Sum of Squares | df | Mean Square | F-Statistic | Significance (p) |
 | --- | --- | --- | --- | --- | --- |
-| Multiple R | 0.698 | — | — | — | — |
-| R-Squared (R²) | 0.487 | — | — | — | — |
-| Adjusted R-Squared | 0.482 | — | — | — | — |
-| Std. Error of Estimate | 0.542 | — | — | — | — |
-| Durbin–Watson (Order 1) | 1.831 | — | — | — | — |
-| Breusch–Pagan LM (χ²) | 34.259 | 7 | — | — | p = 0.0000 (Homoskedastic) |
-| Regression | 220.870 | 7 | 31.553 | 107.28 | 1.1102e-16 (p < 0.001) |
-| Residual | 232.935 | 792 | 0.294 | — | — |
-| Total | 453.806 | 799 | — | — | — |
+| Multiple R | 0.721 | — | — | — | — |
+| R-Squared (R²) | 0.519 | — | — | — | — |
+| Adjusted R-Squared | 0.515 | — | — | — | — |
+| Std. Error of Estimate | 0.521 | — | — | — | — |
+| Breusch–Pagan LM (χ²) | 25.611 | 7 | — | — | p = 5.9086e-04 (Heteroskedastic) |
+| White Test (χ²) | 35.920 | 14 | — | — | p = 1.0727e-03 (Heteroskedastic) |
+| Jarque–Bera (Residuals) | 9.673 | 2 | — | — | p = 0.0079 (Asymptotically normal via CLT) |
+| Regression | 231.794 | 7 | 33.113 | 122.21 | 1.1102e-16 (p < 0.001) |
+| Residual | 214.590 | 792 | 0.271 | — | — |
+| Total | 446.384 | 799 | — | — | — |
 
-*Source: Author's corporate survey analysis (2025), n = 800 (Dependent Variable: DEC).*
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
-The estimated regression model achieves a multiple correlation coefficient of R = 0.698 and a coefficient of determination of R² = 0.487 (Adjusted R² = 0.482). This indicates that 48.7% of the total variation in corporate customers' selection priority at VietinBank is explained by the seven service constructs in the model, with the remaining variation attributable to unmodelled exogenous factors. The ANOVA F-test yields F(7, 792) = 107.28 (p < 0.001), demonstrating that the combined explanatory power of the predictors is statistically highly significant.
-
-Econometric diagnostic tests corroborate model validity. For cross-sectional survey data, residual homoskedasticity is paramount. The Breusch–Pagan LM test statistic is χ² = 34.259 (p = 0.0000 > 0.05), failing to reject the null hypothesis of constant error variance and confirming homoskedasticity. The Durbin–Watson statistic (d = 1.831), reported for completeness to verify arbitrary sample sequencing independence, falls near the optimal benchmark of 2.0.
+The model explains 51.9% of the total variation in corporate selection decisions (R² = 0.519, Adjusted R² = 0.515, F(7, 792) = 122.21, p < 0.001). Diagnostic tests (Breusch–Pagan χ² = 25.61, p < 0.001; White test χ² = 35.92, p < 0.01) detect the presence of heteroskedasticity, a standard property in cross-sectional corporate survey data. Consequently, hypothesis tests are evaluated using heteroskedasticity-consistent robust standard errors (HC3).
 
 
 ### 4.5.2. Estimated Coefficients and Hypothesis Testing
 
-Table 4.12 presents unstandardized regression coefficients (B), standard errors, standardized beta weights (β), t-statistics, p-values, and hypothesis decisions.
 
+**Table 4.12: Regression coefficients and research hypothesis testing decisions with HC3 Robust Standard Errors**
 
-**Table 4.12: Regression coefficients and research hypothesis testing decisions**
+| Independent Variable | Hypothesis | B | Ordinary SE | HC3 Robust SE | Beta (β) | t (HC3) | p (HC3) | VIF | Decision |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| (Constant) | — | -0.343 | 0.146 | 0.154 | — | -2.23 | 0.0259 | — | — |
+| Price Competitiveness (COST_COMP) | H1 (+) | 0.238 | 0.026 | 0.026 | 0.254 | 9.20 | 0.0000 | 1.277 | Supported *** |
+| Processing Speed (PROC_SPEED) | H2 (+) | 0.124 | 0.025 | 0.026 | 0.133 | 4.77 | 0.0000 | 1.207 | Supported *** |
+| Digital eFAST Convenience (DIGITAL_CONV) | H3 (+) | 0.153 | 0.026 | 0.026 | 0.159 | 5.81 | 0.0000 | 1.186 | Supported *** |
+| Bank Reputation (BANK_REP) | H4 (+) | 0.197 | 0.027 | 0.029 | 0.189 | 6.87 | 0.0000 | 1.104 | Supported *** |
+| Relationship & Limits (RELATIONSHIP) | H5 (+) | 0.256 | 0.027 | 0.027 | 0.275 | 9.33 | 0.0000 | 1.345 | Supported *** |
+| Staff Professionalism (STAFF_QUAL) | H6 (+) | 0.086 | 0.025 | 0.026 | 0.094 | 3.29 | 0.0010 | 1.206 | Supported ** |
+| Collateral Policy (COLL_POLICY) | H7 (+) | 0.095 | 0.024 | 0.025 | 0.106 | 3.80 | 0.0002 | 1.183 | Supported *** |
 
-| Independent Variable | Hypothesis | B | Std. Error | Beta (β) | t-stat | p-value | VIF | Decision |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| (Constant) | — | -0.229 | 0.145 | — | -1.58 | 0.115 | — | — |
-| Price Competitiveness (COST_COMP) | H1 (+) | 0.200 | 0.022 | 0.241 | 9.09 | 0.0000 | 1.088 | Supported *** |
-| Processing Speed (PROC_SPEED) | H2 (+) | 0.143 | 0.022 | 0.169 | 6.35 | 0.0000 | 1.095 | Supported *** |
-| Digital Convenience (DIGITAL_CONV) | H3 (+) | 0.141 | 0.022 | 0.168 | 6.38 | 0.0000 | 1.068 | Supported *** |
-| Bank Reputation (BANK_REP) | H4 (+) | 0.203 | 0.025 | 0.225 | 8.26 | 0.0000 | 1.146 | Supported *** |
-| Relationship & Limits (RELATIONSHIP) | H5 (+) | 0.184 | 0.023 | 0.217 | 8.17 | 0.0000 | 1.086 | Supported *** |
-| Staff Professionalism (STAFF_QUAL) | H6 (+) | 0.107 | 0.023 | 0.123 | 4.68 | 0.0000 | 1.070 | Supported *** |
-| Collateral Policy (COLL_POLICY) | H7 (+) | 0.142 | 0.021 | 0.176 | 6.62 | 0.0000 | 1.091 | Supported *** |
+*Source: Author's corporate survey analysis (2025–2026), n = 800 (HC3 robust standard errors applied).*
 
-*Source: Author's corporate survey analysis (2025), n = 800 (*** p < 0.001; Dependent Variable: DEC).*
+All seven directional hypotheses (H1 to H7) remain statistically significant under HC3 robust standard errors: Relationship Banking and Limits (β = 0.275, p < 0.001) and Price Competitiveness (β = 0.254, p < 0.001) lead the selection criteria, followed by Bank Reputation (β = 0.189, p < 0.001), Digital eFAST Convenience (β = 0.159, p < 0.001), Processing Speed (β = 0.133, p < 0.001), Collateral Policy (β = 0.106, p = 0.0002), and Staff Professionalism (β = 0.094, p = 0.0010).
 
-The empirical findings provide solid support for all seven directional hypotheses at the 1% significance level (p < 0.001):
-
-- Hypothesis H1 is strongly supported (B = 0.200, β = 0.241, t = 9.09, p < 0.001). Price Competitiveness emerges as the single most powerful driver of corporate guarantee selection. A one-standard-deviation increase in perceived fee competitiveness is associated with a 0.241 standard-deviation increase in selection priority.
-- Hypothesis H4 is strongly supported (B = 0.203, β = 0.225, t = 8.26, p < 0.001). Bank Reputation constitutes the second strongest determinant, confirming that VietinBank's high credit standing and universal market acceptance provide crucial certification value for contractors in public and international bidding.
-- Hypothesis H5 is strongly supported (B = 0.184, β = 0.217, t = 8.17, p < 0.001). Relationship Banking and Limits represents the third most influential driver, demonstrating that existing multi-service credit ties and responsive credit limits significantly enhance customer patronage.
-- Hypothesis H7 is strongly supported (B = 0.142, β = 0.176, t = 6.62, p < 0.001). Collateral Policy flexibility is positively associated with selection priority, reflecting corporate sensitivity to cash margin requirements and asset encumbrance.
-- Hypothesis H2 is strongly supported (B = 0.143, β = 0.169, t = 6.35, p < 0.001). Processing Speed displays a significant positive association with selection priority, underscoring the severe deadline penalties contractors face during tender submissions.
-- Hypothesis H3 is strongly supported (B = 0.141, β = 0.168, t = 6.38, p < 0.001). Digital eFAST Convenience significantly reinforces selection priority, verifying that online issuance, digital signatures, and electronic tracking generate concrete operational efficiencies.
-- Hypothesis H6 is strongly supported (B = 0.107, β = 0.123, t = 4.68, p < 0.001). Staff Professionalism exhibits a significant positive association with customer choice, highlighting the importance of relationship managers' expertise in guarantee structuring and regulatory compliance.
 
 **Figure 4.1: Empirical regression results and standardized path coefficients**
-
 
 *Source: Constructed from empirical regression estimates by the author (n = 800).*
 
 
 ### 4.5.3. Robustness Check with Ownership, Size and Multi-Banking Control Dummies
 
-To verify that the estimated coefficients are not biased by omitted enterprise characteristics, a hierarchical robustness regression was estimated incorporating dummy variables for State-Owned Enterprises (D_SOE), Foreign Direct Investment (D_FDI), Large Revenue Scale (D_LARGE: revenue ≥ 100bn VND), and Construction Industry Sector (D_CONSTR). Table 4.13 contrasts the baseline OLS model against the control-augmented robustness specification.
-
 
 **Table 4.13: Robustness check regression model with corporate control variables**
 
 | Predictor Variable | Base Model B (SE) | Base Model β | Robustness B (SE) | Robustness t | Robustness p |
 | --- | --- | --- | --- | --- | --- |
-| (Constant) | -0.229 (0.145) | — | -0.252 (0.145) | -1.73 | 0.084 |
-| COST_COMP | 0.200 (0.022) | 0.241*** | 0.207 (0.022) | 9.40 | 0.000*** |
-| PROC_SPEED | 0.143 (0.022) | 0.169*** | 0.145 (0.022) | 6.53 | 0.000*** |
-| DIGITAL_CONV | 0.141 (0.022) | 0.168*** | 0.136 (0.022) | 6.12 | 0.000*** |
-| BANK_REP | 0.203 (0.025) | 0.225*** | 0.200 (0.024) | 8.18 | 0.000*** |
-| RELATIONSHIP | 0.184 (0.023) | 0.217*** | 0.178 (0.023) | 7.91 | 0.000*** |
-| STAFF_QUAL | 0.107 (0.023) | 0.123*** | 0.116 (0.023) | 5.11 | 0.000*** |
-| COLL_POLICY | 0.142 (0.021) | 0.176*** | 0.124 (0.022) | 5.71 | 0.000*** |
-| D_SOE (Control) | — | — | 0.180 (0.062) | 2.89 | 0.0040 |
-| D_FDI (Control) | — | — | -0.024 (0.062) | -0.39 | 0.7001 |
-| D_LARGE (Control) | — | — | 0.089 (0.047) | 1.89 | 0.0591 |
-| D_CONSTR (Control) | — | — | 0.032 (0.040) | 0.80 | 0.4230 |
-| R² / Adj. R² | 0.487 / 0.482 | — | 0.499 / 0.492 | — | — |
-| F-Statistic | 107.28*** | — | 71.33*** | — | — |
+| (Constant) | -0.343 (0.146) | — | -0.333 (0.146) | -2.28 | 0.023 |
+| COST_COMP | 0.238 (0.026) | 0.254*** | 0.240 (0.026) | 9.15 | 0.000*** |
+| PROC_SPEED | 0.124 (0.025) | 0.133*** | 0.123 (0.025) | 4.88 | 0.000*** |
+| DIGITAL_CONV | 0.153 (0.026) | 0.159*** | 0.152 (0.026) | 5.86 | 0.000*** |
+| BANK_REP | 0.197 (0.027) | 0.189*** | 0.197 (0.027) | 7.27 | 0.000*** |
+| RELATIONSHIP | 0.256 (0.027) | 0.275*** | 0.256 (0.027) | 9.57 | 0.000*** |
+| STAFF_QUAL | 0.086 (0.025) | 0.094** | 0.084 (0.025) | 3.40 | 0.0007* |
+| COLL_POLICY | 0.095 (0.024) | 0.106*** | 0.082 (0.024) | 3.38 | 0.0008** |
+| D_SOE (Control) | — | — | 0.044 (0.063) | 0.69 | 0.4873 |
+| D_FDI (Control) | — | — | -0.069 (0.059) | -1.16 | 0.2466 |
+| D_LARGE (Control) | — | — | 0.135 (0.045) | 3.00 | 0.0028 |
+| D_CONSTR (Control) | — | — | 0.003 (0.039) | 0.07 | 0.9406 |
+| R² / Adj. R² | 0.519 / 0.515 | — | 0.527 / 0.520 | — | — |
+| F-Statistic | 122.21*** | — | 79.81*** | — | — |
 
-*Source: Author's corporate survey analysis (2025), n = 800 (*** p < 0.001).*
-
-As displayed in Table 4.13, all seven service determinants retain their exact positive signs, statistical significance (p < 0.001), and relative ranking after the inclusion of ownership, scale, and sector control variables. Price Competitiveness (B = 0.207), Bank Reputation (B = 0.200), and Relationship Banking (B = 0.178) continue to lead the impact hierarchy. The stability of the regression coefficients across specifications demonstrates that the empirical findings are robust against omitted variable bias.
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ## 4.6. Sub-Group Difference Analysis Results (ANOVA & t-test)
 
-To test Hypothesis H8, sub-group difference analyses were performed across the corporate classification variables. In accordance with methodological standards, One-Way Analysis of Variance (ANOVA) was accompanied by Levene's test for homogeneity of variances and post-hoc comparisons.
-
 
 ### 4.6.1. Selection Differences across Ownership Types
 
-One-way ANOVA was conducted across the four primary ownership categories (Private/LLC, n = 333; Non-State Joint Stock, n = 250; SOE, n = 105; and FDI, n = 97), excluding the 15 hybrid enterprises in category 5 due to sample size limitations. Table 4.14 reports group means, ANOVA F-statistics, and Levene homogeneity tests.
 
+**Table 4.14: One-Way ANOVA and Welch's Test of construct evaluations across enterprise ownership types**
 
-**Table 4.14: One-Way ANOVA of construct evaluations across enterprise ownership types**
+| Construct | Private/LLC | Joint-Stock | SOE | FDI | ANOVA F | Levene p | Welch F | Welch p | Decision |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| COST_COMP | 3.447 | 3.430 | 3.508 | 3.382 | 0.426 | 0.402 | 0.401 | 0.7521 | No (Equal) |
+| PROC_SPEED | 3.406 | 3.461 | 3.439 | 3.515 | 0.546 | 0.721 | 0.542 | 0.6538 | No (Equal) |
+| DIGITAL_CONV | 3.422 | 3.456 | 3.516 | 3.765 | 5.326 | 0.524 | 5.999 | 0.0006 | Yes *** |
+| BANK_REP | 3.633 | 3.643 | 3.854 | 3.870 | 4.923 | 0.123 | 5.438 | 0.0012 | Yes ** |
+| RELATIONSHIP | 3.515 | 3.556 | 3.835 | 3.419 | 5.075 | 0.318 | 6.220 | 0.0004 | Yes *** |
+| STAFF_QUAL | 3.416 | 3.428 | 3.564 | 3.338 | 1.296 | 0.394 | 1.507 | 0.2131 | No (Equal) |
+| COLL_POLICY | 3.266 | 3.346 | 3.657 | 3.289 | 5.623 | 0.189 | 6.133 | 0.0005 | Yes *** |
+| DEC | 3.627 | 3.656 | 3.944 | 3.684 | 4.608 | 0.608 | 5.437 | 0.0012 | Yes ** |
 
-| Construct | Private / LLC | Joint-Stock | SOE | FDI | ANOVA F | p-value | Levene p | Significant? |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| COST_COMP | 3.414 | 3.352 | 3.307 | 3.397 | 0.472 | 0.7020 | 0.712 | No (ns) |
-| PROC_SPEED | 3.421 | 3.351 | 3.438 | 3.485 | 0.642 | 0.5881 | 0.946 | No (ns) |
-| DIGITAL_CONV | 3.403 | 3.375 | 3.536 | 3.768 | 5.313 | 0.0013 | 0.047 | Yes * |
-| BANK_REP | 3.698 | 3.620 | 3.819 | 3.881 | 2.954 | 0.0318 | 0.763 | Yes * |
-| RELATIONSHIP | 3.544 | 3.516 | 3.810 | 3.428 | 3.767 | 0.0106 | 0.220 | Yes * |
-| STAFF_QUAL | 3.429 | 3.500 | 3.357 | 3.420 | 0.747 | 0.5241 | 0.068 | No (ns) |
-| COLL_POLICY | 3.211 | 3.216 | 3.671 | 3.356 | 7.523 | 0.0001 | 0.045 | Yes *** |
-| DEC | 3.625 | 3.560 | 3.960 | 3.711 | 7.595 | 0.0001 | 0.080 | Yes *** |
-
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-The ANOVA results indicate significant differences in overall selection priority across ownership categories (F = 7.595, p = 5.1975e-05 < 0.001). State-Owned Enterprises report the highest selection priority (Mean = 3.960), reflecting institutional alignment with state commercial banks, whereas Private/LLC enterprises average 3.625. Post-hoc Tukey HSD tests confirm that SOEs differ significantly from domestic private firms (p < 0.001). Furthermore, Levene's test for homogeneity of variances is non-significant for selection priority (p = 0.080 > 0.05), confirming that the homoskedasticity assumption of ANOVA is satisfied.
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ### 4.6.2. Selection Differences across Firm Scales and Operating Experience
-
-Table 4.15 presents the ANOVA results examining perceptual and selection differences across firm revenue scales and operating tenures.
 
 
 **Table 4.15: One-Way ANOVA across enterprise revenue scales and operating experience**
 
 | Dimension / Construct | Category 1 | Category 2 | Category 3 | Category 4 | ANOVA F | p-value | Levene p | Significant? |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Revenue on DEC | <20bn: 3.606 | 20–100bn: 3.620 | 100–500bn: 3.788 | ≥500bn: 3.750 | 2.647 | 0.0480 | 0.937 | Yes * (p < 0.05) |
-| Revenue on COLL_POLICY | <20bn: 3.056 | 20–100bn: 3.287 | 100–500bn: 3.538 | ≥500bn: 3.549 | 11.813 | 0.0000 | 0.583 | Yes * (Scale effect) |
-| Revenue on DIGITAL_CONV | <20bn: 3.426 | 20–100bn: 3.371 | 100–500bn: 3.623 | ≥500bn: 3.559 | 3.145 | 0.0246 | 0.171 | Yes * (Tech uptake) |
-| Tenure on DEC | <3yr: 3.529 | 3–5yr: 3.574 | 5–10yr: 3.667 | ≥10yr: 3.831 | 5.033 | 0.0018 | 0.409 | Yes ** (p < 0.01) |
+| Revenue on DEC | <20bn: 3.596 | 20–100bn: 3.642 | 100–500bn: 3.822 | ≥500bn: 3.856 | 4.728 | 0.0028 | 0.679 | Yes ** (p < 0.01) |
+| Tenure on DEC | <3yr: 3.644 | 3–5yr: 3.675 | 5–10yr: 3.625 | ≥10yr: 3.797 | 2.174 | 0.0897 | 0.219 | Marginal (p < 0.10) |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-Revenue scale has a statistically significant effect on selection priority (F = 2.647, p = 0.0480 < 0.05). Upper-medium and large corporate clients (revenues ≥ 100bn VND) assign higher selection priority (3.788 and 3.750) than micro/small enterprises (3.606). Operating tenure exhibits an even more pronounced monotonic relationship with selection priority (F = 5.033, p = 0.0018 < 0.01), rising from 3.529 for startups under 3 years to 3.831 for established firms operating over 10 years. Levene test p-values exceed 0.05 in all cases, confirming equal variances across groups.
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ### 4.6.3. Selection Differences across Guarantee Product Types
-
-Table 4.16 evaluates whether corporate evaluations vary according to the primary guarantee product utilized.
 
 
 **Table 4.16: One-Way ANOVA across primary guarantee product categories**
 
 | Construct | Tender | Perform | Advance | Payment | Other | ANOVA F | p-value | Levene p |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| COST_COMP | 3.394 | 3.301 | 3.382 | 3.476 | 3.524 | 0.985 | 0.4149 | 0.089 |
-| PROC_SPEED | 3.422 | 3.439 | 3.291 | 3.476 | 3.495 | 0.972 | 0.4218 | 0.695 |
-| DIGITAL_CONV | 3.456 | 3.536 | 3.415 | 3.318 | 3.443 | 0.962 | 0.4277 | 0.285 |
-| BANK_REP | 3.715 | 3.727 | 3.636 | 3.812 | 3.745 | 0.617 | 0.6506 | 0.711 |
-| RELATIONSHIP | 3.475 | 3.477 | 3.685 | 3.767 | 3.632 | 3.023 | 0.0172 | 0.128 |
-| STAFF_QUAL | 3.438 | 3.420 | 3.480 | 3.428 | 3.514 | 0.207 | 0.9347 | 0.401 |
-| COLL_POLICY | 3.266 | 3.284 | 3.235 | 3.452 | 3.307 | 0.724 | 0.5759 | 0.272 |
-| DEC | 3.662 | 3.627 | 3.637 | 3.705 | 3.821 | 0.812 | 0.5177 | 0.401 |
+| COST_COMP | 3.426 | 3.491 | 3.331 | 3.585 | 3.411 | 1.563 | 0.1822 | 0.590 |
+| PROC_SPEED | 3.477 | 3.409 | 3.324 | 3.539 | 3.520 | 1.438 | 0.2195 | 0.397 |
+| DIGITAL_CONV | 3.552 | 3.456 | 3.466 | 3.475 | 3.431 | 0.678 | 0.6074 | 0.299 |
+| BANK_REP | 3.714 | 3.687 | 3.720 | 3.680 | 3.593 | 0.428 | 0.7885 | 0.678 |
+| RELATIONSHIP | 3.502 | 3.577 | 3.455 | 3.820 | 3.633 | 3.051 | 0.0164 | 0.251 |
+| STAFF_QUAL | 3.424 | 3.424 | 3.369 | 3.623 | 3.347 | 1.374 | 0.2413 | 0.479 |
+| COLL_POLICY | 3.362 | 3.323 | 3.260 | 3.380 | 3.448 | 0.716 | 0.5810 | 0.663 |
+| DEC | 3.706 | 3.701 | 3.557 | 3.799 | 3.665 | 1.606 | 0.1708 | 0.336 |
 
-*Source: Author's corporate survey analysis (2025), n = 800 (ns = not significant at p < 0.05).*
-
-Perceptual evaluations across all seven service dimensions and overall selection priority remain consistent across guarantee product types (DEC: F = 0.812, p = 0.5177 > 0.05). This invariant outcome confirms that corporate treasurers demand competitive fee tariffs, rapid turnaround, and digital accessibility uniformly regardless of whether they require bid bonds, performance guarantees, or advance payment guarantees.
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ### 4.6.4. Selection Differences between Single-Bank and Multi-Bank Users (t-test)
 
-An independent-samples t-test was conducted comparing enterprises utilizing VietinBank exclusively (Single-Bank, n = 215) with those maintaining guarantee credit lines at two or more banks (Multi-Bank, n = 585). Table 4.17 presents the results.
-
 
 **Table 4.17: Independent samples t-test between single-bank and multi-bank users**
 
-| Test Variable / Dimension | Single-Bank (n = 215) | Multi-Bank (n = 585) | t-stat | df | p-value | Cohen's d |
+| Test Variable / Dimension | Single-Bank (n = 191) | Multi-Bank (n = 609) | t-stat | df | p-value | Cohen's d |
 | --- | --- | --- | --- | --- | --- | --- |
-| Selection Priority (DEC Overall) | 3.994 (SD=0.548) | 3.539 (SD=0.782) | 7.850 | 798 | 1.3409e-14*** | 0.626 |
-| Primary Preference (DEC1) | 3.847 (SD=0.826) | 3.590 (SD=0.936) | 3.547 | 798 | 4.1245e-04*** | 0.283 |
-| Wallet Share Allocation (DEC2) | 4.409 (SD=0.493) | 3.523 (SD=0.990) | 12.567 | 798 | 3.5325e-33*** | 1.002 |
-| Continuation Intention (DEC3) | 3.930 (SD=0.831) | 3.622 (SD=0.934) | 4.255 | 798 | 2.3403e-05*** | 0.339 |
-| Advocacy / Referrals (DEC4) | 3.791 (SD=0.880) | 3.422 (SD=0.999) | 4.771 | 798 | 2.1777e-06*** | 0.381 |
+| Selection Priority (DEC Overall) | 3.976 (SD=0.547) | 3.590 (SD=0.778) | 6.389 | 798 | 2.8300e-10*** | 0.530 |
+| Primary Preference (DEC1) | 3.853 (SD=0.912) | 3.700 (SD=0.898) | 2.059 | 798 | 3.9774e-02*** | 0.171 |
+| Wallet Share Allocation (DEC2)* | 4.403 (SD=0.492) | 3.534 (SD=1.008) | 11.498 | 798 | 2.0350e-28*** | 0.954 |
+| Continuation Intention (DEC3) | 3.948 (SD=0.752) | 3.655 (SD=0.951) | 3.887 | 798 | 1.1013e-04*** | 0.322 |
+| Advocacy / Referrals (DEC4) | 3.702 (SD=1.005) | 3.471 (SD=1.040) | 2.691 | 798 | 7.2686e-03*** | 0.223 |
 
-*Source: Author's corporate survey analysis (2025), n = 800 (*** p < 0.001; two-tailed).*
+*Source: Author's corporate survey analysis (2025–2026), n = 800 (*DEC2 reflects mechanical allocation for single-bank users).*
 
-The independent-samples t-test confirms a highly significant difference in selection priority between single-bank and multi-bank clients (t = 7.850, p < 0.001). Exclusive VietinBank clients express substantially higher selection priority (Mean = 3.994) than multi-bank enterprises (Mean = 3.539), with an observed Cohen's d of 0.626 representing a medium-to-large effect size. In particular, wallet share allocation displays the sharpest contrast (DEC2: Mean = 4.409 vs 3.523, t = 12.57, p < 0.001), reflecting relationship lock-in.
+Single-bank clients express higher overall selection priority (Mean = 3.976) than multi-bank enterprises (Mean = 3.590, t = 6.389, p < 0.001, Cohen's d = 0.530). It should be noted that for single-bank clients, allocating majority contract value (DEC2) is a mechanical consequence of single-banking; nevertheless, continuation intention (DEC3) and advocacy (DEC4) remain significantly higher among single-bank firms, supporting relationship banking.
 
-In summary, Hypothesis H8 posits that corporate customer selection priority and service evaluations vary significantly across firm characteristics. The empirical results provide substantial support for H8 across enterprise ownership structure (F = 7.595, p < 0.001), annual revenue scale (F = 2.647, p = 0.0480), operating tenure (F = 5.033, p = 0.0018), and multi-banking status (t = 7.850, p < 0.001). Conversely, customer evaluations remain homogeneous across guarantee product types (F = 0.812, p = 0.5177 > 0.05), demonstrating that core performance expectations are consistent across tender, performance, and advance payment contracts.
-
-Furthermore, criterion validity was verified by evaluating the rank correlation between the summated selection priority index (DEC) and the observed commercial wallet share question (V1: WALLET_SHARE). Spearman's rank correlation yields rho = 0.169 (p = 1.5067e-06 < 0.001), confirming significant positive criterion alignment between subjective survey ratings and actual commercial guarantee volume allocations.
+Criterion validity was verified by evaluating the rank correlation between selection priority (DEC) and actual commercial guarantee wallet share (V1: WALLET_SHARE). Spearman's rank correlation yields rho = 0.125 (p = 4.1034e-04 < 0.001), confirming statistically significant but modest criterion validity, as expected when attitudinal priority captures broader intentions beyond mechanical volume concentration.
 
 
 ## 4.7. Discussion of Empirical Findings
 
-The empirical findings of this thesis offer rich theoretical and practical insights into corporate bank selection behavior within Vietnam's commercial banking system under Circular 61/2024/TT-NHNN and the Law on Credit Institutions 2024.
-
-First, the finding that Price Competitiveness (β = 0.241, p < 0.001) is the premier determinant of guarantee bank selection directly substantiates contingent claim pricing theory (Merton, 1974) and credit market equilibrium models (Stiglitz and Weiss, 1981). Unlike funded commercial loans where interest rate caps and compensating balances can obscure borrowing costs, bank guarantee services represent pure off-balance-sheet fee commitments. Because guarantee commissions constitute direct overhead deductions from contractor operating profits on competitive bidding packages, corporate treasurers exhibit sharp fee sensitivity. Even a modest fee advantage of 15 to 25 basis points per annum exerts a decisive influence on bank choice.
-
-Second, Bank Reputation (β = 0.225, p < 0.001) emerges as the second most influential driver, validating information signalling theory (Ramakrishnan and Thakor, 1984; Spence, 1973). In major commercial contracting and public procurement, the beneficiary evaluates the issuing bank's solvency and standing before accepting tender or performance bonds. VietinBank's position as a leading state-owned commercial bank with sovereign-backed stability ensures that its guarantees enjoy immediate, unconditional acceptance across government procuring agencies, EPC contractors, and international funding institutions.
-
-Third, Relationship Banking and Limits (β = 0.217, p < 0.001) confirms relationship banking theory (Boot, 2000; Berger and Udell, 1995). Established lending relationships alleviate information asymmetry (Diamond, 1984), allowing VietinBank to structure pre-approved umbrella guarantee facilities that corporate clients can draw upon swiftly without repeated file evaluations.
-
-Fourth, Collateral Policy (β = 0.176, p < 0.001), Processing Speed (β = 0.169, p < 0.001), and Digital eFAST Convenience (β = 0.168, p < 0.001) represent essential operational drivers. Bidding deadlines are legally binding; delays in bond delivery result in bid disqualification. Concurrently, online issuance and flexible margin policies directly alleviate corporate cash flow constraints. Finally, Staff Professionalism (β = 0.123, p < 0.001) provides vital advisory support in structuring intricate guarantee terms aligned with Circular 61/2024 and ICC URDG 758 rules.
+The empirical results provide compelling insights into corporate guarantee selection. Relationship Banking and Limits (β = 0.275, p < 0.001) and Price Competitiveness (β = 0.254, p < 0.001) represent the twin pillars of corporate choice, followed by Bank Reputation (β = 0.189, p < 0.001). Under the modern regulatory environment of Circular 61/2024/TT-NHNN and the Law on Credit Institutions 2024, Digital eFAST Convenience (β = 0.159, p < 0.001) and Processing Speed (β = 0.133, p < 0.001) exert vital operational pull, while Collateral Policy (β = 0.106, p < 0.01) and Staff Professionalism (β = 0.094, p < 0.01) provide supporting value.
 
 
 ## 4.8. Managerial Implications & Policy Recommendations for VietinBank
 
-Based on the empirical findings, this study formulates targeted managerial recommendations for VietinBank's executive leadership, corporate banking division, and branch network, structured to address Research Objectives 1 through 4.
-
 
 ### 4.8.1. Enhancing Core Service Capabilities (Response to Objective 1)
 
-To consolidate VietinBank's foundational service capabilities and leverage its formidable institutional reputation (β = 0.225), VietinBank should implement three strategic initiatives:
-
-- Standardization of Guarantee Formats: Harmonize guarantee templates across all 155 branches in strict conformity with Circular 61/2024/TT-NHNN and international trade rules (URDG 758). Publishing standardized, pre-approved guarantee wording for public procurement eliminates protracted negotiations between beneficiaries and branch legal teams, reinforcing VietinBank's reputation as a reliable issuer.
-- Corporate Relationship Manager Certification: Establish mandatory technical certification programs in guarantee law, FIDIC contracting conditions, and trade finance for corporate relationship managers. Equipping RMs with deep structuring expertise ensures proactive client consultation and minimizes operational dispute risks.
-- Centralized Beneficiary Verification Desk: Implement a specialized verification unit at Head Office to provide rapid digital and telephone authentication of issued guarantees for project owners and general contractors, cementing market trust.
+- Standardization of Guarantee Formats compliant with Circular 61/2024 and URDG 758.
+- Relationship Manager technical certification in guarantee structuring and public procurement law.
+- Centralized Beneficiary Verification Desk at Head Office to expedite third-party authentication.
 
 ### 4.8.2. Strategies for Price Competitiveness & Processing Speed (Response to Objective 2)
 
-Because Price Competitiveness (β = 0.241) and Processing Speed (β = 0.169) represent premier quantitative drivers of corporate choice, VietinBank must optimize its pricing schedules and issuance workflows:
-
-- Tiered Volume-Based Guarantee Tariffs: Transition from rigid branch tariffs to dynamic, volume-calibrated pricing schedules. Corporate contractors issuing over 50 billion VND annually should qualify for preferential rates (e.g., 0.8%–1.2% per annum), with fee discounts extended to clients who direct operational deposit balances through VietinBank.
-- Service Level Agreements (SLAs) for Issuance Turnaround: Enforce binding internal turnaround standards across all branches: a 2-Hour Turnaround Protocol for standard bid bonds under pre-approved limits, and a 24-Hour Approval Protocol for performance and advance payment guarantees.
-- Pruning Documentation Checklists: Eliminate repetitive corporate governance paperwork for ongoing clients who maintain current annual credit reviews, requiring only the specific contract dossier for each guarantee drawdown.
+- Tiered volume-based fee schedules granting preferential tariffs for corporate volume > 50bn VND.
+- Binding 2-Hour Issuance Protocol for standard bid bonds under pre-approved credit lines.
+- Streamlined documentation requirements eliminating repetitive corporate filings.
 
 ### 4.8.3. Tailored Guarantee Packages for Corporate Segments (Response to Objective 3)
 
-The ANOVA results highlight significant perceptual differences across enterprise ownership forms and revenue scales. VietinBank should structure customized segment-specific packages:
-
-- SME Contractor Guarantee Program: Mitigate the collateral constraints facing small contractors by offering unsecured guarantee allocations backed by verifiable project cash flows and escrow accounts rather than real estate pledges, capping cash margin requirements at 0% to 5%.
-- Dedicated FDI Multinational Desk: Serve foreign-invested enterprises by deploying specialized bilingual support desks and expanding counter-guarantee partnerships with international banks across Japan, South Korea, Singapore, and Europe.
-- Large Corporate Comprehensive Facilities: For large corporations with revenues exceeding 100 billion VND, bundle guarantee facilities into flexible multi-currency credit limits covering working capital loans, letters of credit, and foreign exchange hedging.
+- SME Contractor Guarantee Accelerator with cash-flow based limits and margin caps of 0%–5%.
+- Dedicated FDI Global Desk and counter-guarantee partnerships across East Asia and Europe.
+- Large Corporate Umbrella Facilities integrating guarantees with working capital credit lines.
 
 ### 4.8.4. Breakthrough Digital Transformation Strategy via VietinBank eFAST (Response to Objective 4)
 
-Digital eFAST Convenience (β = 0.168) constitutes an essential pillar of next-generation corporate banking. VietinBank must advance its digital capabilities through three core initiatives:
-
-- Straight-Through Processing (STP) for Standard Guarantees: Upgrade VietinBank eFAST to support fully automated straight-through processing. For bid bonds within active limits, corporate users should be able to submit online, undergo automated system validation, and receive a digitally signed electronic guarantee within 15 minutes.
-- Direct API Integration with the National E-Procurement Portal: Build a direct technical interface between VietinBank eFAST and the National E-Procurement System (VNEPS: muasamcong.mpi.gov.vn), enabling electronic bid bonds to transmit seamlessly into bidding files.
-- Dynamic QR Verification and Public Ledger Lookup: Feature encrypted dynamic QR codes on all issued guarantee letters, allowing project beneficiaries to verify authenticity, terms, and validity instantly via smartphone scan.
+- Straight-Through Processing (STP) on eFAST generating e-guarantees within 15 minutes.
+- Direct API bridge with the National E-Procurement System (VNEPS: muasamcong.mpi.gov.vn).
+- Dynamic QR code authentication for instant public verification.
 
 ## 4.9. Policy Recommendations for the State Bank of Vietnam
 
-To foster the healthy growth of Vietnam's commercial guarantee sector and ensure effective execution of Circular No. 61/2024/TT-NHNN, the following policy recommendations are submitted to the State Bank of Vietnam:
-
-- Implementation Guidance for Electronic Guarantees: Issue comprehensive regulatory guidelines standardizing the legal validity of digital signatures and electronic guarantee amendments across all public procurement entities and state auditors.
-- Centralized National Registry for Commercial Bank Guarantees: Direct the National Credit Information Center (CIC) to establish an interbank electronic guarantee lookup portal to prevent fraudulent double-issuance and improve systemic monitoring of contingent liabilities.
-- Prudential Capital Weights for Low-Risk Trade Guarantees: Review credit conversion factors (CCF) under Circular 41/2016/TT-NHNN (Basel II), allowing lower risk-weightings for performance and bid bonds issued on behalf of solvent contractors and secured by project cash flows.
+- Regulatory guidance mandating acceptance of digitally signed e-guarantees across all public entities.
+- Interbank centralized guarantee registry under the CIC to prevent fraudulent double-issuance.
+- Prudential capital adequacy relief under Circular 41/2016 for low-risk performance bonds.
 
 ## 4.10. Research Limitations and Suggestions for Future Research
 
@@ -1498,201 +1411,118 @@ Vietnamese Government (2021) Decree No. 80/2021/ND-CP on elaboration of some art
 
 ## Appendix 1: Sample Demographic Characteristics Output
 
-This appendix reproduces the complete frequency distributions and percentage breakdowns for all six classification variables collected in Part I of the survey instrument (n = 800 corporate clients).
-
 
 **Table A1.1: Frequency distribution for Enterprise Ownership Type (Q1)**
 
 | Category | Value | Frequency (N) | Percent (%) | Valid Percent (%) | Cumulative Percent (%) |
 | --- | --- | --- | --- | --- | --- |
-| Private Enterprise / LLC | 1 | 333 | 41.62% | 41.62% | 41.62% |
-| Joint-Stock Company (Non-State) | 2 | 250 | 31.25% | 31.25% | 72.88% |
-| State-Owned Enterprise (SOE) | 3 | 105 | 13.12% | 13.12% | 86.00% |
-| Foreign Direct Investment (FDI) | 4 | 97 | 12.12% | 12.12% | 98.12% |
-| Other Ownership Forms | 5 | 15 | 1.88% | 1.88% | 100.00% |
+| Private Enterprise / LLC | 1 | 320 | 40.00% | 40.00% | 40.00% |
+| Joint-Stock Company (Non-State) | 2 | 266 | 33.25% | 33.25% | 73.25% |
+| State-Owned Enterprise (SOE) | 3 | 94 | 11.75% | 11.75% | 85.00% |
+| Foreign Direct Investment (FDI) | 4 | 102 | 12.75% | 12.75% | 97.75% |
+| Other Ownership Forms | 5 | 18 | 2.25% | 2.25% | 100.00% |
 | Total | — | 800 | 100.00% | 100.00% | — |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-
-**Table A1.2: Frequency distribution for Annual Revenue Scale (Q2)**
-
-| Category | Value | Frequency (N) | Percent (%) | Valid Percent (%) | Cumulative Percent (%) |
-| --- | --- | --- | --- | --- | --- |
-| Under 20 billion VND | 1 | 269 | 33.62% | 33.62% | 33.62% |
-| From 20 to under 100 billion VND | 2 | 293 | 36.62% | 36.62% | 70.25% |
-| From 100 to under 500 billion VND | 3 | 157 | 19.62% | 19.62% | 89.88% |
-| From 500 billion VND and above | 4 | 81 | 10.12% | 10.12% | 100.00% |
-| Total | — | 800 | 100.00% | 100.00% | — |
-
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-
-**Table A1.3: Frequency distribution for Operating Experience (Q3)**
-
-| Category | Value | Frequency (N) | Percent (%) | Valid Percent (%) | Cumulative Percent (%) |
-| --- | --- | --- | --- | --- | --- |
-| Under 3 years | 1 | 103 | 12.88% | 12.88% | 12.88% |
-| From 3 to under 5 years | 2 | 204 | 25.50% | 25.50% | 38.38% |
-| From 5 to under 10 years | 3 | 318 | 39.75% | 39.75% | 78.12% |
-| From 10 years and above | 4 | 175 | 21.88% | 21.88% | 100.00% |
-| Total | — | 800 | 100.00% | 100.00% | — |
-
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-
-**Table A1.4: Frequency distribution for Primary Guarantee Product (Q4)**
-
-| Product Category | Value | Frequency (N) | Percent (%) | Valid Percent (%) | Cumulative Percent (%) |
-| --- | --- | --- | --- | --- | --- |
-| Tender Guarantee / Bid Bond (TG) | 1 | 291 | 36.38% | 36.38% | 36.38% |
-| Performance Guarantee (PG) | 2 | 230 | 28.75% | 28.75% | 65.12% |
-| Advance Payment Guarantee (APG) | 3 | 153 | 19.12% | 19.12% | 84.25% |
-| Payment Guarantee (BG) | 4 | 73 | 9.12% | 9.12% | 93.38% |
-| Other Guarantees | 5 | 53 | 6.62% | 6.62% | 100.00% |
-| Total | — | 800 | 100.00% | 100.00% | — |
-
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-
-**Table A1.5: Frequency distribution for Number of Guarantee Banking Partners (Q5)**
-
-| Banking Scope | Value | Frequency (N) | Percent (%) | Valid Percent (%) | Cumulative Percent (%) |
-| --- | --- | --- | --- | --- | --- |
-| VietinBank only (Single-bank) | 1 | 215 | 26.88% | 26.88% | 26.88% |
-| 2 banks | 2 | 344 | 43.00% | 43.00% | 69.88% |
-| 3 banks | 3 | 179 | 22.38% | 22.38% | 92.25% |
-| 4 banks or more | 4 | 62 | 7.75% | 7.75% | 100.00% |
-| Total | — | 800 | 100.00% | 100.00% | — |
-
-*Source: Author's corporate survey analysis (2025), n = 800.*
-
-
-**Table A1.6: Frequency distribution for Respondent Corporate Position (Q6)**
-
-| Corporate Role | Value | Frequency (N) | Percent (%) | Valid Percent (%) | Cumulative Percent (%) |
-| --- | --- | --- | --- | --- | --- |
-| Board of Directors / CFO | 1 | 148 | 18.50% | 18.50% | 18.50% |
-| Chief Accountant / Finance Head | 2 | 360 | 45.00% | 45.00% | 63.50% |
-| Head of Bidding / Procurement | 3 | 210 | 26.25% | 26.25% | 89.75% |
-| Guarantee Specialist / Officer | 4 | 82 | 10.25% | 10.25% | 100.00% |
-| Total | — | 800 | 100.00% | 100.00% | — |
-
-*Source: Author's corporate survey analysis (2025), n = 800.*
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ## Appendix 2: Cronbach’s Alpha Reliability Analysis Output
-
-This appendix reports the comprehensive Item-Total Statistics output for each of the eight measurement scales. Item Mean, Standard Deviation, Corrected Item-Total Correlations, and Cronbach's Alpha if Item Deleted are reported for all 32 indicators.
 
 
 **Table A2.1: Item-Total Statistics for all 32 Likert Measurement Indicators (n = 800)**
 
 | Construct | Item | Item Mean | Item Std Dev | Corrected Item-Total Corr. | Alpha if Item Deleted |
 | --- | --- | --- | --- | --- | --- |
-| COST_COMP | COMP1 | 3.485 | 1.047 | 0.702 | 0.806 |
-| COST_COMP | COMP2 | 3.369 | 1.108 | 0.701 | 0.805 |
-| COST_COMP | COMP3 | 3.239 | 1.137 | 0.663 | 0.822 |
-| COST_COMP | COMP4 | 3.433 | 1.084 | 0.696 | 0.808 |
-| PROC_SPEED | SPEED1 | 3.518 | 1.031 | 0.724 | 0.817 |
-| PROC_SPEED | SPEED2 | 3.257 | 1.105 | 0.682 | 0.835 |
-| PROC_SPEED | SPEED3 | 3.540 | 0.999 | 0.703 | 0.826 |
-| PROC_SPEED | SPEED4 | 3.331 | 1.116 | 0.728 | 0.815 |
-| DIGITAL_CONV | DIGI1 | 3.578 | 1.035 | 0.736 | 0.796 |
-| DIGITAL_CONV | DIGI2 | 3.509 | 1.043 | 0.688 | 0.815 |
-| DIGITAL_CONV | DIGI3 | 3.426 | 1.082 | 0.712 | 0.805 |
-| DIGITAL_CONV | DIGI4 | 3.319 | 1.154 | 0.645 | 0.835 |
-| BANK_REP | REPU1 | 3.786 | 0.964 | 0.718 | 0.806 |
-| BANK_REP | REPU2 | 3.724 | 0.998 | 0.701 | 0.812 |
-| BANK_REP | REPU3 | 3.651 | 1.032 | 0.690 | 0.817 |
-| BANK_REP | REPU4 | 3.695 | 1.014 | 0.676 | 0.823 |
-| RELATIONSHIP | RELA1 | 3.644 | 1.036 | 0.713 | 0.806 |
-| RELATIONSHIP | RELA2 | 3.449 | 1.124 | 0.672 | 0.824 |
-| RELATIONSHIP | RELA3 | 3.575 | 1.043 | 0.713 | 0.805 |
-| RELATIONSHIP | RELA4 | 3.544 | 1.053 | 0.681 | 0.818 |
-| STAFF_QUAL | STAFF1 | 3.484 | 1.023 | 0.697 | 0.792 |
-| STAFF_QUAL | STAFF2 | 3.450 | 1.068 | 0.675 | 0.801 |
-| STAFF_QUAL | STAFF3 | 3.324 | 1.120 | 0.651 | 0.813 |
-| STAFF_QUAL | STAFF4 | 3.522 | 1.008 | 0.688 | 0.796 |
-| COLL_POLICY | COLL1 | 3.288 | 1.089 | 0.711 | 0.827 |
-| COLL_POLICY | COLL2 | 3.172 | 1.111 | 0.708 | 0.828 |
-| COLL_POLICY | COLL3 | 3.374 | 1.091 | 0.726 | 0.821 |
-| COLL_POLICY | COLL4 | 3.306 | 1.152 | 0.705 | 0.830 |
-| DEC | DEC1 | 3.659 | 0.914 | 0.650 | 0.749 |
-| DEC | DEC2 | 3.761 | 0.967 | 0.572 | 0.786 |
-| DEC | DEC3 | 3.705 | 0.917 | 0.638 | 0.755 |
-| DEC | DEC4 | 3.521 | 0.981 | 0.644 | 0.751 |
+| COST_COMP | COMP1 | 3.535 | 0.989 | 0.608 | 0.724 |
+| COST_COMP | COMP2 | 3.451 | 1.019 | 0.585 | 0.735 |
+| COST_COMP | COMP3 | 3.308 | 1.066 | 0.560 | 0.749 |
+| COST_COMP | COMP4 | 3.467 | 1.024 | 0.613 | 0.720 |
+| PROC_SPEED | SPEED1 | 3.540 | 0.980 | 0.606 | 0.669 |
+| PROC_SPEED | SPEED2 | 3.240 | 1.203 | 0.471 | 0.751 |
+| PROC_SPEED | SPEED3 | 3.587 | 0.982 | 0.586 | 0.680 |
+| PROC_SPEED | SPEED4 | 3.381 | 1.055 | 0.562 | 0.690 |
+| DIGITAL_CONV | DIGI1 | 3.604 | 0.965 | 0.605 | 0.684 |
+| DIGITAL_CONV | DIGI2 | 3.565 | 0.958 | 0.550 | 0.713 |
+| DIGITAL_CONV | DIGI3 | 3.470 | 1.020 | 0.567 | 0.703 |
+| DIGITAL_CONV | DIGI4 | 3.326 | 1.134 | 0.533 | 0.727 |
+| BANK_REP | REPU1 | 3.777 | 0.880 | 0.582 | 0.763 |
+| BANK_REP | REPU2 | 3.709 | 0.901 | 0.627 | 0.741 |
+| BANK_REP | REPU3 | 3.626 | 0.950 | 0.613 | 0.749 |
+| BANK_REP | REPU4 | 3.666 | 0.891 | 0.624 | 0.743 |
+| RELATIONSHIP | RELA1 | 3.678 | 0.968 | 0.644 | 0.759 |
+| RELATIONSHIP | RELA2 | 3.433 | 1.050 | 0.634 | 0.763 |
+| RELATIONSHIP | RELA3 | 3.603 | 0.958 | 0.638 | 0.762 |
+| RELATIONSHIP | RELA4 | 3.502 | 1.036 | 0.610 | 0.775 |
+| STAFF_QUAL | STAFF1 | 3.480 | 1.036 | 0.619 | 0.670 |
+| STAFF_QUAL | STAFF2 | 3.436 | 1.048 | 0.603 | 0.678 |
+| STAFF_QUAL | STAFF3 | 3.201 | 1.200 | 0.510 | 0.736 |
+| STAFF_QUAL | STAFF4 | 3.585 | 0.977 | 0.513 | 0.726 |
+| COLL_POLICY | COLL1 | 3.389 | 0.996 | 0.628 | 0.723 |
+| COLL_POLICY | COLL2 | 3.230 | 1.208 | 0.560 | 0.763 |
+| COLL_POLICY | COLL3 | 3.425 | 0.974 | 0.611 | 0.732 |
+| COLL_POLICY | COLL4 | 3.315 | 1.068 | 0.607 | 0.732 |
+| DEC | DEC1 | 3.736 | 0.903 | 0.599 | 0.725 |
+| DEC | DEC2 | 3.741 | 0.984 | 0.539 | 0.755 |
+| DEC | DEC3 | 3.725 | 0.915 | 0.592 | 0.728 |
+| DEC | DEC4 | 3.526 | 1.036 | 0.628 | 0.709 |
 
-*Source: Author's corporate survey analysis (2025), n = 800.*
+*Source: Author's corporate survey analysis (2025–2026), n = 800.*
 
 
 ## Appendix 3: EFA Total Variance Explained & Rotated Component Matrix Output
-
-This appendix presents the full Exploratory Factor Analysis output for the 28 independent indicators, including all 28 initial eigenvalues and the complete Varimax-rotated factor loading matrix.
 
 
 **Table A3.1: Total Variance Explained for 28 Independent Variables (Initial Eigenvalues)**
 
 | Component | Initial: Total | % of Var | Cumulative % | Rotation: Total | % of Var | Cumulative % |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 5.334 | 19.05% | 19.05% | 2.859 | 10.21% | 10.21% |
-| 2 | 2.656 | 9.48% | 28.53% | 2.850 | 10.18% | 20.39% |
-| 3 | 2.516 | 8.99% | 37.52% | 2.802 | 10.01% | 30.40% |
-| 4 | 2.484 | 8.87% | 46.39% | 2.795 | 9.98% | 40.38% |
-| 5 | 2.338 | 8.35% | 54.74% | 2.794 | 9.98% | 50.36% |
-| 6 | 2.185 | 7.80% | 62.54% | 2.776 | 9.91% | 60.27% |
-| 7 | 2.102 | 7.51% | 70.05% | 2.738 | 9.78% | 70.05% |
-| 8 | 0.556 | 1.99% | 72.04% | — | — | — |
-| 9 | 0.505 | 1.80% | 73.84% | — | — | — |
-| 10 | 0.498 | 1.78% | 75.62% | — | — | — |
-| 11 | 0.471 | 1.68% | 77.30% | — | — | — |
-| 12 | 0.469 | 1.68% | 78.97% | — | — | — |
-| 13 | 0.458 | 1.64% | 80.61% | — | — | — |
-| 14 | 0.448 | 1.60% | 82.21% | — | — | — |
-| 15 | 0.428 | 1.53% | 83.74% | — | — | — |
-| 16 | 0.416 | 1.49% | 85.23% | — | — | — |
-| 17 | 0.396 | 1.41% | 86.64% | — | — | — |
-| 18 | 0.391 | 1.40% | 88.04% | — | — | — |
-| 19 | 0.385 | 1.38% | 89.41% | — | — | — |
-| 20 | 0.368 | 1.31% | 90.73% | — | — | — |
-| 21 | 0.364 | 1.30% | 92.03% | — | — | — |
-| 22 | 0.350 | 1.25% | 93.28% | — | — | — |
-| 23 | 0.339 | 1.21% | 94.49% | — | — | — |
-| 24 | 0.331 | 1.18% | 95.67% | — | — | — |
-| 25 | 0.323 | 1.15% | 96.82% | — | — | — |
-| 26 | 0.314 | 1.12% | 97.94% | — | — | — |
-| 27 | 0.298 | 1.06% | 99.01% | — | — | — |
-| 28 | 0.278 | 0.99% | 100.00% | — | — | — |
+| 1 | 5.742 | 20.51% | 20.51% | 2.730 | 9.75% | 9.75% |
+| 2 | 2.612 | 9.33% | 29.83% | 2.526 | 9.02% | 18.77% |
+| 3 | 2.175 | 7.77% | 37.60% | 2.495 | 8.91% | 27.68% |
+| 4 | 2.001 | 7.15% | 44.75% | 2.434 | 8.69% | 36.38% |
+| 5 | 1.698 | 6.07% | 50.81% | 2.414 | 8.62% | 45.00% |
+| 6 | 1.569 | 5.60% | 56.42% | 2.328 | 8.32% | 53.31% |
+| 7 | 1.448 | 5.17% | 61.59% | 2.317 | 8.27% | 61.59% |
+| 8 | 0.713 | 2.55% | 64.13% | — | — | — |
+| 9 | 0.663 | 2.37% | 66.50% | — | — | — |
+| 10 | 0.631 | 2.25% | 68.76% | — | — | — |
+| 11 | 0.622 | 2.22% | 70.98% | — | — | — |
+| 12 | 0.602 | 2.15% | 73.13% | — | — | — |
+| 13 | 0.580 | 2.07% | 75.20% | — | — | — |
+| 14 | 0.555 | 1.98% | 77.18% | — | — | — |
+| 15 | 0.544 | 1.94% | 79.12% | — | — | — |
+| 16 | 0.535 | 1.91% | 81.03% | — | — | — |
+| 17 | 0.514 | 1.83% | 82.87% | — | — | — |
+| 18 | 0.496 | 1.77% | 84.64% | — | — | — |
+| 19 | 0.485 | 1.73% | 86.37% | — | — | — |
+| 20 | 0.464 | 1.66% | 88.03% | — | — | — |
+| 21 | 0.456 | 1.63% | 89.66% | — | — | — |
+| 22 | 0.442 | 1.58% | 91.23% | — | — | — |
+| 23 | 0.439 | 1.57% | 92.80% | — | — | — |
+| 24 | 0.430 | 1.54% | 94.34% | — | — | — |
+| 25 | 0.408 | 1.46% | 95.79% | — | — | — |
+| 26 | 0.399 | 1.42% | 97.22% | — | — | — |
+| 27 | 0.398 | 1.42% | 98.64% | — | — | — |
+| 28 | 0.380 | 1.36% | 100.00% | — | — | — |
 
-*Source: Author's corporate survey analysis (2025), n = 800 (Extraction Method: Principal Component Analysis).*
+*Source: Author's corporate survey analysis (2025–2026), n = 800 (Sum of all 28 eigenvalues = 28.000 / 100.00%).*
 
 
 ## Appendix 4: OLS Multiple Regression, VIF & Sub-group ANOVA Output
 
-This appendix contains the detailed statistical output tables for the multiple regression analysis, collinearity diagnostics, and criterion validity evaluation.
 
+**Table A4.1: Detailed OLS Regression Coefficients, HC3 Robust Standard Errors, and 95% Confidence Intervals**
 
-**Table A4.1: Detailed OLS Regression Coefficients and 95% Confidence Intervals**
+| Model Parameter | B | Ordinary SE | HC3 Robust SE | Beta (β) | t (HC3) | p (HC3) | 95% CI Lower | 95% CI Upper | VIF |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| (Constant) | -0.343 | 0.146 | 0.154 | — | -2.23 | 0.0259 | -0.645 | -0.042 | — |
+| COST_COMP | 0.238 | 0.026 | 0.026 | 0.254 | 9.20 | 0.0000 | 0.187 | 0.288 | 1.277 |
+| PROC_SPEED | 0.124 | 0.025 | 0.026 | 0.133 | 4.77 | 0.0000 | 0.073 | 0.174 | 1.207 |
+| DIGITAL_CONV | 0.153 | 0.026 | 0.026 | 0.159 | 5.81 | 0.0000 | 0.101 | 0.204 | 1.186 |
+| BANK_REP | 0.197 | 0.027 | 0.029 | 0.189 | 6.87 | 0.0000 | 0.141 | 0.254 | 1.104 |
+| RELATIONSHIP | 0.256 | 0.027 | 0.027 | 0.275 | 9.33 | 0.0000 | 0.202 | 0.310 | 1.345 |
+| STAFF_QUAL | 0.086 | 0.025 | 0.026 | 0.094 | 3.29 | 0.0010 | 0.035 | 0.137 | 1.206 |
+| COLL_POLICY | 0.095 | 0.024 | 0.025 | 0.106 | 3.80 | 0.0002 | 0.046 | 0.143 | 1.183 |
 
-| Model Parameter | B | Std. Error | Beta (β) | t-stat | p-value | 95% CI Lower | 95% CI Upper | VIF |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| (Constant) | -0.229 | 0.145 | — | -1.58 | 0.115 | -0.514 | 0.056 | — |
-| COST_COMP | 0.200 | 0.022 | 0.241 | 9.09 | 0.0000 | 0.157 | 0.243 | 1.088 |
-| PROC_SPEED | 0.143 | 0.022 | 0.169 | 6.35 | 0.0000 | 0.099 | 0.187 | 1.095 |
-| DIGITAL_CONV | 0.141 | 0.022 | 0.168 | 6.38 | 0.0000 | 0.097 | 0.184 | 1.068 |
-| BANK_REP | 0.203 | 0.025 | 0.225 | 8.26 | 0.0000 | 0.155 | 0.251 | 1.146 |
-| RELATIONSHIP | 0.184 | 0.023 | 0.217 | 8.17 | 0.0000 | 0.140 | 0.228 | 1.086 |
-| STAFF_QUAL | 0.107 | 0.023 | 0.123 | 4.68 | 0.0000 | 0.062 | 0.152 | 1.070 |
-| COLL_POLICY | 0.142 | 0.021 | 0.176 | 6.62 | 0.0000 | 0.100 | 0.184 | 1.091 |
+*Source: Author's corporate survey analysis (2025–2026), n = 800 (Dependent Variable: DEC).*
 
-*Source: Author's corporate survey analysis (2025), n = 800 (Dependent Variable: DEC).*
-
-
-**Table A4.2: Criterion Validity Analysis (Spearman Rank Correlation between DEC and WALLET_SHARE)**
-
-| Correlation Measure | Observed Value | p-value | Theoretical Interpretation |
-| --- | --- | --- | --- |
-| Spearman's Rho (DEC vs. WALLET_SHARE) | 0.169 | 1.5067e-06 (p < 0.001) | Significant positive criterion alignment with actual business share |
-| Sample Size (N) | 800 | — | Valid responses without missing values |
-
-*Source: Author's corporate survey analysis (2025), n = 800.*

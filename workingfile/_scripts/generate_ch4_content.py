@@ -1,8 +1,17 @@
 # -*- coding: utf-8 -*-
 """
 generate_ch4_content.py
-Performs complete, rigorous econometric computation directly from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.
-All statistical tables and values for Chapter 4 are dynamically generated without manual hardcoding.
+Performs complete, rigorous econometric computation directly from Du_Lieu_Khao_Sat_Tho_800_DN_v2.xlsx
+(or fallback to Du_Lieu_Khao_Sat_Tho_800_DN.xlsx).
+Calculates:
+- Demographics frequencies
+- Cronbach's Alpha & Item-Total Statistics
+- Exploratory Factor Analysis (PCA + Varimax orthogonal rotation)
+- Pearson correlation matrix & VIF
+- OLS regression with both ordinary and HC3 robust standard errors
+- Diagnostic tests: Breusch-Pagan, White, Jarque-Bera, Durbin-Watson
+- Subgroup ANOVA with Levene test and Welch's ANOVA for heteroskedastic constructs
+- Independent samples t-test and Spearman criterion validity
 """
 import sys, os
 import pandas as pd
@@ -12,21 +21,27 @@ from scipy import stats
 def compute_all_statistics(excel_file=None):
     if excel_file is None:
         candidates = [
+            "Du_Lieu_Khao_Sat_Tho_800_DN_v2.xlsx",
+            "workingfile/Du_Lieu_Khao_Sat_Tho_800_DN_v2.xlsx",
+            os.path.join(os.path.dirname(__file__), "..", "Du_Lieu_Khao_Sat_Tho_800_DN_v2.xlsx"),
+            os.path.join(os.path.dirname(__file__), "..", "..", "Du_Lieu_Khao_Sat_Tho_800_DN_v2.xlsx"),
             "Du_Lieu_Khao_Sat_Tho_800_DN.xlsx",
             "workingfile/Du_Lieu_Khao_Sat_Tho_800_DN.xlsx",
-            os.path.join(os.path.dirname(__file__), "..", "Du_Lieu_Khao_Sat_Tho_800_DN.xlsx"),
-            os.path.join(os.path.dirname(__file__), "..", "..", "Du_Lieu_Khao_Sat_Tho_800_DN.xlsx")
+            os.path.join(os.path.dirname(__file__), "..", "Du_Lieu_Khao_Sat_Tho_800_DN.xlsx")
         ]
         for c in candidates:
             if os.path.exists(c):
                 excel_file = c
                 break
     if excel_file is None or not os.path.exists(excel_file):
-        raise FileNotFoundError(f"Could not locate Du_Lieu_Khao_Sat_Tho_800_DN.xlsx in candidates!")
+        raise FileNotFoundError("Could not locate survey dataset Excel file in candidates!")
+    
+    print(f"Loading survey data from: {excel_file}")
     df = pd.read_excel(excel_file)
     st = {}
     st['df'] = df
     st['N'] = len(df)
+    st['data_file_used'] = excel_file
 
     # 1. CONSTRUCT MAPPINGS
     constructs = {
@@ -204,7 +219,7 @@ def compute_all_statistics(excel_file=None):
     vifs = np.diag(np.linalg.inv(corr_indep_means))
     st['vifs'] = dict(zip(indep_vars, vifs))
 
-    # 6. OLS MULTIPLE REGRESSION
+    # 6. OLS MULTIPLE REGRESSION WITH HC3 ROBUST STANDARD ERRORS
     X = df[indep_vars]
     y = df['DEC']
     X_const = np.column_stack([np.ones(len(df)), X.values])
@@ -225,13 +240,37 @@ def compute_all_statistics(excel_file=None):
     y_std = (y - y.mean()) / y.std()
     beta_std = np.linalg.lstsq(X_std.values, y_std.values, rcond=None)[0]
 
-    # Durbin-Watson & Breusch-Pagan
+    # HC3 Robust Standard Errors (MacKinnon & White, 1985)
+    XtX_inv = np.linalg.inv(X_const.T @ X_const)
+    H_diag = np.sum((X_const @ XtX_inv) * X_const, axis=1)
+    u_hc3 = resid / (1.0 - H_diag)
+    omega_hc3 = np.diag(u_hc3**2)
+    vcov_hc3 = XtX_inv @ (X_const.T @ omega_hc3 @ X_const) @ XtX_inv
+    se_hc3 = np.sqrt(np.diag(vcov_hc3))
+    t_hc3 = beta / se_hc3
+    p_hc3 = [2 * (1 - stats.t.cdf(np.abs(t), dof)) for t in t_hc3]
+
+    # Diagnostics: Durbin-Watson, Breusch-Pagan, White test, Jarque-Bera
     dw = np.sum(np.diff(resid)**2) / np.sum(resid**2)
     sig2 = np.mean(resid**2)
     g = resid**2 / sig2 - 1.0
     reg_bp = np.linalg.lstsq(X_const, g, rcond=None)[0]
     bp_stat = 0.5 * np.sum((X_const @ reg_bp)**2)
     bp_p = stats.chi2.sf(bp_stat, len(indep_vars))
+
+    # White test
+    X_white = [np.ones(len(df))]
+    for i in range(len(indep_vars)):
+        X_white.append(X.values[:, i])
+        X_white.append(X.values[:, i]**2)
+    X_white = np.column_stack(X_white)
+    reg_w = np.linalg.lstsq(X_white, resid**2, rcond=None)[0]
+    r2_w = 1.0 - np.sum((resid**2 - X_white @ reg_w)**2) / np.sum((resid**2 - np.mean(resid**2))**2)
+    white_stat = len(df) * r2_w
+    white_p = stats.chi2.sf(white_stat, X_white.shape[1] - 1)
+
+    # Jarque-Bera normality of residuals
+    jb_stat, jb_p = stats.jarque_bera(resid)
 
     ss_reg = np.sum((X_const @ beta - y.mean())**2)
     ss_resid = np.sum(resid**2)
@@ -250,10 +289,17 @@ def compute_all_statistics(excel_file=None):
         'se': se,
         't_vals': t_vals,
         'p_vals': p_vals,
+        'se_hc3': se_hc3,
+        't_hc3': t_hc3,
+        'p_hc3': p_hc3,
         'beta_std': beta_std,
         'dw': dw,
         'bp_stat': bp_stat,
         'bp_p': bp_p,
+        'white_stat': white_stat,
+        'white_p': white_p,
+        'jb_stat': jb_stat,
+        'jb_p': jb_p,
         'ss_reg': ss_reg,
         'ss_resid': ss_resid,
         'ss_tot': ss_tot,
@@ -296,7 +342,24 @@ def compute_all_statistics(excel_file=None):
         'vars': ['Const'] + indep_vars + controls
     }
 
-    # 8. SUB-GROUP DIFFERENCE TESTS (ANOVA & T-TEST)
+    # 8. SUB-GROUP DIFFERENCE TESTS (ANOVA, LEVENE, WELCH)
+    def calc_welch_anova(grps):
+        k = len(grps)
+        n = np.array([len(g) for g in grps], dtype=float)
+        s2 = np.array([np.var(g, ddof=1) for g in grps], dtype=float)
+        m = np.array([np.mean(g) for g in grps], dtype=float)
+        w = n / s2
+        w_tot = np.sum(w)
+        m_w = np.sum(w * m) / w_tot
+        f_num = np.sum(w * (m - m_w)**2) / (k - 1)
+        term2 = np.sum((1.0 - w / w_tot)**2 / (n - 1.0))
+        f_denom = 1.0 + 2.0 * (k - 2.0) / (k**2 - 1.0) * term2
+        f_welch = f_num / f_denom
+        dof1 = k - 1
+        dof2 = (k**2 - 1.0) / (3.0 * term2)
+        p_welch = stats.f.sf(f_welch, dof1, dof2)
+        return f_welch, p_welch
+
     def calc_anova(group_col, exclude_val=None):
         sub_df = df[df[group_col] != exclude_val] if exclude_val is not None else df
         res = {}
@@ -304,6 +367,7 @@ def compute_all_statistics(excel_file=None):
             grps = [g[cname].values for _, g in sub_df.groupby(group_col)]
             f, p = stats.f_oneway(*grps)
             lev_stat, lev_p = stats.levene(*grps)
+            f_welch, p_welch = calc_welch_anova(grps)
             means_by_grp = [np.mean(g) for g in grps]
             ns_by_grp = [len(g) for g in grps]
             res[cname] = {
@@ -312,7 +376,9 @@ def compute_all_statistics(excel_file=None):
                 'f': f,
                 'p': p,
                 'lev_stat': lev_stat,
-                'lev_p': lev_p
+                'lev_p': lev_p,
+                'f_welch': f_welch,
+                'p_welch': p_welch
             }
         return res
 
@@ -344,6 +410,8 @@ def compute_all_statistics(excel_file=None):
 
 if __name__ == '__main__':
     st = compute_all_statistics()
-    print("All statistical procedures successfully computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx!")
+    print("SUCCESS: All econometric procedures computed!")
+    print(f"File used: {st['data_file_used']}")
     print(f"R-Square: {st['reg']['r2']:.3f}, F = {st['reg']['f_stat']:.2f}")
-    print(f"Ownership ANOVA on DEC: F = {st['anova_ownership']['DEC']['f']:.3f}, p = {st['anova_ownership']['DEC']['p']:.4e}")
+    print(f"Breusch-Pagan: {st['reg']['bp_stat']:.2f} (p = {st['reg']['bp_p']:.4e})")
+    print(f"White test: {st['reg']['white_stat']:.2f} (p = {st['reg']['white_p']:.4e})")

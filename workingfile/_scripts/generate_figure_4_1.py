@@ -111,7 +111,7 @@ def main():
     draw.text((60, 715), "*** Significant at p < 0.001 level. All path coefficients represent standardized OLS regression weights (β).", 
               font=font_t, fill=(80, 80, 80))
 
-    out_path = os.path.join(script_dir, "..", "figure_4_1_empirical_model.png")
+    out_path = os.path.join(script_dir, "..", "figure_4_1_empirical_model_v2.png")
     img.save(out_path, "PNG", dpi=(300, 300))
     print(f"Successfully generated empirical path model image: {out_path}")
 
