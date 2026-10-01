@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
 populate_appendices.py
-Viet toan bo bang bieu thong ke chi tiet vao cac phan Phu luc:
+Writes all detailed statistical appendix tables into DTL_Master_Thesis_Draft.docx:
 - Appendix 1: Sample Demographic Characteristics Output
 - Appendix 2: Cronbach's Alpha Reliability Analysis Output
 - Appendix 3: EFA Total Variance Explained & Rotated Component Matrix Output
 - Appendix 4: OLS Multiple Regression, VIF & Sub-group ANOVA Output
-Dinh dang: Times New Roman, bang header grey D9D9D9, font 9.5pt/9pt.
+All statistics are computed dynamically from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.
+Formatting: Times New Roman, table headers grey D9D9D9, font 9.0pt/8.5pt.
 """
 import sys, os
 import docx
@@ -22,30 +23,40 @@ from scipy import stats
 
 sys.stdout.reconfigure(encoding='utf-8')
 
+# Ensure we can import from the current directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+if script_dir not in sys.path:
+    sys.path.insert(0, script_dir)
+
 from build_full_thesis import ThesisWriter
 from generate_ch4_content import compute_all_statistics
 
-FILE = "workingfile/DTL_Master_Thesis_Draft.docx"
-DATA_FILE = "Du_Lieu_Khao_Sat_Tho_800_DN.xlsx"
+FILE = os.path.join(script_dir, "..", "DTL_Master_Thesis_Draft.docx")
+DATA_FILE = os.path.join(script_dir, "..", "Du_Lieu_Khao_Sat_Tho_800_DN.xlsx")
 
 def main():
-    print("Dang load du lieu thong ke cho Appendices...")
+    print("Computing statistics for Appendices...")
     st = compute_all_statistics(DATA_FILE)
     df = st['df']
+    demo = st['demo']
     reg = st['reg']
     rob = st['robustness']
-    tt = st['ttest_single_multi']
+    efa = st['efa']
     item_stats = st['item_stats']
     constructs = st['constructs']
+    vifs = st['vifs']
+    sp = st['spearman_ws']
 
-    print("Dang mo file Word...")
+    print("Opening Word document...")
     doc = docx.Document(FILE)
     w = ThesisWriter(doc)
+
+    source_text = "Source: Author's corporate survey analysis (2025), n = 800."
 
     # ==========================================
     # APPENDIX 1
     # ==========================================
-    print("Dang viet Appendix 1...")
+    print("Writing Appendix 1...")
     w.at("Appendix 1: Sample Demographic Characteristics Output")
     w.para(
         "This appendix reproduces the complete frequency distributions and percentage breakdowns for all six "
@@ -53,88 +64,130 @@ def main():
         italic=True, size=11, after=6
     )
 
-    # Bang A1.1: Q1 Ownership
+    # Table A1.1: Q1 Ownership
+    vc_own, pct_own, cum_own = demo['ownership']
     w.caption("Table A1.1: Frequency distribution for Enterprise Ownership Type (Q1)")
-    w.table([
-        ["Category", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"],
-        ["Private Enterprise / LLC", "1", "326", "40.75%", "40.75%", "40.75%"],
-        ["Joint-Stock Company (Non-State)", "2", "262", "32.75%", "32.75%", "73.50%"],
-        ["State-Owned Enterprise (SOE)", "3", "113", "14.12%", "14.12%", "87.62%"],
-        ["Foreign Direct Investment (FDI)", "4", "87", "10.88%", "10.88%", "98.50%"],
-        ["Other Ownership Forms", "5", "12", "1.50%", "1.50%", "100.00%"],
-        ["Total", "—", "800", "100.00%", "100.00%", "—"]
-    ], [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.")
+    own_cats = [
+        ("Private Enterprise / LLC", 1),
+        ("Joint-Stock Company (Non-State)", 2),
+        ("State-Owned Enterprise (SOE)", 3),
+        ("Foreign Direct Investment (FDI)", 4),
+        ("Other Ownership Forms", 5)
+    ]
+    t_a1_rows = [["Category", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"]]
+    for label, code in own_cats:
+        cnt = vc_own.get(code, 0)
+        p = pct_own.get(code, 0.0)
+        c = cum_own.get(code, 0.0)
+        t_a1_rows.append([label, str(code), str(cnt), f"{p:.2f}%", f"{p:.2f}%", f"{c:.2f}%"])
+    t_a1_rows.append(["Total", "—", "800", "100.00%", "100.00%", "—"])
+    w.table(t_a1_rows, [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
+    w.source(source_text)
 
-    # Bang A1.2: Q2 Revenue
+    # Table A1.2: Q2 Revenue
+    vc_rev, pct_rev, cum_rev = demo['revenue']
     w.caption("Table A1.2: Frequency distribution for Annual Revenue Scale (Q2)")
-    w.table([
-        ["Category", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"],
-        ["Under 20 billion VND", "1", "271", "33.88%", "33.88%", "33.88%"],
-        ["From 20 to under 100 billion VND", "2", "294", "36.75%", "36.75%", "70.63%"],
-        ["From 100 to under 500 billion VND", "3", "153", "19.12%", "19.12%", "89.75%"],
-        ["From 500 billion VND and above", "4", "82", "10.25%", "10.25%", "100.00%"],
-        ["Total", "—", "800", "100.00%", "100.00%", "—"]
-    ], [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.")
+    rev_cats = [
+        ("Under 20 billion VND", 1),
+        ("From 20 to under 100 billion VND", 2),
+        ("From 100 to under 500 billion VND", 3),
+        ("From 500 billion VND and above", 4)
+    ]
+    t_a2_rows = [["Category", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"]]
+    for label, code in rev_cats:
+        cnt = vc_rev.get(code, 0)
+        p = pct_rev.get(code, 0.0)
+        c = cum_rev.get(code, 0.0)
+        t_a2_rows.append([label, str(code), str(cnt), f"{p:.2f}%", f"{p:.2f}%", f"{c:.2f}%"])
+    t_a2_rows.append(["Total", "—", "800", "100.00%", "100.00%", "—"])
+    w.table(t_a2_rows, [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
+    w.source(source_text)
 
-    # Bang A1.3: Q3 Experience
+    # Table A1.3: Q3 Experience
+    vc_exp, pct_exp, cum_exp = demo['experience']
     w.caption("Table A1.3: Frequency distribution for Operating Experience (Q3)")
-    w.table([
-        ["Category", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"],
-        ["Under 3 years", "1", "114", "14.25%", "14.25%", "14.25%"],
-        ["From 3 to under 5 years", "2", "201", "25.12%", "25.12%", "39.37%"],
-        ["From 5 to under 10 years", "3", "298", "37.25%", "37.25%", "76.62%"],
-        ["From 10 years and above", "4", "187", "23.38%", "23.38%", "100.00%"],
-        ["Total", "—", "800", "100.00%", "100.00%", "—"]
-    ], [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.")
+    exp_cats = [
+        ("Under 3 years", 1),
+        ("From 3 to under 5 years", 2),
+        ("From 5 to under 10 years", 3),
+        ("From 10 years and above", 4)
+    ]
+    t_a3_rows = [["Category", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"]]
+    for label, code in exp_cats:
+        cnt = vc_exp.get(code, 0)
+        p = pct_exp.get(code, 0.0)
+        c = cum_exp.get(code, 0.0)
+        t_a3_rows.append([label, str(code), str(cnt), f"{p:.2f}%", f"{p:.2f}%", f"{c:.2f}%"])
+    t_a3_rows.append(["Total", "—", "800", "100.00%", "100.00%", "—"])
+    w.table(t_a3_rows, [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
+    w.source(source_text)
 
-    # Bang A1.4: Q4 Product
+    # Table A1.4: Q4 Product
+    vc_prd, pct_prd, cum_prd = demo['product']
     w.caption("Table A1.4: Frequency distribution for Primary Guarantee Product (Q4)")
-    w.table([
-        ["Product Category", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"],
-        ["Tender Guarantee / Bid Bond (TG)", "1", "275", "34.38%", "34.38%", "34.38%"],
-        ["Performance Guarantee (PG)", "2", "248", "31.00%", "31.00%", "65.38%"],
-        ["Advance Payment Guarantee (APG)", "3", "154", "19.25%", "19.25%", "84.63%"],
-        ["Payment Guarantee (BG)", "4", "87", "10.88%", "10.88%", "95.50%"],
-        ["Other Guarantees", "5", "36", "4.50%", "4.50%", "100.00%"],
-        ["Total", "—", "800", "100.00%", "100.00%", "—"]
-    ], [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.")
+    prd_cats = [
+        ("Tender Guarantee / Bid Bond (TG)", 1),
+        ("Performance Guarantee (PG)", 2),
+        ("Advance Payment Guarantee (APG)", 3),
+        ("Payment Guarantee (BG)", 4),
+        ("Other Guarantees", 5)
+    ]
+    t_a4_rows = [["Product Category", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"]]
+    for label, code in prd_cats:
+        cnt = vc_prd.get(code, 0)
+        p = pct_prd.get(code, 0.0)
+        c = cum_prd.get(code, 0.0)
+        t_a4_rows.append([label, str(code), str(cnt), f"{p:.2f}%", f"{p:.2f}%", f"{c:.2f}%"])
+    t_a4_rows.append(["Total", "—", "800", "100.00%", "100.00%", "—"])
+    w.table(t_a4_rows, [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
+    w.source(source_text)
 
-    # Bang A1.5: Q5 Num banks
+    # Table A1.5: Q5 Num banks
+    vc_nb, pct_nb, cum_nb = demo['num_banks']
     w.caption("Table A1.5: Frequency distribution for Number of Guarantee Banking Partners (Q5)")
-    w.table([
-        ["Banking Scope", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"],
-        ["VietinBank only (Single-bank)", "1", "221", "27.62%", "27.62%", "27.62%"],
-        ["2 banks", "2", "328", "41.00%", "41.00%", "68.63%"],
-        ["3 banks", "3", "177", "22.12%", "22.12%", "90.75%"],
-        ["4 banks or more", "4", "74", "9.25%", "9.25%", "100.00%"],
-        ["Total", "—", "800", "100.00%", "100.00%", "—"]
-    ], [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.")
+    nb_cats = [
+        ("VietinBank only (Single-bank)", 1),
+        ("2 banks", 2),
+        ("3 banks", 3),
+        ("4 banks or more", 4)
+    ]
+    t_a5_rows = [["Banking Scope", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"]]
+    for label, code in nb_cats:
+        cnt = vc_nb.get(code, 0)
+        p = pct_nb.get(code, 0.0)
+        c = cum_nb.get(code, 0.0)
+        t_a5_rows.append([label, str(code), str(cnt), f"{p:.2f}%", f"{p:.2f}%", f"{c:.2f}%"])
+    t_a5_rows.append(["Total", "—", "800", "100.00%", "100.00%", "—"])
+    w.table(t_a5_rows, [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
+    w.source(source_text)
 
-    # Bang A1.6: Q6 Position
+    # Table A1.6: Q6 Position
+    vc_pos, pct_pos, cum_pos = demo['position']
     w.caption("Table A1.6: Frequency distribution for Respondent Corporate Position (Q6)")
-    w.table([
-        ["Corporate Role", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"],
-        ["Board of Directors / CFO", "1", "150", "18.75%", "18.75%", "18.75%"],
-        ["Chief Accountant / Finance Head", "2", "357", "44.62%", "44.62%", "63.38%"],
-        ["Head of Bidding / Procurement", "3", "191", "23.88%", "23.88%", "87.25%"],
-        ["Guarantee Specialist / Officer", "4", "102", "12.75%", "12.75%", "100.00%"],
-        ["Total", "—", "800", "100.00%", "100.00%", "—"]
-    ], [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.")
+    pos_cats = [
+        ("Board of Directors / CFO", 1),
+        ("Chief Accountant / Finance Head", 2),
+        ("Head of Bidding / Procurement", 3),
+        ("Guarantee Specialist / Officer", 4)
+    ]
+    t_a6_rows = [["Corporate Role", "Value", "Frequency (N)", "Percent (%)", "Valid Percent (%)", "Cumulative Percent (%)"]]
+    for label, code in pos_cats:
+        cnt = vc_pos.get(code, 0)
+        p = pct_pos.get(code, 0.0)
+        c = cum_pos.get(code, 0.0)
+        t_a6_rows.append([label, str(code), str(cnt), f"{p:.2f}%", f"{p:.2f}%", f"{c:.2f}%"])
+    t_a6_rows.append(["Total", "—", "800", "100.00%", "100.00%", "—"])
+    w.table(t_a6_rows, [2.2, 0.6, 1.0, 1.0, 1.1, 1.1], font=9.0)
+    w.source(source_text)
 
     # ==========================================
     # APPENDIX 2
     # ==========================================
-    print("Dang viet Appendix 2...")
+    print("Writing Appendix 2...")
     w.at("Appendix 2: Cronbach’s Alpha Reliability Analysis Output")
     w.para(
         "This appendix reports the comprehensive Item-Total Statistics output for each of the eight measurement "
-        "scales. Scale Mean and Variance if Item Deleted, Corrected Item-Total Correlations, and Cronbach's Alpha if "
+        "scales. Item Mean, Standard Deviation, Corrected Item-Total Correlations, and Cronbach's Alpha if "
         "Item Deleted are reported for all 32 indicators.",
         italic=True, size=11, after=6
     )
@@ -151,77 +204,98 @@ def main():
 
     w.caption("Table A2.1: Item-Total Statistics for all 32 Likert Measurement Indicators (n = 800)")
     w.table(alpha_items_table, [1.5, 0.9, 1.0, 1.1, 1.4, 1.1], font=8.5)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.")
+    w.source(source_text)
 
     # ==========================================
     # APPENDIX 3
     # ==========================================
-    print("Dang viet Appendix 3...")
+    print("Writing Appendix 3...")
     w.at("Appendix 3: EFA Total Variance Explained & Rotated Component")
     w.para(
         "This appendix presents the full Exploratory Factor Analysis output for the 28 independent indicators, "
-        "including the 28 initial eigenvalues and the complete Varimax-rotated factor loading matrix.",
+        "including all 28 initial eigenvalues and the complete Varimax-rotated factor loading matrix.",
         italic=True, size=11, after=6
     )
 
     w.caption("Table A3.1: Total Variance Explained for 28 Independent Variables (Initial Eigenvalues)")
     var_rows = [
-        ["Component", "Initial Eigenvalues: Total", "% of Variance", "Cumulative %", "Rotation Sums of Squared Loadings: Total", "% of Variance", "Cumulative %"]
+        ["Component", "Initial: Total", "% of Var", "Cumulative %", "Rotation: Total", "% of Var", "Cumulative %"]
     ]
-    evals = [7.576, 2.472, 2.299, 2.152, 2.078, 2.013, 1.884, 0.469, 0.432, 0.411, 0.389, 0.372, 0.355, 0.341, 0.328, 0.312, 0.298, 0.285, 0.271, 0.258, 0.245, 0.231, 0.218, 0.204, 0.191, 0.178, 0.162, 0.147]
-    cum = 0.0
+    evals = efa['evals']
+    ss_rot = efa['ss_rot']
+    pct_rot = efa['pct_rot']
+    cum_pct_rot = efa['cum_pct_rot']
+
+    cum_init = 0.0
     for idx, ev in enumerate(evals):
-        pct = ev / 28.0 * 100.0
-        cum += pct
+        pct_init = ev / 28.0 * 100.0
+        cum_init += pct_init
         if idx < 7:
-            rot_ev = [3.05, 3.02, 2.98, 2.95, 2.91, 2.87, 2.70][idx]
-            rot_pct = rot_ev / 28.0 * 100.0
-            rot_cum = sum([3.05, 3.02, 2.98, 2.95, 2.91, 2.87, 2.70][:idx+1]) / 28.0 * 100.0
-            var_rows.append([f"{idx+1}", f"{ev:.3f}", f"{pct:.2f}%", f"{cum:.2f}%", f"{rot_ev:.3f}", f"{rot_pct:.2f}%", f"{rot_cum:.2f}%"])
+            var_rows.append([
+                f"{idx+1}",
+                f"{ev:.3f}",
+                f"{pct_init:.2f}%",
+                f"{cum_init:.2f}%",
+                f"{ss_rot[idx]:.3f}",
+                f"{pct_rot[idx]:.2f}%",
+                f"{cum_pct_rot[idx]:.2f}%"
+            ])
         else:
-            var_rows.append([f"{idx+1}", f"{ev:.3f}", f"{pct:.2f}%", f"{cum:.2f}%", "—", "—", "—"])
+            var_rows.append([
+                f"{idx+1}",
+                f"{ev:.3f}",
+                f"{pct_init:.2f}%",
+                f"{cum_init:.2f}%",
+                "—", "—", "—"
+            ])
 
     w.table(var_rows, [0.8, 1.0, 1.0, 1.0, 1.1, 1.0, 1.1], font=8.0)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx (Extraction Method: Principal Component Analysis).")
+    w.source("Source: Author's corporate survey analysis (2025), n = 800 (Extraction Method: Principal Component Analysis).")
 
     # ==========================================
     # APPENDIX 4
     # ==========================================
-    print("Dang viet Appendix 4...")
+    print("Writing Appendix 4...")
     w.at("Appendix 4: OLS Multiple Regression, VIF & Sub-group ANOVA Output")
     w.para(
         "This appendix contains the detailed statistical output tables for the multiple regression analysis, "
-        "collinearity diagnostics, and one-way ANOVA sub-group comparisons.",
+        "collinearity diagnostics, and criterion validity evaluation.",
         italic=True, size=11, after=6
     )
 
-    # Bang A4.1: OLS Full
+    # Table A4.1: OLS Full
     w.caption("Table A4.1: Detailed OLS Regression Coefficients and 95% Confidence Intervals")
-    w.table([
+    ols_rows = [
         ["Model Parameter", "B", "Std. Error", "Beta (β)", "t-stat", "p-value", "95% CI Lower", "95% CI Upper", "VIF"],
-        ["(Constant)", f"{reg['beta'][0]:.3f}", f"{reg['se'][0]:.3f}", "—", f"{reg['t_vals'][0]:.2f}", "0.000", f"{reg['beta'][0]-1.96*reg['se'][0]:.3f}", f"{reg['beta'][0]+1.96*reg['se'][0]:.3f}", "—"],
-        ["COST_COMP", f"{reg['beta'][1]:.3f}", f"{reg['se'][1]:.3f}", f"{reg['beta_std'][0]:.3f}", f"{reg['t_vals'][1]:.2f}", "0.000", f"{reg['beta'][1]-1.96*reg['se'][1]:.3f}", f"{reg['beta'][1]+1.96*reg['se'][1]:.3f}", "1.320"],
-        ["PROC_SPEED", f"{reg['beta'][2]:.3f}", f"{reg['se'][2]:.3f}", f"{reg['beta_std'][1]:.3f}", f"{reg['t_vals'][2]:.2f}", "0.000", f"{reg['beta'][2]-1.96*reg['se'][2]:.3f}", f"{reg['beta'][2]+1.96*reg['se'][2]:.3f}", "1.241"],
-        ["DIGITAL_CONV", f"{reg['beta'][3]:.3f}", f"{reg['se'][3]:.3f}", f"{reg['beta_std'][2]:.3f}", f"{reg['t_vals'][3]:.2f}", "0.000", f"{reg['beta'][3]-1.96*reg['se'][3]:.3f}", f"{reg['beta'][3]+1.96*reg['se'][3]:.3f}", "1.213"],
-        ["BANK_REP", f"{reg['beta'][4]:.3f}", f"{reg['se'][4]:.3f}", f"{reg['beta_std'][3]:.3f}", f"{reg['t_vals'][4]:.2f}", "0.000", f"{reg['beta'][4]-1.96*reg['se'][4]:.3f}", f"{reg['beta'][4]+1.96*reg['se'][4]:.3f}", "1.271"],
-        ["RELATIONSHIP", f"{reg['beta'][5]:.3f}", f"{reg['se'][5]:.3f}", f"{reg['beta_std'][4]:.3f}", f"{reg['t_vals'][5]:.2f}", "0.000", f"{reg['beta'][5]-1.96*reg['se'][5]:.3f}", f"{reg['beta'][5]+1.96*reg['se'][5]:.3f}", "1.220"],
-        ["STAFF_QUAL", f"{reg['beta'][6]:.3f}", f"{reg['se'][6]:.3f}", f"{reg['beta_std'][5]:.3f}", f"{reg['t_vals'][6]:.2f}", "0.000", f"{reg['beta'][6]-1.96*reg['se'][6]:.3f}", f"{reg['beta'][6]+1.96*reg['se'][6]:.3f}", "1.193"],
-        ["COLL_POLICY", f"{reg['beta'][7]:.3f}", f"{reg['se'][7]:.3f}", f"{reg['beta_std'][6]:.3f}", f"{reg['t_vals'][7]:.2f}", "0.000", f"{reg['beta'][7]-1.96*reg['se'][7]:.3f}", f"{reg['beta'][7]+1.96*reg['se'][7]:.3f}", "1.176"]
-    ], [1.7, 0.6, 0.6, 0.6, 0.6, 0.6, 0.8, 0.8, 0.5], font=8.5)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx (Dependent Variable: DEC; n = 800).")
+        ["(Constant)", f"{reg['beta'][0]:.3f}", f"{reg['se'][0]:.3f}", "—", f"{reg['t_vals'][0]:.2f}", f"{reg['p_vals'][0]:.3f}", f"{reg['beta'][0]-1.96*reg['se'][0]:.3f}", f"{reg['beta'][0]+1.96*reg['se'][0]:.3f}", "—"]
+    ]
+    for i, var in enumerate(reg['indep_vars']):
+        ols_rows.append([
+            var,
+            f"{reg['beta'][i+1]:.3f}",
+            f"{reg['se'][i+1]:.3f}",
+            f"{reg['beta_std'][i]:.3f}",
+            f"{reg['t_vals'][i+1]:.2f}",
+            f"{reg['p_vals'][i+1]:.4f}",
+            f"{reg['beta'][i+1]-1.96*reg['se'][i+1]:.3f}",
+            f"{reg['beta'][i+1]+1.96*reg['se'][i+1]:.3f}",
+            f"{vifs[var]:.3f}"
+        ])
 
-    # Bang A4.2: Criterion validity
-    rho, p_rho = stats.spearmanr(df['DEC'], df['WALLET_SHARE'])
+    w.table(ols_rows, [1.7, 0.6, 0.6, 0.6, 0.6, 0.6, 0.8, 0.8, 0.5], font=8.5)
+    w.source("Source: Author's corporate survey analysis (2025), n = 800 (Dependent Variable: DEC).")
+
+    # Table A4.2: Criterion validity
     w.caption("Table A4.2: Criterion Validity Analysis (Spearman Rank Correlation between DEC and WALLET_SHARE)")
     w.table([
         ["Correlation Measure", "Observed Value", "p-value", "Theoretical Interpretation"],
-        ["Spearman's Rho (DEC vs. WALLET_SHARE)", f"{rho:.3f}", f"{p_rho:.4e} (p < 0.001)", "Strong positive criterion alignment (r_s > 0.60)"],
+        ["Spearman's Rho (DEC vs. WALLET_SHARE)", f"{sp['rho']:.3f}", f"{sp['p']:.4e} (p < 0.001)", "Significant positive criterion alignment with actual business share"],
         ["Sample Size (N)", "800", "—", "Valid responses without missing values"]
     ], [2.5, 1.2, 1.5, 2.0], font=9.0)
-    w.source("Source: Computed from Du_Lieu_Khao_Sat_Tho_800_DN.xlsx.")
+    w.source(source_text)
 
     doc.save(FILE)
-    print("Hoan tat ghi toan bo 4 phan Phu luc vao Word thanh cong!")
+    print("Successfully populated all Appendices tables into DTL_Master_Thesis_Draft.docx!")
 
 if __name__ == '__main__':
     main()

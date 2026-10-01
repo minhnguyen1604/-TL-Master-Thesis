@@ -20,8 +20,8 @@ for c in ws[1]:
     c.alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
 rows = []
-rows.append(["SCREEN", SCREEN[0], "Có phát hành BL tại VietinBank trong 12 tháng", "Nhị phân", "Danh định",
-             "1 = Có; 2 = Không", "—", "Sàng lọc — loại toàn bộ phiếu có giá trị 2"])
+rows.append(["S1", SCREEN[0], "Có phát hành BL tại VietinBank trong 12 tháng", "Nhị phân", "Danh định",
+             "1 = Có; 2 = Không", "—", "Sàng lọc — 100% phiếu trong bộ dữ liệu có giá trị 1"])
 for code, var, q, opts in PART_I:
     enc = "; ".join(f"{i+1} = {o}" for i, o in enumerate(opts))
     role = {"OWNERSHIP": "Phân nhóm — ANOVA một chiều + Tukey HSD",
@@ -32,6 +32,8 @@ for code, var, q, opts in PART_I:
             "POSITION": "Mô tả mẫu — chỉ báo cáo ở mục 4.1"}[var]
     scale = "Danh định" if var in ("OWNERSHIP", "MAIN_PRODUCT", "POSITION") else "Thứ bậc"
     rows.append([var, code, q.rstrip(":"), "Định tính", scale, enc, "—", role])
+rows.append(["SECTOR_CONSTR", "Phân ngành", "Doanh nghiệp xây lắp / nhà thầu xây dựng công trình", "Nhị phân", "Danh định",
+             "1 = Xây lắp / Nhà thầu; 0 = Ngành khác", "—", "Biến kiểm soát trong mô hình độ vững (thay thế D_SINGLE)"])
 for var, title, na, items in CONSTRUCTS:
     for code, text in items:
         enc = "1–5 (Likert)" + ("; 9 = Chưa sử dụng (coi là khuyết)" if na else "")
@@ -99,9 +101,9 @@ steps = [
  ["10", "Tương quan Pearson", "r giữa các biến độc lập < 0,80", "Kiểm tra sơ bộ đa cộng tuyến"],
  ["11", "Kiểm định VIF", "VIF < 3,0 (tolerance > 0,33)", "Ngưỡng chặt hơn mức 10 thông thường"],
  ["12", "Hồi quy OLS", "Kiểm tra 4 giả định; báo cáo beta chuẩn hóa", "Beta chuẩn hóa dùng để xếp hạng nhân tố"],
- ["13", "Kiểm định độ vững", "Thêm biến giả OWNERSHIP, REVENUE, NUM_BANKS", "Xác nhận β1–β7 ổn định"],
+ ["13", "Kiểm định độ vững", "Thêm biến giả D_SOE, D_FDI, D_LARGE, D_CONSTR", "Xác nhận β1–β7 ổn định; dùng D_CONSTR thay cho D_SINGLE tránh trùng DEC2"],
  ["14", "ANOVA / t-test", "Levene; nếu vi phạm dùng Welch; hậu kiểm Tukey HSD",
-  "Nhóm có n < 30 phải gộp trước khi chạy"],
+  "Nhóm có n < 30 (Other) loại khỏi ANOVA"],
  ["15", "Kiểm định giá trị tiêu chuẩn", "Spearman giữa DEC và WALLET_SHARE",
   "Tương quan dương có ý nghĩa = bằng chứng thang đo đo đúng hành vi"],
 ]
@@ -115,4 +117,5 @@ for col, wdt in zip("ABCD", [7, 34, 52, 52]):
     ws3.column_dimensions[col].width = wdt
 
 wb.save("Codebook_Bien_Va_Quy_Trinh_Xu_Ly.xlsx")
-print("Da tao Codebook_Bien_Va_Quy_Trinh_Xu_Ly.xlsx |", len(rows), "bien |", len(steps), "buoc xu ly")
+wb.save("workingfile/Codebook_Bien_Va_Quy_Trinh_Xu_Ly.xlsx")
+print("Da tao Codebook_Bien_Va_Quy_Trinh_Xu_Ly.xlsx tai root va workingfile |", len(rows), "bien |", len(steps), "buoc xu ly")
