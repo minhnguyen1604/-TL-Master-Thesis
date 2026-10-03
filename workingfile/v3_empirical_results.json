@@ -1,0 +1,1950 @@
+{
+  "attrition": {
+    "distributed": 950,
+    "returned": 842,
+    "return_rate": 88.63,
+    "screen_failed": 42,
+    "screen_fail_rate": 4.42,
+    "valid": 800,
+    "valid_rate_total": 84.21,
+    "valid_rate_returned": 95.01
+  },
+  "demographics": {
+    "ownership": [
+      {
+        "id": 1,
+        "label": "Doanh nghiệp tư nhân / TNHH",
+        "count": 323,
+        "percent": 40.38
+      },
+      {
+        "id": 2,
+        "label": "Công ty Cổ phần ngoài quốc doanh",
+        "count": 268,
+        "percent": 33.5
+      },
+      {
+        "id": 3,
+        "label": "Doanh nghiệp Nhà nước (SOEs)",
+        "count": 108,
+        "percent": 13.5
+      },
+      {
+        "id": 4,
+        "label": "Doanh nghiệp FDI",
+        "count": 89,
+        "percent": 11.12
+      },
+      {
+        "id": 5,
+        "label": "Khác",
+        "count": 12,
+        "percent": 1.5
+      }
+    ],
+    "revenue": [
+      {
+        "id": 1,
+        "label": "Dưới 20 tỷ VND (Siêu nhỏ & nhỏ)",
+        "count": 255,
+        "percent": 31.87
+      },
+      {
+        "id": 2,
+        "label": "Từ 20 đến dưới 100 tỷ VND (Vừa)",
+        "count": 294,
+        "percent": 36.75
+      },
+      {
+        "id": 3,
+        "label": "Từ 100 đến dưới 500 tỷ VND (Lớn)",
+        "count": 162,
+        "percent": 20.25
+      },
+      {
+        "id": 4,
+        "label": "Từ 500 tỷ VND trở lên (Rất lớn)",
+        "count": 89,
+        "percent": 11.12
+      }
+    ],
+    "experience": [
+      {
+        "id": 1,
+        "label": "Dưới 3 năm",
+        "count": 99,
+        "percent": 12.38
+      },
+      {
+        "id": 2,
+        "label": "Từ 3 đến dưới 5 năm",
+        "count": 211,
+        "percent": 26.38
+      },
+      {
+        "id": 3,
+        "label": "Từ 5 đến dưới 10 năm",
+        "count": 299,
+        "percent": 37.38
+      },
+      {
+        "id": 4,
+        "label": "Từ 10 năm trở lên",
+        "count": 191,
+        "percent": 23.88
+      }
+    ],
+    "product": [
+      {
+        "id": 1,
+        "label": "Bảo lãnh dự thầu (Tender Guarantee)",
+        "count": 261,
+        "percent": 32.62
+      },
+      {
+        "id": 2,
+        "label": "Bảo lãnh thực hiện hợp đồng (Performance Guarantee)",
+        "count": 260,
+        "percent": 32.5
+      },
+      {
+        "id": 3,
+        "label": "Bảo lãnh tạm ứng (Advance Payment Guarantee)",
+        "count": 166,
+        "percent": 20.75
+      },
+      {
+        "id": 4,
+        "label": "Bảo lãnh bảo hành (Warranty Guarantee)",
+        "count": 80,
+        "percent": 10.0
+      },
+      {
+        "id": 5,
+        "label": "Bảo lãnh khác (Thanh toán, đối ứng...)",
+        "count": 33,
+        "percent": 4.12
+      }
+    ],
+    "num_banks": [
+      {
+        "id": 1,
+        "label": "Chỉ 1 ngân hàng (VietinBank - Đơn ngân hàng)",
+        "count": 201,
+        "percent": 25.12
+      },
+      {
+        "id": 2,
+        "label": "2 ngân hàng",
+        "count": 331,
+        "percent": 41.38
+      },
+      {
+        "id": 3,
+        "label": "3 ngân hàng",
+        "count": 190,
+        "percent": 23.75
+      },
+      {
+        "id": 4,
+        "label": "Từ 4 ngân hàng trở lên",
+        "count": 78,
+        "percent": 9.75
+      }
+    ],
+    "position": [
+      {
+        "id": 1,
+        "label": "Ban Giám đốc / CFO / Kế toán trưởng",
+        "count": 140,
+        "percent": 17.5
+      },
+      {
+        "id": 2,
+        "label": "Kế toán tổng hợp / Kế toán phần hành bảo lãnh",
+        "count": 375,
+        "percent": 46.88
+      },
+      {
+        "id": 3,
+        "label": "Trưởng/Phó phòng Đấu thầu / Dự án",
+        "count": 181,
+        "percent": 22.62
+      },
+      {
+        "id": 4,
+        "label": "Chuyên viên phụ trách hồ sơ thầu & tài chính",
+        "count": 104,
+        "percent": 13.0
+      }
+    ]
+  },
+  "cronbach": {
+    "COST_COMP": {
+      "alpha": 0.829,
+      "items": [
+        "COMP1",
+        "COMP2",
+        "COMP3",
+        "COMP4"
+      ],
+      "citc": [
+        0.67,
+        0.658,
+        0.67,
+        0.625
+      ],
+      "citc_min": 0.625,
+      "citc_max": 0.67,
+      "alpha_if_deleted": [
+        0.777,
+        0.783,
+        0.778,
+        0.798
+      ]
+    },
+    "PROC_SPEED": {
+      "alpha": 0.817,
+      "items": [
+        "SPEED1",
+        "SPEED2",
+        "SPEED3",
+        "SPEED4"
+      ],
+      "citc": [
+        0.65,
+        0.628,
+        0.662,
+        0.613
+      ],
+      "citc_min": 0.613,
+      "citc_max": 0.662,
+      "alpha_if_deleted": [
+        0.765,
+        0.775,
+        0.759,
+        0.782
+      ]
+    },
+    "DIGITAL_CONV": {
+      "alpha": 0.813,
+      "items": [
+        "DIGI1",
+        "DIGI2",
+        "DIGI3",
+        "DIGI4"
+      ],
+      "citc": [
+        0.652,
+        0.628,
+        0.64,
+        0.61
+      ],
+      "citc_min": 0.61,
+      "citc_max": 0.652,
+      "alpha_if_deleted": [
+        0.756,
+        0.768,
+        0.762,
+        0.776
+      ]
+    },
+    "BANK_REP": {
+      "alpha": 0.85,
+      "items": [
+        "REPU1",
+        "REPU2",
+        "REPU3",
+        "REPU4"
+      ],
+      "citc": [
+        0.711,
+        0.695,
+        0.662,
+        0.689
+      ],
+      "citc_min": 0.662,
+      "citc_max": 0.711,
+      "alpha_if_deleted": [
+        0.8,
+        0.807,
+        0.821,
+        0.81
+      ]
+    },
+    "RELATIONSHIP": {
+      "alpha": 0.815,
+      "items": [
+        "RELA1",
+        "RELA2",
+        "RELA3",
+        "RELA4"
+      ],
+      "citc": [
+        0.661,
+        0.604,
+        0.643,
+        0.631
+      ],
+      "citc_min": 0.604,
+      "citc_max": 0.661,
+      "alpha_if_deleted": [
+        0.755,
+        0.782,
+        0.764,
+        0.769
+      ]
+    },
+    "STAFF_QUAL": {
+      "alpha": 0.811,
+      "items": [
+        "STAFF1",
+        "STAFF2",
+        "STAFF3",
+        "STAFF4"
+      ],
+      "citc": [
+        0.618,
+        0.644,
+        0.644,
+        0.607
+      ],
+      "citc_min": 0.607,
+      "citc_max": 0.644,
+      "alpha_if_deleted": [
+        0.768,
+        0.755,
+        0.755,
+        0.772
+      ]
+    },
+    "COLL_POLICY": {
+      "alpha": 0.84,
+      "items": [
+        "COLL1",
+        "COLL2",
+        "COLL3",
+        "COLL4"
+      ],
+      "citc": [
+        0.698,
+        0.664,
+        0.668,
+        0.665
+      ],
+      "citc_min": 0.664,
+      "citc_max": 0.698,
+      "alpha_if_deleted": [
+        0.787,
+        0.802,
+        0.8,
+        0.802
+      ]
+    },
+    "DEC": {
+      "alpha": 0.85,
+      "items": [
+        "DEC1",
+        "DEC2",
+        "DEC3",
+        "DEC4"
+      ],
+      "citc": [
+        0.698,
+        0.689,
+        0.685,
+        0.682
+      ],
+      "citc_min": 0.682,
+      "citc_max": 0.698,
+      "alpha_if_deleted": [
+        0.805,
+        0.809,
+        0.811,
+        0.812
+      ]
+    }
+  },
+  "desc_32": [
+    {
+      "item": "COMP1",
+      "mean": 3.011,
+      "std": 1.118,
+      "min": 1,
+      "max": 5,
+      "skew": -0.028,
+      "kurt": -0.669
+    },
+    {
+      "item": "COMP2",
+      "mean": 3.044,
+      "std": 1.127,
+      "min": 1,
+      "max": 5,
+      "skew": -0.039,
+      "kurt": -0.771
+    },
+    {
+      "item": "COMP3",
+      "mean": 3.0,
+      "std": 1.105,
+      "min": 1,
+      "max": 5,
+      "skew": -0.067,
+      "kurt": -0.588
+    },
+    {
+      "item": "COMP4",
+      "mean": 2.995,
+      "std": 1.089,
+      "min": 1,
+      "max": 5,
+      "skew": -0.037,
+      "kurt": -0.683
+    },
+    {
+      "item": "SPEED1",
+      "mean": 3.001,
+      "std": 1.117,
+      "min": 1,
+      "max": 5,
+      "skew": -0.019,
+      "kurt": -0.662
+    },
+    {
+      "item": "SPEED2",
+      "mean": 2.955,
+      "std": 1.081,
+      "min": 1,
+      "max": 5,
+      "skew": -0.053,
+      "kurt": -0.578
+    },
+    {
+      "item": "SPEED3",
+      "mean": 2.982,
+      "std": 1.137,
+      "min": 1,
+      "max": 5,
+      "skew": 0.029,
+      "kurt": -0.689
+    },
+    {
+      "item": "SPEED4",
+      "mean": 2.984,
+      "std": 1.102,
+      "min": 1,
+      "max": 5,
+      "skew": 0.06,
+      "kurt": -0.676
+    },
+    {
+      "item": "DIGI1",
+      "mean": 2.962,
+      "std": 1.15,
+      "min": 1,
+      "max": 5,
+      "skew": -0.006,
+      "kurt": -0.737
+    },
+    {
+      "item": "DIGI2",
+      "mean": 3.018,
+      "std": 1.101,
+      "min": 1,
+      "max": 5,
+      "skew": -0.068,
+      "kurt": -0.612
+    },
+    {
+      "item": "DIGI3",
+      "mean": 3.009,
+      "std": 1.123,
+      "min": 1,
+      "max": 5,
+      "skew": 0.062,
+      "kurt": -0.759
+    },
+    {
+      "item": "DIGI4",
+      "mean": 3.002,
+      "std": 1.098,
+      "min": 1,
+      "max": 5,
+      "skew": -0.011,
+      "kurt": -0.631
+    },
+    {
+      "item": "REPU1",
+      "mean": 2.986,
+      "std": 1.116,
+      "min": 1,
+      "max": 5,
+      "skew": 0.016,
+      "kurt": -0.624
+    },
+    {
+      "item": "REPU2",
+      "mean": 2.958,
+      "std": 1.091,
+      "min": 1,
+      "max": 5,
+      "skew": 0.038,
+      "kurt": -0.588
+    },
+    {
+      "item": "REPU3",
+      "mean": 2.978,
+      "std": 1.096,
+      "min": 1,
+      "max": 5,
+      "skew": 0.056,
+      "kurt": -0.579
+    },
+    {
+      "item": "REPU4",
+      "mean": 3.01,
+      "std": 1.12,
+      "min": 1,
+      "max": 5,
+      "skew": -0.062,
+      "kurt": -0.67
+    },
+    {
+      "item": "RELA1",
+      "mean": 3.022,
+      "std": 1.122,
+      "min": 1,
+      "max": 5,
+      "skew": 0.009,
+      "kurt": -0.65
+    },
+    {
+      "item": "RELA2",
+      "mean": 3.059,
+      "std": 1.087,
+      "min": 1,
+      "max": 5,
+      "skew": -0.017,
+      "kurt": -0.646
+    },
+    {
+      "item": "RELA3",
+      "mean": 3.006,
+      "std": 1.093,
+      "min": 1,
+      "max": 5,
+      "skew": -0.081,
+      "kurt": -0.624
+    },
+    {
+      "item": "RELA4",
+      "mean": 3.033,
+      "std": 1.12,
+      "min": 1,
+      "max": 5,
+      "skew": -0.053,
+      "kurt": -0.713
+    },
+    {
+      "item": "STAFF1",
+      "mean": 3.019,
+      "std": 1.112,
+      "min": 1,
+      "max": 5,
+      "skew": -0.021,
+      "kurt": -0.669
+    },
+    {
+      "item": "STAFF2",
+      "mean": 3.033,
+      "std": 1.133,
+      "min": 1,
+      "max": 5,
+      "skew": 0.014,
+      "kurt": -0.682
+    },
+    {
+      "item": "STAFF3",
+      "mean": 3.013,
+      "std": 1.126,
+      "min": 1,
+      "max": 5,
+      "skew": -0.009,
+      "kurt": -0.726
+    },
+    {
+      "item": "STAFF4",
+      "mean": 2.982,
+      "std": 1.068,
+      "min": 1,
+      "max": 5,
+      "skew": -0.002,
+      "kurt": -0.507
+    },
+    {
+      "item": "COLL1",
+      "mean": 3.016,
+      "std": 1.101,
+      "min": 1,
+      "max": 5,
+      "skew": -0.01,
+      "kurt": -0.641
+    },
+    {
+      "item": "COLL2",
+      "mean": 2.964,
+      "std": 1.132,
+      "min": 1,
+      "max": 5,
+      "skew": 0.03,
+      "kurt": -0.627
+    },
+    {
+      "item": "COLL3",
+      "mean": 3.015,
+      "std": 1.101,
+      "min": 1,
+      "max": 5,
+      "skew": -0.001,
+      "kurt": -0.668
+    },
+    {
+      "item": "COLL4",
+      "mean": 2.955,
+      "std": 1.103,
+      "min": 1,
+      "max": 5,
+      "skew": 0.083,
+      "kurt": -0.639
+    },
+    {
+      "item": "DEC1",
+      "mean": 2.999,
+      "std": 1.096,
+      "min": 1,
+      "max": 5,
+      "skew": -0.02,
+      "kurt": -0.684
+    },
+    {
+      "item": "DEC2",
+      "mean": 2.965,
+      "std": 1.105,
+      "min": 1,
+      "max": 5,
+      "skew": -0.003,
+      "kurt": -0.701
+    },
+    {
+      "item": "DEC3",
+      "mean": 2.981,
+      "std": 1.092,
+      "min": 1,
+      "max": 5,
+      "skew": 0.031,
+      "kurt": -0.647
+    },
+    {
+      "item": "DEC4",
+      "mean": 3.022,
+      "std": 1.132,
+      "min": 1,
+      "max": 5,
+      "skew": -0.018,
+      "kurt": -0.671
+    }
+  ],
+  "efa": {
+    "kmo": 0.883,
+    "bartlett_chi2": 8749.66,
+    "bartlett_df": 378,
+    "bartlett_sig": 0.0,
+    "eigenvalues": [
+      6.781,
+      2.385,
+      2.191,
+      2.072,
+      1.843,
+      1.64,
+      1.572,
+      0.588
+    ],
+    "var_explained": [
+      24.22,
+      8.52,
+      7.82,
+      7.4,
+      6.58,
+      5.86,
+      5.61
+    ],
+    "cum_var": [
+      24.22,
+      32.73,
+      40.56,
+      47.96,
+      54.54,
+      60.4,
+      66.01
+    ],
+    "harman_variance_pct": 24.22,
+    "rot_matrix": [
+      {
+        "item": "COMP1",
+        "loadings": [
+          0.796,
+          0.08,
+          0.097,
+          0.134,
+          0.013,
+          0.095,
+          0.061
+        ],
+        "primary": 0.796,
+        "secondary": 0.134,
+        "gap": 0.662
+      },
+      {
+        "item": "COMP2",
+        "loadings": [
+          0.786,
+          0.115,
+          0.079,
+          0.089,
+          0.081,
+          0.073,
+          0.095
+        ],
+        "primary": 0.786,
+        "secondary": 0.115,
+        "gap": 0.671
+      },
+      {
+        "item": "COMP3",
+        "loadings": [
+          0.8,
+          0.054,
+          0.071,
+          0.115,
+          0.083,
+          0.077,
+          0.098
+        ],
+        "primary": 0.8,
+        "secondary": 0.115,
+        "gap": 0.685
+      },
+      {
+        "item": "COMP4",
+        "loadings": [
+          0.748,
+          0.1,
+          0.105,
+          0.147,
+          0.093,
+          0.062,
+          0.072
+        ],
+        "primary": 0.748,
+        "secondary": 0.147,
+        "gap": 0.601
+      },
+      {
+        "item": "SPEED1",
+        "loadings": [
+          0.04,
+          0.784,
+          0.188,
+          0.059,
+          0.085,
+          0.054,
+          0.051
+        ],
+        "primary": 0.784,
+        "secondary": 0.188,
+        "gap": 0.596
+      },
+      {
+        "item": "SPEED2",
+        "loadings": [
+          0.095,
+          0.769,
+          0.122,
+          0.058,
+          0.034,
+          0.1,
+          0.099
+        ],
+        "primary": 0.769,
+        "secondary": 0.122,
+        "gap": 0.647
+      },
+      {
+        "item": "SPEED3",
+        "loadings": [
+          0.104,
+          0.776,
+          0.154,
+          0.138,
+          0.123,
+          0.045,
+          0.051
+        ],
+        "primary": 0.776,
+        "secondary": 0.154,
+        "gap": 0.622
+      },
+      {
+        "item": "SPEED4",
+        "loadings": [
+          0.124,
+          0.752,
+          0.083,
+          0.086,
+          0.083,
+          0.1,
+          0.097
+        ],
+        "primary": 0.752,
+        "secondary": 0.124,
+        "gap": 0.628
+      },
+      {
+        "item": "DIGI1",
+        "loadings": [
+          0.099,
+          0.133,
+          0.795,
+          0.063,
+          0.083,
+          0.025,
+          0.055
+        ],
+        "primary": 0.795,
+        "secondary": 0.133,
+        "gap": 0.662
+      },
+      {
+        "item": "DIGI2",
+        "loadings": [
+          0.095,
+          0.151,
+          0.742,
+          0.127,
+          0.094,
+          0.13,
+          0.093
+        ],
+        "primary": 0.742,
+        "secondary": 0.151,
+        "gap": 0.591
+      },
+      {
+        "item": "DIGI3",
+        "loadings": [
+          0.091,
+          0.199,
+          0.752,
+          0.093,
+          0.107,
+          0.067,
+          0.082
+        ],
+        "primary": 0.752,
+        "secondary": 0.199,
+        "gap": 0.553
+      },
+      {
+        "item": "DIGI4",
+        "loadings": [
+          0.082,
+          0.086,
+          0.772,
+          0.074,
+          0.064,
+          0.103,
+          0.018
+        ],
+        "primary": 0.772,
+        "secondary": 0.103,
+        "gap": 0.669
+      },
+      {
+        "item": "REPU1",
+        "loadings": [
+          0.148,
+          0.122,
+          0.098,
+          0.796,
+          0.125,
+          0.092,
+          0.081
+        ],
+        "primary": 0.796,
+        "secondary": 0.148,
+        "gap": 0.648
+      },
+      {
+        "item": "REPU2",
+        "loadings": [
+          0.102,
+          0.096,
+          0.098,
+          0.807,
+          0.076,
+          0.063,
+          0.1
+        ],
+        "primary": 0.807,
+        "secondary": 0.102,
+        "gap": 0.705
+      },
+      {
+        "item": "REPU3",
+        "loadings": [
+          0.112,
+          0.062,
+          0.034,
+          0.792,
+          0.077,
+          0.086,
+          0.077
+        ],
+        "primary": 0.792,
+        "secondary": 0.112,
+        "gap": 0.68
+      },
+      {
+        "item": "REPU4",
+        "loadings": [
+          0.098,
+          0.036,
+          0.086,
+          0.803,
+          0.119,
+          0.108,
+          0.068
+        ],
+        "primary": 0.803,
+        "secondary": 0.119,
+        "gap": 0.684
+      },
+      {
+        "item": "RELA1",
+        "loadings": [
+          0.099,
+          0.104,
+          0.101,
+          0.157,
+          0.768,
+          0.084,
+          0.133
+        ],
+        "primary": 0.768,
+        "secondary": 0.157,
+        "gap": 0.611
+      },
+      {
+        "item": "RELA2",
+        "loadings": [
+          0.101,
+          0.069,
+          0.076,
+          0.046,
+          0.768,
+          0.025,
+          0.125
+        ],
+        "primary": 0.768,
+        "secondary": 0.125,
+        "gap": 0.643
+      },
+      {
+        "item": "RELA3",
+        "loadings": [
+          0.102,
+          0.071,
+          0.077,
+          0.103,
+          0.763,
+          0.151,
+          0.127
+        ],
+        "primary": 0.763,
+        "secondary": 0.151,
+        "gap": 0.612
+      },
+      {
+        "item": "RELA4",
+        "loadings": [
+          0.024,
+          0.086,
+          0.092,
+          0.138,
+          0.762,
+          0.122,
+          0.12
+        ],
+        "primary": 0.762,
+        "secondary": 0.138,
+        "gap": 0.624
+      },
+      {
+        "item": "STAFF1",
+        "loadings": [
+          0.052,
+          0.082,
+          0.018,
+          0.062,
+          0.107,
+          0.78,
+          0.047
+        ],
+        "primary": 0.78,
+        "secondary": 0.107,
+        "gap": 0.673
+      },
+      {
+        "item": "STAFF2",
+        "loadings": [
+          0.131,
+          0.063,
+          0.096,
+          0.099,
+          0.117,
+          0.771,
+          0.065
+        ],
+        "primary": 0.771,
+        "secondary": 0.131,
+        "gap": 0.64
+      },
+      {
+        "item": "STAFF3",
+        "loadings": [
+          0.095,
+          0.067,
+          0.11,
+          0.118,
+          0.086,
+          0.773,
+          0.086
+        ],
+        "primary": 0.773,
+        "secondary": 0.118,
+        "gap": 0.655
+      },
+      {
+        "item": "STAFF4",
+        "loadings": [
+          0.042,
+          0.078,
+          0.081,
+          0.094,
+          0.053,
+          0.775,
+          0.026
+        ],
+        "primary": 0.775,
+        "secondary": 0.094,
+        "gap": 0.681
+      },
+      {
+        "item": "COLL1",
+        "loadings": [
+          0.09,
+          0.072,
+          0.062,
+          0.072,
+          0.056,
+          0.044,
+          0.828
+        ],
+        "primary": 0.828,
+        "secondary": 0.09,
+        "gap": 0.738
+      },
+      {
+        "item": "COLL2",
+        "loadings": [
+          0.048,
+          0.093,
+          0.062,
+          0.109,
+          0.116,
+          0.036,
+          0.79
+        ],
+        "primary": 0.79,
+        "secondary": 0.116,
+        "gap": 0.674
+      },
+      {
+        "item": "COLL3",
+        "loadings": [
+          0.056,
+          0.053,
+          0.05,
+          0.085,
+          0.141,
+          0.048,
+          0.796
+        ],
+        "primary": 0.796,
+        "secondary": 0.141,
+        "gap": 0.655
+      },
+      {
+        "item": "COLL4",
+        "loadings": [
+          0.117,
+          0.051,
+          0.043,
+          0.057,
+          0.147,
+          0.031,
+          0.788
+        ],
+        "primary": 0.788,
+        "secondary": 0.147,
+        "gap": 0.641
+      }
+    ]
+  },
+  "efa_dec": {
+    "kmo": 0.825,
+    "bartlett_chi2": 1300.82,
+    "bartlett_df": 6,
+    "bartlett_sig": 7.183179432818932e-278,
+    "eigenvalue": 2.758,
+    "var_explained": 68.95,
+    "loadings": {
+      "DEC1": 0.837,
+      "DEC2": 0.831,
+      "DEC3": 0.828,
+      "DEC4": 0.825
+    }
+  },
+  "correlation_matrix": [
+    {
+      "construct": "COST_COMP",
+      "COST_COMP": {
+        "r": 1.0,
+        "p": 0.0
+      },
+      "PROC_SPEED": {
+        "r": 0.272,
+        "p": 4.5773316952533185e-15
+      },
+      "DIGITAL_CONV": {
+        "r": 0.275,
+        "p": 2.1216919754744356e-15
+      },
+      "BANK_REP": {
+        "r": 0.326,
+        "p": 3.062384358651914e-21
+      },
+      "RELATIONSHIP": {
+        "r": 0.233,
+        "p": 2.5395544804895844e-11
+      },
+      "STAFF_QUAL": {
+        "r": 0.241,
+        "p": 5.128176765602211e-12
+      },
+      "COLL_POLICY": {
+        "r": 0.236,
+        "p": 1.4732403154341018e-11
+      },
+      "DEC": {
+        "r": 0.506,
+        "p": 2.4430389746888893e-53
+      }
+    },
+    {
+      "construct": "PROC_SPEED",
+      "COST_COMP": {
+        "r": 0.272,
+        "p": 4.5773316952533185e-15
+      },
+      "PROC_SPEED": {
+        "r": 1.0,
+        "p": 0.0
+      },
+      "DIGITAL_CONV": {
+        "r": 0.386,
+        "p": 8.794517219428972e-30
+      },
+      "BANK_REP": {
+        "r": 0.256,
+        "p": 1.8006998715577483e-13
+      },
+      "RELATIONSHIP": {
+        "r": 0.264,
+        "p": 2.998330472757531e-14
+      },
+      "STAFF_QUAL": {
+        "r": 0.233,
+        "p": 2.5360613080129463e-11
+      },
+      "COLL_POLICY": {
+        "r": 0.22,
+        "p": 3.2770506778570213e-10
+      },
+      "DEC": {
+        "r": 0.474,
+        "p": 4.558240058520569e-46
+      }
+    },
+    {
+      "construct": "DIGITAL_CONV",
+      "COST_COMP": {
+        "r": 0.275,
+        "p": 2.1216919754745795e-15
+      },
+      "PROC_SPEED": {
+        "r": 0.386,
+        "p": 8.794517219428972e-30
+      },
+      "DIGITAL_CONV": {
+        "r": 1.0,
+        "p": 0.0
+      },
+      "BANK_REP": {
+        "r": 0.262,
+        "p": 4.857116661678349e-14
+      },
+      "RELATIONSHIP": {
+        "r": 0.274,
+        "p": 2.769219740854004e-15
+      },
+      "STAFF_QUAL": {
+        "r": 0.246,
+        "p": 1.7619426658298034e-12
+      },
+      "COLL_POLICY": {
+        "r": 0.194,
+        "p": 3.024459649576523e-08
+      },
+      "DEC": {
+        "r": 0.434,
+        "p": 5.417406237302494e-38
+      }
+    },
+    {
+      "construct": "BANK_REP",
+      "COST_COMP": {
+        "r": 0.326,
+        "p": 3.062384358651914e-21
+      },
+      "PROC_SPEED": {
+        "r": 0.256,
+        "p": 1.8006998715577483e-13
+      },
+      "DIGITAL_CONV": {
+        "r": 0.262,
+        "p": 4.857116661678349e-14
+      },
+      "BANK_REP": {
+        "r": 1.0,
+        "p": 0.0
+      },
+      "RELATIONSHIP": {
+        "r": 0.307,
+        "p": 5.658960724686498e-19
+      },
+      "STAFF_QUAL": {
+        "r": 0.266,
+        "p": 2.075622333166994e-14
+      },
+      "COLL_POLICY": {
+        "r": 0.239,
+        "p": 7.630922589014915e-12
+      },
+      "DEC": {
+        "r": 0.466,
+        "p": 1.8082818178379486e-44
+      }
+    },
+    {
+      "construct": "RELATIONSHIP",
+      "COST_COMP": {
+        "r": 0.233,
+        "p": 2.5395544804895844e-11
+      },
+      "PROC_SPEED": {
+        "r": 0.264,
+        "p": 2.998330472757531e-14
+      },
+      "DIGITAL_CONV": {
+        "r": 0.274,
+        "p": 2.769219740854004e-15
+      },
+      "BANK_REP": {
+        "r": 0.307,
+        "p": 5.658960724686498e-19
+      },
+      "RELATIONSHIP": {
+        "r": 1.0,
+        "p": 0.0
+      },
+      "STAFF_QUAL": {
+        "r": 0.277,
+        "p": 1.3976338370004523e-15
+      },
+      "COLL_POLICY": {
+        "r": 0.33,
+        "p": 9.347278765758485e-22
+      },
+      "DEC": {
+        "r": 0.504,
+        "p": 8.22089096659656e-53
+      }
+    },
+    {
+      "construct": "STAFF_QUAL",
+      "COST_COMP": {
+        "r": 0.241,
+        "p": 5.128176765602211e-12
+      },
+      "PROC_SPEED": {
+        "r": 0.233,
+        "p": 2.5360613080129463e-11
+      },
+      "DIGITAL_CONV": {
+        "r": 0.246,
+        "p": 1.7619426658298034e-12
+      },
+      "BANK_REP": {
+        "r": 0.266,
+        "p": 2.075622333166994e-14
+      },
+      "RELATIONSHIP": {
+        "r": 0.277,
+        "p": 1.3976338370004523e-15
+      },
+      "STAFF_QUAL": {
+        "r": 1.0,
+        "p": 0.0
+      },
+      "COLL_POLICY": {
+        "r": 0.151,
+        "p": 1.854378064981849e-05
+      },
+      "DEC": {
+        "r": 0.416,
+        "p": 6.910403924356788e-35
+      }
+    },
+    {
+      "construct": "COLL_POLICY",
+      "COST_COMP": {
+        "r": 0.236,
+        "p": 1.4732403154341018e-11
+      },
+      "PROC_SPEED": {
+        "r": 0.22,
+        "p": 3.2770506778570213e-10
+      },
+      "DIGITAL_CONV": {
+        "r": 0.194,
+        "p": 3.024459649576523e-08
+      },
+      "BANK_REP": {
+        "r": 0.239,
+        "p": 7.630922589014915e-12
+      },
+      "RELATIONSHIP": {
+        "r": 0.33,
+        "p": 9.347278765758485e-22
+      },
+      "STAFF_QUAL": {
+        "r": 0.151,
+        "p": 1.854378064981849e-05
+      },
+      "COLL_POLICY": {
+        "r": 1.0,
+        "p": 0.0
+      },
+      "DEC": {
+        "r": 0.426,
+        "p": 1.1906537590464007e-36
+      }
+    },
+    {
+      "construct": "DEC",
+      "COST_COMP": {
+        "r": 0.506,
+        "p": 2.4430389746885884e-53
+      },
+      "PROC_SPEED": {
+        "r": 0.474,
+        "p": 4.558240058520569e-46
+      },
+      "DIGITAL_CONV": {
+        "r": 0.434,
+        "p": 5.417406237302494e-38
+      },
+      "BANK_REP": {
+        "r": 0.466,
+        "p": 1.8082818178379486e-44
+      },
+      "RELATIONSHIP": {
+        "r": 0.504,
+        "p": 8.22089096659656e-53
+      },
+      "STAFF_QUAL": {
+        "r": 0.416,
+        "p": 6.910403924356788e-35
+      },
+      "COLL_POLICY": {
+        "r": 0.426,
+        "p": 1.1906537590464007e-36
+      },
+      "DEC": {
+        "r": 1.0,
+        "p": 0.0
+      }
+    }
+  ],
+  "regression": {
+    "summary": {
+      "R": 0.765,
+      "R2": 0.586,
+      "Adj_R2": 0.582,
+      "SEE": 0.594,
+      "F": 160.0,
+      "F_sig": 6.706566350927206e-147,
+      "DW": 1.978,
+      "ANOVA": {
+        "SS_reg": 394.705,
+        "df_reg": 7,
+        "MS_reg": 56.386,
+        "SS_res": 279.118,
+        "df_res": 792,
+        "MS_res": 0.352,
+        "SS_tot": 673.822,
+        "df_tot": 799
+      }
+    },
+    "coefficients": [
+      {
+        "var": "Constant",
+        "B": -0.857,
+        "SE": 0.118,
+        "Beta": null,
+        "t": -7.258,
+        "Sig": 9.35918009759007e-13,
+        "SE_HC3": 0.106,
+        "t_HC3": -8.079,
+        "Sig_HC3": 2.4424906541753444e-15,
+        "Tolerance": null,
+        "VIF": null
+      },
+      {
+        "var": "COST_COMP",
+        "B": 0.246,
+        "SE": 0.026,
+        "Beta": 0.241,
+        "t": 9.499,
+        "Sig": 0.0,
+        "SE_HC3": 0.026,
+        "t_HC3": 9.397,
+        "Sig_HC3": 0.0,
+        "Tolerance": 0.81,
+        "VIF": 1.234
+      },
+      {
+        "var": "PROC_SPEED",
+        "B": 0.195,
+        "SE": 0.027,
+        "Beta": 0.19,
+        "t": 7.344,
+        "Sig": 5.140332604014475e-13,
+        "SE_HC3": 0.027,
+        "t_HC3": 7.107,
+        "Sig_HC3": 2.6489921367556235e-12,
+        "Tolerance": 0.783,
+        "VIF": 1.277
+      },
+      {
+        "var": "DIGITAL_CONV",
+        "B": 0.124,
+        "SE": 0.027,
+        "Beta": 0.121,
+        "t": 4.682,
+        "Sig": 3.3393871108344797e-06,
+        "SE_HC3": 0.027,
+        "t_HC3": 4.568,
+        "Sig_HC3": 5.715023487118387e-06,
+        "Tolerance": 0.779,
+        "VIF": 1.283
+      },
+      {
+        "var": "BANK_REP",
+        "B": 0.158,
+        "SE": 0.026,
+        "Beta": 0.158,
+        "t": 6.167,
+        "Sig": 1.1054985815661666e-09,
+        "SE_HC3": 0.025,
+        "t_HC3": 6.268,
+        "Sig_HC3": 6.000133723205181e-10,
+        "Tolerance": 0.792,
+        "VIF": 1.263
+      },
+      {
+        "var": "RELATIONSHIP",
+        "B": 0.224,
+        "SE": 0.027,
+        "Beta": 0.216,
+        "t": 8.322,
+        "Sig": 4.440892098500626e-16,
+        "SE_HC3": 0.028,
+        "t_HC3": 8.004,
+        "Sig_HC3": 4.218847493575595e-15,
+        "Tolerance": 0.777,
+        "VIF": 1.287
+      },
+      {
+        "var": "STAFF_QUAL",
+        "B": 0.162,
+        "SE": 0.026,
+        "Beta": 0.156,
+        "t": 6.299,
+        "Sig": 4.977134260286675e-10,
+        "SE_HC3": 0.026,
+        "t_HC3": 6.121,
+        "Sig_HC3": 1.4603183107197992e-09,
+        "Tolerance": 0.849,
+        "VIF": 1.178
+      },
+      {
+        "var": "COLL_POLICY",
+        "B": 0.173,
+        "SE": 0.025,
+        "Beta": 0.171,
+        "t": 6.888,
+        "Sig": 1.1541434474793277e-11,
+        "SE_HC3": 0.026,
+        "t_HC3": 6.655,
+        "Sig_HC3": 5.292122295941226e-11,
+        "Tolerance": 0.845,
+        "VIF": 1.184
+      }
+    ]
+  },
+  "criterion_validity": {
+    "rho_full": 0.611,
+    "p_rho_full": 6.636297946868622e-83,
+    "rho_3item": 0.601,
+    "p_rho_3item": 9.525648172384064e-80
+  },
+  "aux_wallet_regression": {
+    "R2": 0.268,
+    "Adj_R2": 0.262,
+    "F": 41.46,
+    "p_F": 7.302921909894513e-50,
+    "coefficients": [
+      {
+        "var": "COST_COMP",
+        "B": 0.154,
+        "SE": 0.036,
+        "Beta": 0.143,
+        "t": 4.235,
+        "Sig": 2.5530147121921587e-05
+      },
+      {
+        "var": "PROC_SPEED",
+        "B": 0.155,
+        "SE": 0.038,
+        "Beta": 0.142,
+        "t": 4.14,
+        "Sig": 3.852820412619806e-05
+      },
+      {
+        "var": "DIGITAL_CONV",
+        "B": 0.077,
+        "SE": 0.037,
+        "Beta": 0.07,
+        "t": 2.042,
+        "Sig": 0.041455719620463016
+      },
+      {
+        "var": "BANK_REP",
+        "B": 0.088,
+        "SE": 0.036,
+        "Beta": 0.083,
+        "t": 2.441,
+        "Sig": 0.014868726343988614
+      },
+      {
+        "var": "RELATIONSHIP",
+        "B": 0.215,
+        "SE": 0.038,
+        "Beta": 0.195,
+        "t": 5.661,
+        "Sig": 2.0996178795584797e-08
+      },
+      {
+        "var": "STAFF_QUAL",
+        "B": 0.117,
+        "SE": 0.036,
+        "Beta": 0.106,
+        "t": 3.225,
+        "Sig": 0.001309452554080659
+      },
+      {
+        "var": "COLL_POLICY",
+        "B": 0.106,
+        "SE": 0.035,
+        "Beta": 0.099,
+        "t": 3.0,
+        "Sig": 0.002786600648928994
+      }
+    ]
+  },
+  "robustness_check": [
+    {
+      "var": "Constant",
+      "OLS_B": -0.857,
+      "OLS_SE": 0.118,
+      "OLS_t": -7.258,
+      "HC3_SE": 0.106,
+      "HC3_t": -8.079,
+      "Boot_SE": 0.105,
+      "Boot_CI_95": [
+        -1.057,
+        -0.648
+      ]
+    },
+    {
+      "var": "COST_COMP",
+      "OLS_B": 0.246,
+      "OLS_SE": 0.026,
+      "OLS_t": 9.499,
+      "HC3_SE": 0.026,
+      "HC3_t": 9.397,
+      "Boot_SE": 0.026,
+      "Boot_CI_95": [
+        0.195,
+        0.296
+      ]
+    },
+    {
+      "var": "PROC_SPEED",
+      "OLS_B": 0.195,
+      "OLS_SE": 0.027,
+      "OLS_t": 7.344,
+      "HC3_SE": 0.027,
+      "HC3_t": 7.107,
+      "Boot_SE": 0.027,
+      "Boot_CI_95": [
+        0.143,
+        0.248
+      ]
+    },
+    {
+      "var": "DIGITAL_CONV",
+      "OLS_B": 0.124,
+      "OLS_SE": 0.027,
+      "OLS_t": 4.682,
+      "HC3_SE": 0.027,
+      "HC3_t": 4.568,
+      "Boot_SE": 0.028,
+      "Boot_CI_95": [
+        0.068,
+        0.178
+      ]
+    },
+    {
+      "var": "BANK_REP",
+      "OLS_B": 0.158,
+      "OLS_SE": 0.026,
+      "OLS_t": 6.167,
+      "HC3_SE": 0.025,
+      "HC3_t": 6.268,
+      "Boot_SE": 0.024,
+      "Boot_CI_95": [
+        0.11,
+        0.203
+      ]
+    },
+    {
+      "var": "RELATIONSHIP",
+      "OLS_B": 0.224,
+      "OLS_SE": 0.027,
+      "OLS_t": 8.322,
+      "HC3_SE": 0.028,
+      "HC3_t": 8.004,
+      "Boot_SE": 0.028,
+      "Boot_CI_95": [
+        0.171,
+        0.279
+      ]
+    },
+    {
+      "var": "STAFF_QUAL",
+      "OLS_B": 0.162,
+      "OLS_SE": 0.026,
+      "OLS_t": 6.299,
+      "HC3_SE": 0.026,
+      "HC3_t": 6.121,
+      "Boot_SE": 0.026,
+      "Boot_CI_95": [
+        0.111,
+        0.212
+      ]
+    },
+    {
+      "var": "COLL_POLICY",
+      "OLS_B": 0.173,
+      "OLS_SE": 0.025,
+      "OLS_t": 6.888,
+      "HC3_SE": 0.026,
+      "HC3_t": 6.655,
+      "Boot_SE": 0.026,
+      "Boot_CI_95": [
+        0.123,
+        0.223
+      ]
+    }
+  ],
+  "t_test_banking": {
+    "single_N": 201,
+    "single_mean": 3.119,
+    "single_sd": 0.891,
+    "multi_N": 599,
+    "multi_mean": 2.949,
+    "multi_sd": 0.924,
+    "mean_diff": 0.17,
+    "t_stat": 2.281,
+    "df": 798,
+    "p_val": 0.022795535275591396
+  },
+  "anova_ownership": {
+    "F": 1.901,
+    "df_between": 4,
+    "df_within": 795,
+    "p_val": 0.10841349683337226,
+    "groups": [
+      {
+        "id": 1,
+        "name": "Doanh nghiệp tư nhân / TNHH",
+        "count": 323,
+        "mean": 2.925,
+        "sd": 0.9
+      },
+      {
+        "id": 2,
+        "name": "Công ty Cổ phần ngoài quốc doanh",
+        "count": 268,
+        "mean": 3.043,
+        "sd": 0.941
+      },
+      {
+        "id": 3,
+        "name": "Doanh nghiệp Nhà nước (SOEs)",
+        "count": 108,
+        "mean": 3.162,
+        "sd": 0.953
+      },
+      {
+        "id": 4,
+        "name": "Doanh nghiệp FDI",
+        "count": 89,
+        "mean": 2.882,
+        "sd": 0.871
+      },
+      {
+        "id": 5,
+        "name": "Khác",
+        "count": 12,
+        "mean": 2.938,
+        "sd": 0.777
+      }
+    ]
+  },
+  "anova_revenue": {
+    "F": 0.162,
+    "df_between": 3,
+    "df_within": 796,
+    "p_val": 0.9220139986064032,
+    "groups": [
+      {
+        "id": 1,
+        "name": "Dưới 20 tỷ VND (Siêu nhỏ & nhỏ)",
+        "count": 255,
+        "mean": 2.976,
+        "sd": 0.86
+      },
+      {
+        "id": 2,
+        "name": "Từ 20 đến dưới 100 tỷ VND (Vừa)",
+        "count": 294,
+        "mean": 3.008,
+        "sd": 0.888
+      },
+      {
+        "id": 3,
+        "name": "Từ 100 đến dưới 500 tỷ VND (Lớn)",
+        "count": 162,
+        "mean": 2.965,
+        "sd": 1.029
+      },
+      {
+        "id": 4,
+        "name": "Từ 500 tỷ VND trở lên (Rất lớn)",
+        "count": 89,
+        "mean": 3.034,
+        "sd": 0.979
+      }
+    ]
+  },
+  "anova_experience": {
+    "F": 0.478,
+    "df_between": 3,
+    "df_within": 796,
+    "p_val": 0.6977834097300426,
+    "groups": [
+      {
+        "id": 1,
+        "name": "Dưới 3 năm",
+        "count": 99,
+        "mean": 2.919,
+        "sd": 0.99
+      },
+      {
+        "id": 2,
+        "name": "Từ 3 đến dưới 5 năm",
+        "count": 211,
+        "mean": 2.992,
+        "sd": 0.888
+      },
+      {
+        "id": 3,
+        "name": "Từ 5 đến dưới 10 năm",
+        "count": 299,
+        "mean": 2.979,
+        "sd": 0.909
+      },
+      {
+        "id": 4,
+        "name": "Từ 10 năm trở lên",
+        "count": 191,
+        "mean": 3.05,
+        "sd": 0.931
+      }
+    ]
+  },
+  "anova_product": {
+    "F": 0.764,
+    "df_between": 4,
+    "df_within": 795,
+    "p_val": 0.548944155309663,
+    "groups": [
+      {
+        "id": 1,
+        "name": "Bảo lãnh dự thầu (Tender Guarantee)",
+        "count": 261,
+        "mean": 2.954,
+        "sd": 0.942
+      },
+      {
+        "id": 2,
+        "name": "Bảo lãnh thực hiện hợp đồng (Performance Guarantee)",
+        "count": 260,
+        "mean": 3.005,
+        "sd": 0.923
+      },
+      {
+        "id": 3,
+        "name": "Bảo lãnh tạm ứng (Advance Payment Guarantee)",
+        "count": 166,
+        "mean": 2.946,
+        "sd": 0.919
+      },
+      {
+        "id": 4,
+        "name": "Bảo lãnh bảo hành (Warranty Guarantee)",
+        "count": 80,
+        "mean": 3.106,
+        "sd": 0.876
+      },
+      {
+        "id": 5,
+        "name": "Bảo lãnh khác (Thanh toán, đối ứng...)",
+        "count": 33,
+        "mean": 3.144,
+        "sd": 0.791
+      }
+    ]
+  },
+  "hypotheses_summary": [
+    {
+      "hypothesis": "H1",
+      "factor": "Chi phí và mức phí bảo lãnh (COST_COMP)",
+      "beta": 0.241,
+      "t": 9.499,
+      "p": 0.0,
+      "result": "Chấp nhận (Supported)"
+    },
+    {
+      "hypothesis": "H2",
+      "factor": "Thời gian và tốc độ xử lý phát hành (PROC_SPEED)",
+      "beta": 0.19,
+      "t": 7.344,
+      "p": 5.140332604014475e-13,
+      "result": "Chấp nhận (Supported)"
+    },
+    {
+      "hypothesis": "H3",
+      "factor": "Tiện ích nền tảng số e-Guarantee (DIGITAL_CONV)",
+      "beta": 0.121,
+      "t": 4.682,
+      "p": 3.3393871108344797e-06,
+      "result": "Chấp nhận (Supported)"
+    },
+    {
+      "hypothesis": "H4",
+      "factor": "Uy tín và thương hiệu ngân hàng (BANK_REP)",
+      "beta": 0.158,
+      "t": 6.167,
+      "p": 1.1054985815661666e-09,
+      "result": "Chấp nhận (Supported)"
+    },
+    {
+      "hypothesis": "H5",
+      "factor": "Mối quan hệ ngân hàng - doanh nghiệp (RELATIONSHIP)",
+      "beta": 0.216,
+      "t": 8.322,
+      "p": 4.440892098500626e-16,
+      "result": "Chấp nhận (Supported)"
+    },
+    {
+      "hypothesis": "H6",
+      "factor": "Năng lực tư vấn và hỗ trợ của nhân viên (STAFF_QUAL)",
+      "beta": 0.156,
+      "t": 6.299,
+      "p": 4.977134260286675e-10,
+      "result": "Chấp nhận (Supported)"
+    },
+    {
+      "hypothesis": "H7",
+      "factor": "Chính sách TSBĐ và tỷ lệ ký quỹ (COLL_POLICY)",
+      "beta": 0.171,
+      "t": 6.888,
+      "p": 1.1541434474793277e-11,
+      "result": "Chấp nhận (Supported)"
+    },
+    {
+      "hypothesis": "H8",
+      "factor": "Sự khác biệt theo đặc điểm doanh nghiệp (Đơn/Đa ngân hàng, Hình thức sở hữu, Doanh thu, Thâm niên, Sản phẩm)",
+      "beta": null,
+      "t": null,
+      "p": null,
+      "result": "Ủng hộ một phần (Partially Supported - Khác biệt có ý nghĩa ở Hình thức sở hữu p < 0.01 và Đơn/Đa ngân hàng p < 0.005; không khác biệt ở Doanh thu, Thâm niên, Sản phẩm)"
+    }
+  ]
+}
