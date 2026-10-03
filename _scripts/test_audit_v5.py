@@ -13,8 +13,9 @@ from scipy import stats
 sys.stdout.reconfigure(encoding='utf-8')
 
 def audit_v5():
-    excel_path = "workingfile/Du_Lieu_Khao_Sat_Tho_800_DN_v5.xlsx"
-    excel_goc = "workingfile/Du_Lieu_Khao_Sat_Goc_865_DN_v5.xlsx"
+    v5_dir = os.path.join(os.path.dirname(__file__), "..", "05_Phien_Ban_v5")
+    excel_path = os.path.join(v5_dir, "Du_Lieu_Khao_Sat_Tho_800_DN_v5.xlsx")
+    excel_goc = os.path.join(v5_dir, "Du_Lieu_Khao_Sat_Goc_865_DN_v5.xlsx")
     df = pd.read_excel(excel_path)
     df_goc = pd.read_excel(excel_goc)
     N = len(df)

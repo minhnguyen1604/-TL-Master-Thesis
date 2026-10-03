@@ -17,13 +17,14 @@ import pandas as pd
 import numpy as np
 
 def audit_v5():
-    excel_goc = "workingfile/Du_Lieu_Khao_Sat_Goc_865_DN_v5.xlsx"
-    excel_tho = "workingfile/Du_Lieu_Khao_Sat_Tho_800_DN_v5.xlsx"
-    codebook = "workingfile/Codebook_Bien_Va_Quy_Trinh_Xu_Ly_v5.xlsx"
-    docx_path = "workingfile/DTL_Master_Thesis_Draft_v5.docx"
-    md_path = "workingfile/DTL_Master_Thesis_Draft_v5.md"
-    json_path = "workingfile/v5_empirical_results.json"
-    fig_path = "workingfile/figure_4_1_empirical_model_v5.png"
+    v5_dir = os.path.join(os.path.dirname(__file__), "..", "05_Phien_Ban_v5")
+    excel_goc = os.path.join(v5_dir, "Du_Lieu_Khao_Sat_Goc_865_DN_v5.xlsx")
+    excel_tho = os.path.join(v5_dir, "Du_Lieu_Khao_Sat_Tho_800_DN_v5.xlsx")
+    codebook = os.path.join(v5_dir, "Codebook_Bien_Va_Quy_Trinh_Xu_Ly_v5.xlsx")
+    docx_path = os.path.join(v5_dir, "DTL_Master_Thesis_Draft_v5.docx")
+    md_path = os.path.join(v5_dir, "DTL_Master_Thesis_Draft_v5.md")
+    json_path = os.path.join(v5_dir, "v5_empirical_results.json")
+    fig_path = os.path.join(v5_dir, "figure_4_1_empirical_model_v5.png")
 
     print("=== 1. AUDITING EXCEL DATASETS (V5) ===")
     assert os.path.exists(excel_goc), "Raw Excel file must exist"
